@@ -1,1 +1,124 @@
-
+{
+    "name": "Transparency and Shadow Tweaks",
+    "author": "Leozito",
+    "version": "v1.0",
+    "description": "Control transparency and shadows from interface elements for better visibility.",
+    "target": "System-wide",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture", "QuickAccess" ]
+    },
+    "inject": {
+        "filters.css": []
+    },
+    "patches": {
+        "Header Transparency": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "header/transparent-header.css": [] }
+            }
+        },
+        "Header Filters": {
+            "type": "slider",
+            "default": "Shadows",
+            "values": {
+                "Default": {},
+                "Shadows": { "header/header-dropshadows.css": [] },
+                "Stroke": { "header/header-stroke.css": [] }
+            }
+        },
+        "Footer Transparency": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "footer/transparent-footer.css": [] }
+            }
+        },
+        "Footer Filters": {
+            "type": "slider",
+            "default": "Shadows",
+            "values": {
+                "Default": {},
+                "Shadows": { "footer/footer-dropshadows.css": [] },
+                "Stroke": { "footer/footer-stroke.css": [] }
+            }
+        },
+        "Remove Context Menus Border Shadow": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "context-menus/remove-border-shadow.css": [] }
+            }
+        },
+        "Context Menu Title Shadows": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "context-menus/cm-title-dropshadows.css": [] }
+            }
+        },
+        "Context Menu Title Blur": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "context-menus/cm-title-blur.css": [] }
+            }
+        },
+        "QAM Sidebar Transparency": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "qam/transparent-sidebar.css": [] }
+            }
+        },
+        "QAM Sidebar Filters": {
+            "type": "slider",
+            "default": "Shadows",
+            "values": {
+                "Default": {},
+                "Shadows": { "qam/sidebar-dropshadows.css": [] },
+                "Stroke": { "qam/sidebar-stroke.css": [] }
+            }
+        },
+        "Carousel Transparency": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "carousel/carousel-transparency.css": [] }
+            }
+        },
+        "Carousel Opacity": {
+            "type": "slider",
+            "default": "0.5",
+            "values": {
+                "0.1": { "--carousel-opacity": ["0.1"] },
+                "0.2": { "--carousel-opacity": ["0.2"] },
+                "0.3": { "--carousel-opacity": ["0.3"] },
+                "0.4": { "--carousel-opacity": ["0.4"] },
+                "0.5": { "--carousel-opacity": ["0.5"] },
+                "0.6": { "--carousel-opacity": ["0.6"] },
+                "0.7": { "--carousel-opacity": ["0.7"] },
+                "0.8": { "--carousel-opacity": ["0.8"] },
+                "0.9": { "--carousel-opacity": ["0.9"] }
+            }
+        },
+        "Game Title Filters": {
+            "type": "slider",
+            "default": "Shadows",
+            "values": {
+                "Default": {},
+                "Shadows": { "carousel/game-title-dropshadows.css": [] },
+                "Stroke": { "carousel/game-title-stroke.css": [] }
+            }
+        }
+    },
+    "id": "9bc8baf0-243f-4980-980d-d624314d6c77"
+}
