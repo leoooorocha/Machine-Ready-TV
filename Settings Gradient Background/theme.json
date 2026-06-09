@@ -1,1 +1,129 @@
-
+{
+    "name": "Settings Gradient Background",
+    "author": "Leozito",
+    "version": "v1.0",
+    "description": "Set a custom gradient background at settings page.",
+    "target": "Settings",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture" ]
+    },
+    "inject": {
+        "shared.css": []
+    },
+    "patches": {
+        "Background": {
+            "type": "slider",
+            "default": "Gradient",
+            "values": {
+                "Default": {},
+                "Simple": {
+                    "background.css": [],
+                    "--sp-bg-background-color-b": [ "#0000004d" ]
+                },
+                "Gradient": { "background.css": [] }
+            },
+            "components": [
+                {
+                    "name": "Color",
+                    "type": "color-picker",
+                    "on": "Simple",
+                    "default": "#bd5ece",
+                    "css_variable": "--sp-bg-background-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Color A",
+                    "type": "color-picker",
+                    "on": "Gradient",
+                    "default": "#bd5ece4d",
+                    "css_variable": "--sp-bg-background-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Color B",
+                    "type": "color-picker",
+                    "on": "Gradient",
+                    "default": "#2ab1ac4d",
+                    "css_variable": "--sp-bg-background-color-b",
+                    "tabs": []
+                }
+            ]
+        },
+        "Interface": {
+            "type": "slider",
+            "default": "Brighter",
+            "values": {
+                "Default": {},
+                "Darker": {
+                    "interface.css": [],
+                    "--sp-bg-interface-color": [ "#0000004d" ]
+                },
+                "Brighter": {
+                    "interface.css": [],
+                    "--sp-bg-interface-color": [ "#ffffff1a" ]
+                }
+            }
+        },
+        "Menu Highlight": {
+            "type": "slider",
+            "default": "Brighter",
+            "values": {
+                "Default": {},
+                "Darker": {
+                    "menu-highlights.css": [],
+                    "--sp-bg-menu-highlight-marker": [ "#000000" ],
+                    "--sp-bg-menu-highlight-color-a": [ "#00000066" ],
+                    "--sp-bg-menu-highlight-color-b": [ "#00000033" ],
+                    "--sp-bg-menu-highlight-color-c": [ "#00000000" ]
+                },
+                "Brighter": {
+                    "menu-highlights.css": [],
+                    "--sp-bg-menu-highlight-marker": [ "#ffffff" ],
+                    "--sp-bg-menu-highlight-color-a": [ "#ffffff66" ],
+                    "--sp-bg-menu-highlight-color-b": [ "#ffffff33" ],
+                    "--sp-bg-menu-highlight-color-c": [ "#ffffff00" ]
+                }
+            }
+        },
+        "Page Highlight": {
+            "type": "slider",
+            "default": "Gradient",
+            "values": {
+                "Default": {},
+                "Darker": {
+                    "page-highlights.css": [],
+                    "--sp-bg-page-highlight-color-a": [ "#0000006d" ],
+                    "--sp-bg-page-highlight-color-b": [ "#0000006d" ]
+                },
+                "Brighter": {
+                    "page-highlights.css": [],
+                    "--sp-bg-page-highlight-color-a": [ "#ffffff2a" ],
+                    "--sp-bg-page-highlight-color-b": [ "#ffffff2a" ]
+                },
+                "Gradient": {
+                    "page-highlights.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Color A",
+                    "type": "color-picker",
+                    "on": "Gradient",
+                    "default": "#bd5ece4d",
+                    "css_variable": "--sp-bg-page-highlight-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Color B",
+                    "type": "color-picker",
+                    "on": "Gradient",
+                    "default": "#2ab1ac4d",
+                    "css_variable": "--sp-bg-page-highlight-color-b",
+                    "tabs": []
+                }
+            ]
+        }
+    },
+    "id": "b1386e9d-771a-49fc-9c98-e9e8befbc3ae"
+}

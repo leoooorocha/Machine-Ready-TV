@@ -1,0 +1,9 @@
+[class*="_2mL2HfT5AkDXRi1YBnRWKa"]:focus {
+    background: linear-gradient(90deg, var(--sp-bg-menu-highlight-color-a) 0%, var(--sp-bg-menu-highlight-color-c) 100%) !important;
+    border-left: 2px solid var(--sp-bg-menu-highlight-marker);
+}
+
+[class*="_2mL2HfT5AkDXRi1YBnRWKa"][class*="_1ELdDY5kb5jxjXe-FpWBo5"] {
+    background: linear-gradient(90deg, var(--sp-bg-menu-highlight-color-b) 0%, var(--sp-bg-menu-highlight-color-c) 100%);
+    border-left: 2px solid var(--sp-bg-menu-highlight-marker);
+}
