@@ -1,0 +1,73 @@
+:root {
+    --CGV-hero-position: center;
+    --CGV-hero-alignment: cover;
+    --CGV-hero-height: calc(100vh - var(--CGV-playbar-total-height));
+    --CGV-footer-height: 40px;
+    --CGV-playbar-height: 80px;
+    --CGV-playbar-total-height: calc(var(--CGV-playbar-height) + var(--CGV-footer-height));
+    --CGV-play-anim-start-height: calc(100vh - var(--CGV-playbar-total-height));
+    --CGV-play-anim-final-height: 100vh;
+    --CGV-playbar-background: rgba(14, 20, 27, .33);
+    --CGV-playbar-background-filter: none;
+    --cgv-buttons-bg: rgba(172, 178, 201, 0.14);
+}
+
+/* Header Black Gradient */
+.BasicUI ._1IWSiRVmH1DlNlWSaBeUuZ {
+    background: transparent;
+}
+
+/* Hero Height */
+.sharedappdetailsheader_HeaderBackgroundImage_1sarA {
+    height: var(--CGV-hero-height);
+}
+
+/* Hero Alignment */
+.sharedappdetailsheader_ImgSrc__dije {
+    object-position: var(--CGV-hero-position);
+    object-fit: var(--CGV-hero-alignment);
+}
+
+/* Total Playbar Size */
+.basicappdetailssectionstyler_PlaySection_3scbH {
+    height: var(--CGV-playbar-total-height);
+}
+
+/* Playbar background */
+.BasicUI ._3fp5y6tdU77MdrCQZt_aS9 {
+    background: var(--CGV-playbar-background);
+    backdrop-filter: var(--CGV-playbar-background-filter);
+}
+
+/* Play Button - Idle */
+.BasicUI .QsZdWtHTlIK9KIKbscNTt {
+    background: var(--cgv-buttons-bg);
+}
+
+/* Config and Controller */
+._3qDWQGB0rtwM3qpXTb11Q- {
+    background-color: var(--cgv-buttons-bg);
+}
+
+/* Animation */
+
+    /* Playbar Height Start */
+    .BasicUI .sharedappdetailsheader_TopCapsule_2meE3 {
+        height: var(--CGV-play-anim-start-height);
+    }
+
+    /* Playbar Animation */
+    .BasicUI .sharedappdetailsheader_TopCapsule_2meE3.sharedappdetailsheader_FullscreenEnterStart_P7eLv {
+        animation-name: makethinggodown;
+        animation-duration: 1s;
+    }
+
+    /* Playbar Height End */
+    .BasicUI .sharedappdetailsheader_TopCapsule_2meE3.sharedappdetailsheader_FullscreenEnterDone_1PRtu {
+        height: var(--CGV-play-anim-final-height);
+    }
+
+    @keyframes makethinggodown {
+        from {height: var(--CGV-play-anim-start-height);}
+        to {height: var(--CGV-play-anim-final-height);}
+    }
