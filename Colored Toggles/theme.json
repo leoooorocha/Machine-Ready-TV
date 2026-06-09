@@ -1,0 +1,139 @@
+{
+    "name": "Colored Toggles",
+    "author": "SuchMeme, Leozito",
+    "version": "2.0",
+    "description": "Colors all toggles, sliders and progress bars in the system ui to a specified color or gradient",
+    "target": "System-Wide",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture", "MainMenu", "QuickAccess" ]
+    },
+    "inject": {
+        "shared.css": []
+    },
+    "patches": {
+        "Theme Color": {
+            "default": "Orange",
+            "type": "dropdown",
+            "values": {
+                "Red": {
+                    "--colored-toggles-main-color": [ "red" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Orange": {
+                    "--colored-toggles-main-color": [ "orange" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Yellow": {
+                    "--colored-toggles-main-color": [ "yellow" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Lime": {
+                    "--colored-toggles-main-color": [ "lime" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Green": {
+                    "--colored-toggles-main-color": [ "green" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Blue": {
+                    "--colored-toggles-main-color": [ "blue" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Indigo": {
+                    "--colored-toggles-main-color": [ "indigo" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Magenta": {
+                    "--colored-toggles-main-color": [ "magenta" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Gradient RGB": {
+                    "--colored-toggles-main-color": [ "linear-gradient(138deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%) 0 0/100% 200%" ],
+                    "--colored-toggles-static-color": [ "magenta" ]
+                },
+                "Gradient Deck": {
+                    "--colored-toggles-main-color": [ "linear-gradient(138deg, #009fff, #ff1965, #b9b500)" ],
+                    "--colored-toggles-static-color": [ "#009fff" ]
+                },
+                "Black": {
+                    "--colored-toggles-main-color": [ "black" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Grey": {
+                    "--colored-toggles-main-color": [ "grey" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "White": {
+                    "assets/white-fix.css": [],
+                    "--colored-toggles-main-color": [ "white" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Custom": {
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Custom Gradient": {
+                    "assets/gradient.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#FF8000",
+                    "css_variable": "--colored-toggles-main-color",
+                    "tabs": []
+                },
+                {
+                    "name": "Gradient Color 1",
+                    "type": "color-picker",
+                    "on": "Custom Gradient",
+                    "default": "#bd5ece",
+                    "css_variable": "--colored-toggles-gradient-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Gradient Color 2",
+                    "type": "color-picker",
+                    "on": "Custom Gradient",
+                    "default": "#2ab1ac",
+                    "css_variable": "--colored-toggles-gradient-color-b",
+                    "tabs": []
+                }
+            ]
+        },
+        "Animated Gradient" :{
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "assets/animation.css": [] }
+            }
+        },
+        "Text Color": {
+            "type": "dropdown",
+            "default": "White",
+            "values": {
+                "White": {
+                    "--colored-toggles-friends-text-color": [ "white" ]
+                },
+                "Black": {
+                    "--colored-toggles-friends-text-color": [ "black" ]
+                },
+                "Custom": {}
+            },
+            "components": [
+                {
+                    "name": "Text Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#FFFFFF",
+                    "css_variable": "--colored-toggles-friends-text-color",
+                    "tabs": []
+                }
+            ]
+        }
+    },
+    "id": "c92da09f-2b7a-40bc-a980-25467550cd2f"
+}
