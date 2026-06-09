@@ -5,7 +5,9 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 - Colored Toggles
 - Round
 
-Full credit for the original themes above goes to SuchMeme and EMERALD#0874. Thank you for making this project possible!
+Full credit for the original themes above goes to SuchMeme and EMERALD#0874.
+
+**Thank you for making this project possible!**
 
 ## Installation
 
