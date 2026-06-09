@@ -1,0 +1,23 @@
+[class*="DefaultTheme"] [class*="_2KhPXikozxMpbIRo_6jPxW"],
+[class*="DefaultTheme"] [class*="virtualkeyboard_KeyboardExtendedRow_21EW_"] [class*="virtualkeyboard_KeyboardExtendedKey_394j7"] {
+    border-radius: var(--round-radius-size);
+    overflow: hidden;
+}
+
+
+[class*="DefaultTheme"] [class*="virtualkeyboard_Touched_3UFQq"] {
+    z-index: 999;
+}
+
+[class*="_2bothi051q1YZqD6NGaoDB"] {
+    left: calc(var(--round-radius-size) / 2);
+}
+
+[class*="_2Q0Ip_IWHuGAzjG8gs-fgD"] {
+    right: calc(var(--round-radius-size) / 2);
+}
+
+[class*="_2bothi051q1YZqD6NGaoDB"],
+[class*="_2Q0Ip_IWHuGAzjG8gs-fgD"] {
+    bottom: 3px;
+}
