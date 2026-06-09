@@ -1,0 +1,49 @@
+/* Positioning */
+._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
+    position: absolute !important;
+    width: 105% !important;
+}
+
+._282X0J4BtrSF1IXctmOe-X {
+    height: 100vh !important;
+}
+
+.QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+/* Variables - SD */
+
+._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
+    bottom: 60px;
+    padding-top: 50px;
+}
+
+._282X0J4BtrSF1IXctmOe-X {
+    padding-right: calc(100vw - 95.5%);
+}
+
+._3CKjiR7-fuBPyKZKpPI6UZ {
+    bottom: 263px;
+}
+
+/* Variables - TV */
+
+@media (min-width: 900px) {
+
+    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
+        bottom: 87px;
+        padding-top: 60px;
+    }
+
+    ._282X0J4BtrSF1IXctmOe-X {
+        padding-right: calc(100vw - 95%);
+    }
+
+    ._3CKjiR7-fuBPyKZKpPI6UZ {
+        bottom: 325px;
+    }
+
+}

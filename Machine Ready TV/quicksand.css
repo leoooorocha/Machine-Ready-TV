@@ -1,0 +1,12 @@
+@font-face {
+    font-family: Quicksand;
+    src: url("/themes_custom/Machine Ready/Quicksand.ttf");
+}
+
+* {
+    font-family: Quicksand !important;
+}
+
+._34nl5vUoFCDYYnmHNL7axB>div {
+    font-size: 0.9em;
+}

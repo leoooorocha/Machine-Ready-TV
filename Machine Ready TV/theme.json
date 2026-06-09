@@ -1,1 +1,22 @@
-
+{
+    "name": "Machine Ready",
+    "author": "Leozito",
+    "version": "v1.0",
+    "description": "Clean consolifyed home screen with fullscreen hero and centered carousel.",
+    "target": "Home",
+    "manifest_version": 9,
+    "inject": {
+        "shared.css": [ "bigpicture" ]
+    },
+    "patches": {
+        "Quicksand Font": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "quicksand.css": [ "bigpicture", "MainMenu", "QuickAccess" ] }
+            }
+        }
+    },
+    "id": "d575cec7-eeb4-4c9c-b5ba-48679467111b"
+}
