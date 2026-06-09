@@ -1,1 +1,136 @@
+{
+    "name": "Gradient Keyboard",
+    "author": "Leozito",
+    "version": "v1.0",
+    "description": "Custom keyboard background, featuring light and dark themes.",
+    "target": "Keyboard",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture", "MainMenu", "QuickAccess" ]
+    },
+    "inject": {
+        "shared.css": []
+    },
+    "patches": {
+        "Keyboard Background": {
+            "type": "dropdown",
+            "default": "Custom Gradient",
+            "values": {
+                "Light": {
+                    "--gk-keyboard-bg": [ "#E6E6E6" ]
+                },
+                "Grey": {
+                    "--gk-keyboard-bg": [ "#808080" ]
+                },
+                "Dark": {
+                    "--gk-keyboard-bg": [ "#1A1A1A" ]
+                },
+                "Custom": {},
+                "Custom Gradient": {
+                    "--gk-keyboard-bg": [ "linear-gradient(var(--gk-gradient-direction), var(--gk-keyboard-bg-color-a), var(--gk-keyboard-bg-color-b))" ]
+                }
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#FF8000",
+                    "css_variable": "--gk-keyboard-bg",
+                    "tabs": []
+                },
+                {
+                    "name": "Gradient Color 1",
+                    "type": "color-picker",
+                    "on": "Custom Gradient",
+                    "default": "#bd5ece",
+                    "css_variable": "--gk-keyboard-bg-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Gradient Color 2",
+                    "type": "color-picker",
+                    "on": "Custom Gradient",
+                    "default": "#2ab1ac",
+                    "css_variable": "--gk-keyboard-bg-color-b",
+                    "tabs": []
+                }
+            ]
+        },
+        "Gradient Direction": {
+            "type": "slider",
+            "default": "135° ↘",
+            "values":{
+                "45° ↗": { "--gk-gradient-direction": [ "45deg" ] },
+                "90° →": { "--gk-gradient-direction": [ "90deg" ] },
+                "135° ↘": { "--gk-gradient-direction": [ "135deg" ] },
+                "180° ↓": { "--gk-gradient-direction": [ "180deg" ] }
+            }
+        },
+        "Main Theme": {
+            "type": "dropdown",
+            "default": "Light",
+            "values": {
+                "Light": {
+                    "themes/light.css": []
+                },
+                "Dark": {
+                    "themes/dark.css": []
+                }
+            }
+        },
+        "Main Color": {
+            "type": "dropdown",
+            "default": "Theme Default",
+            "values": {
+                "Theme Default": {},
+                "Red": {
+                    "--gk-highlight-fg": [ "Red !important" ],
+                    "--gk-glyph-filter": [ "invert(10%) sepia(98%) saturate(7498%) hue-rotate(1deg) brightness(104%) contrast(106%) !important" ]
+                },
+                "Orange": {
+                    "--gk-highlight-fg": [ "Orange !important" ],
+                    "--gk-glyph-filter": [ "invert(64%) sepia(25%) saturate(1963%) hue-rotate(359deg) brightness(101%) contrast(108%) !important" ]
+                },
+                "Yellow": {
+                    "--gk-highlight-fg": [ "Yellow !important" ],
+                    "--gk-glyph-filter": [ "invert(100%) sepia(53%) saturate(6382%) hue-rotate(358deg) brightness(107%) contrast(101%) !important" ]
+                },
+                "Lime": {
+                    "--gk-highlight-fg": [ "Lime !important" ],
+                    "--gk-glyph-filter": [ "invert(47%) sepia(91%) saturate(1581%) hue-rotate(85deg) brightness(123%) contrast(119%) !important" ]
+                },
+                "Green": {
+                    "--gk-highlight-fg": [ "Green !important" ],
+                    "--gk-glyph-filter": [ "invert(21%) sepia(99%) saturate(2087%) hue-rotate(100deg) brightness(103%) contrast(102%) !important" ]
+                },
+                "Cyan": {
+                    "--gk-highlight-fg": [ "Cyan !important" ],
+                    "--gk-glyph-filter": [ "invert(85%) sepia(85%) saturate(1046%) hue-rotate(107deg) brightness(102%) contrast(104%) !important" ]
+                },
+                "Teal": {
+                    "--gk-highlight-fg": [ "Teal !important" ],
+                    "--gk-glyph-filter": [ "invert(18%) sepia(87%) saturate(3627%) hue-rotate(170deg) brightness(101%) contrast(101%) !important" ]
+                },
+                "Blue": {
+                    "--gk-highlight-fg": [ "Blue !important" ],
+                    "--gk-glyph-filter": [ "invert(9%) sepia(99%) saturate(6202%) hue-rotate(246deg) brightness(97%) contrast(146%) !important" ]
+                },
+                "Indigo": {
+                    "--gk-highlight-fg": [ "Indigo !important" ],
+                    "--gk-glyph-filter": [ "invert(13%) sepia(58%) saturate(5584%) hue-rotate(272deg) brightness(72%) contrast(119%) !important" ]
+                },
+                "Purple": {
+                    "--gk-highlight-fg": [ "Purple !important" ],
+                    "--gk-glyph-filter": [ "invert(16%) sepia(62%) saturate(5866%) hue-rotate(292deg) brightness(64%) contrast(117%) !important" ]
+                },
+                "Magenta": {
+                    "--gk-highlight-fg": [ "Magenta !important" ],
+                    "--gk-glyph-filter": [ "invert(22%) sepia(43%) saturate(6156%) hue-rotate(291deg) brightness(107%) contrast(135%); !important" ]
+                }
 
+            }
+        }
+    },
+    "id": "e08b906c-43ef-40ef-82b2-dae40d02f523"
+}

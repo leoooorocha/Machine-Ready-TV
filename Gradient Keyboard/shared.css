@@ -1,0 +1,103 @@
+.DefaultTheme {
+
+    /* Keyboard Background */
+    --background-color: var(--gk-keyboard-bg);
+
+    /* Hightlight */
+
+    /* FG */
+    --key-focused-color: var(--gk-highlight-fg);
+    --key-focused-shift-label-color: var(--gk-highlight-fg);
+    --key-emoji-focused-color: var(--gk-highlight-fg);
+
+    /* BG */
+    --key-focused-background-color: var(--gk-highlight-bg);
+    --key-emoji-category-highlight-background-color: var(--gk-highlight-bg);
+    --key-emoji-focused-background-color: var(--gk-highlight-bg);
+
+    /* Extended Keys - Highlight */
+
+    /* FG */
+    --key-extendedkey-focused-color: var(--gk-ek-highlight-fg);
+    --key-extendedkey-hover-color: var(--gk-ek-highlight-fg);
+
+    /* BG */
+    --key-extendedkey-focused-background-color: var(--gk-ek-highlight-bg);
+    --key-extendedkey-hover-background-color: var(--gk-ek-highlight-bg);
+
+    /* Pressed Down */
+
+    /* FG */
+    --key-touched-color: var(--gk-pressed-fg);
+    --key-extendedkey-color: var(--gk-pressed-fg);
+
+    /* BG */
+    --key-touched-background-color: var(--gk-pressed-bg);
+    --key-extendedkey-background-color: var(--gk-pressed-bg);
+
+    /* Toggled-on */
+
+    /* FG */
+    --key-toggleon-color: var(--gk-toggled-fg);
+    --key-toggleoneshot-color: var(--gk-toggled-fg);
+
+    /* BG */
+    --key-toggleon-background-color: var(--gk-toggled-bg);
+    --key-toggleoneshot-background-color: var(--gk-toggled-bg);
+
+    /* Primary Keys - idle */
+
+    /* FG */
+    --key-color: var(--gk-main-fg-idle);
+    --key-spacebar-color: var(--gk-main-fg-idle);
+    --key-shift-label-color: var(--gk-main-fg-idle);
+    --key-emoji-color: var(--gk-main-fg-idle);
+
+    /* BG */
+    --key-background-color: var(--gk-main-bg-idle);
+    --key-spacebar-background-color: var(--gk-main-bg-idle);
+
+    /* Action Keys - idle */
+
+    /* FG */
+    --key-meta-color: var(--gk-action-fg-idle);
+    --key-tab-color: var(--gk-action-fg-idle);
+    --key-caps-color: var(--gk-action-fg-idle);
+    --key-shift-color: var(--gk-action-fg-idle);
+    --key-enter-color: var(--gk-action-fg-idle);
+    --key-backspace-color: var(--gk-action-fg-idle);
+
+    /* BG */
+    --key-meta-background-color: var(--gk-action-bg-idle);
+    --key-tab-background-color: var(--gk-action-bg-idle);
+    --key-caps-background-color: var(--gk-action-bg-idle);
+    --key-shift-background-color: var(--gk-action-bg-idle);
+    --key-enter-background-color: var(--gk-action-bg-idle);
+    --key-backspace-background-color: var(--gk-action-bg-idle);
+    --key-spacer-background-color: var(--gk-action-bg-idle);
+
+}
+
+/* Middle Container */
+._45rH7-kY4P2uVEb3TxZhm {
+    background: transparent;
+}
+
+/* Pressed-down Container */
+.DefaultTheme ._2KhPXikozxMpbIRo_6jPxW._3UFQq1GinEyksceos-TETi {
+    background: var(--key-touched-background-color);
+}
+
+/* Glyphs - idle/hover */
+._3VtXfHDGV1q2LCVruVnHed img {
+    filter: var(--gk-glyph-color);
+}
+
+._2KhPXikozxMpbIRo_6jPxW._21EoN2ZlmHNY3fjho_HMae img {
+    filter: var(--gk-glyph-color);
+}
+
+/* Glyphs - pressed-down */
+.DefaultTheme ._2KhPXikozxMpbIRo_6jPxW._3UFQq1GinEyksceos-TETi img {
+    filter: var(--gk-glyph-color-pressed);
+}
