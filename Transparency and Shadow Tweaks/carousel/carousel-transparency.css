@@ -1,1 +1,9 @@
+[class*="BasicUI"] [class*="WYgDg9NyCcMIVuMyZ_NBC"] {
+    opacity: var(--carousel-opacity);
+    transition: opacity 0.2s ease-in-out;
+}
 
+[class*="BasicUI"] [class*="WYgDg9NyCcMIVuMyZ_NBC"][class*="gpfocuswithin"],
+[class*="BasicUI"] [class*="WYgDg9NyCcMIVuMyZ_NBC"]:hover {
+    opacity: 1 !important;
+}
