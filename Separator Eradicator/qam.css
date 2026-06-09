@@ -1,0 +1,32 @@
+[class*="_3Ag1wVkrYOaZyOUNWGLf3Y"]::after {
+    display: none;
+}
+
+[class*="eKmEXJCm_lgme24Fp_HWt"][class*="_2QgNsvFPYTZ5yRiTm7mUyu"][class*="GxgIyq8R5xTOeu4ftGrgX"][class*="GxgIyq8R5xTOeu4ftGrgX"]::after,
+[class*="eKmEXJCm_lgme24Fp_HWt"][class*="_2QgNsvFPYTZ5yRiTm7mUyu"][class*="_39x36zDuDr8Z0Z_UnJkY4S"][class*="GxgIyq8R5xTOeu4ftGrgX"]::after {
+    display: none;
+}
+
+[class*="_2qO6xEyhSosAXsHOje_EZQ"]:not([class*="_1sOglhndXBNeMDgnPMACdB"]) > div:not(:focus) + div:not(:focus):before,
+[class*="_2qO6xEyhSosAXsHOje_EZQ"] > div:not(:hover) + div:not(:hover):before,
+[class*="_2qO6xEyhSosAXsHOje_EZQ"] > div:not(:hover) + div[class*="_1W8TyPEajY1iakmuEHRHxe"]:before {
+    display: none;
+}
+
+[class*="FriendsListContent"] [class*="friendlistListContainer"] [class*="friendGroup"][class*="offlineFriends"][class*="GamepadMode"],
+[class*="GamepadMode"] [class*="FriendsListContent"] [class*="friendlistListContainer"] [class*="friendGroup"][class*="offlineFriends"] {
+    border-top: none;
+}
+
+[role*="separator"] {
+    display: none !important;
+}
+
+[class*="eKmEXJCm_lgme24Fp_HWt"][class*="_2QgNsvFPYTZ5yRiTm7mUyu"][class*="_39x36zDuDr8Z0Z_UnJkY4S"]::after,
+[class*="eKmEXJCm_lgme24Fp_HWt"][class*="_2QgNsvFPYTZ5yRiTm7mUyu"][class*="_39x36zDuDr8Z0Z_UnJkY4S"][class*="_39x36zDuDr8Z0Z_UnJkY4S"]::after {
+    display: none;
+}
+
+[class*="_2m0zlP8eZ_9SlQsO52oxql"] [class*="_1gJzx0OgstpPqW34DFUKC6"]::before {
+    display: none;
+}

@@ -1,1 +1,38 @@
-
+{
+    "name": "Separator Eradicator",
+    "author": "Leozito",
+    "version": "v1.0",
+    "description": "Remove separator from interface elements.",
+    "target": "System-wide",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture", "QuickAccess" ]
+    },
+    "patches": {
+        "Settings Page": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "settings-page.css": [] }
+            }
+        },
+        "Context Menus": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "context-menus.css": [] }
+            }
+        },
+        "Quick Access": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "qam.css": [] }
+            }
+        }
+    },
+    "id": "c93edf17-bdf7-416e-bbaa-2774eb537dad"
+}
