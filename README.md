@@ -1,4 +1,4 @@
-# Consolefied Big Picture
+# Machine Ready TV
 
 Custom CSS Loader themes designed to deliver a more console-like Steam Big Picture experience, including customized versions of:
 - Clean Gameview
