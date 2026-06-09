@@ -1,4 +1,4 @@
 [class*="_3T1iFy2maYycwqgFuzERyf"],
 [class*="_3T1iFy2maYycwqgFuzERyf"]::before {
-    filter: var(--tt-main-dropshadows) !important;
+    filter: var(--tt-main-stroke) !important;
 }
