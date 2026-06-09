@@ -1,17 +1,17 @@
 :root {
-    --gk-highlight-fg: black;
-    --gk-highlight-bg: #FFFFFF;
+    --gk-highlight-fg: white;
+    --gk-highlight-bg: #000000;
     --gk-ek-highlight-fg: var(--gk-highlight-fg);
     --gk-ek-highlight-bg: var(--gk-highlight-bg);
     --gk-pressed-fg: var(--gk-highlight-bg);
     --gk-pressed-bg: var(--gk-highlight-fg);
     --gk-toggled-fg: var(--gk-highlight-fg);
-    --gk-toggled-bg: #FFFFFFBF;
+    --gk-toggled-bg: #000000BF;
     --gk-main-fg-idle: var(--gk-highlight-fg);
-    --gk-main-bg-idle: #FFFFFF40;
+    --gk-main-bg-idle: #00000040;
     --gk-action-fg-idle: var(--gk-highlight-fg);
-    --gk-action-bg-idle: #FFFFFF80;
+    --gk-action-bg-idle: #00000080;
     --gk-glyph-color: brightness(0) saturate(100%) var(--gk-glyph-filter);
-    --gk-glyph-filter: invert(0%) sepia(0%) saturate(7%) hue-rotate(253deg) brightness(103%) contrast(100%);
-    --gk-glyph-color-pressed: brightness(1);
+    --gk-glyph-filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(3deg) brightness(105%) contrast(101%);
+    --gk-glyph-color-pressed: brightness(0);
 }
