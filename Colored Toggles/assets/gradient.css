@@ -1,0 +1,4 @@
+:root {
+    --colored-toggles-main-color:  linear-gradient(138deg, var(--colored-toggles-gradient-color-a), var(--colored-toggles-gradient-color-b));
+    --colored-toggles-static-color: var(--colored-toggles-gradient-color-a);
+}
