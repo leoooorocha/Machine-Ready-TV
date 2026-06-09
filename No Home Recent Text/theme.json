@@ -1,1 +1,12 @@
-
+{
+  "name": "No Home Recent Text",
+  "author": "Leozito",
+  "version": "v1.0",
+  "manifest_version": 9,
+  "inject": {
+    "shared.css": [
+      "bigpicture"
+    ]
+  },
+  "id": "95c4e310-0770-4e1f-9f9d-cbe444e9bb17"
+}
