@@ -55,6 +55,12 @@
     display: none;
 }
 
+/* Cloud Text - Line */
+
+.QvHky2-yJGOkPJG16qeRL:before, .QvHky2-yJGOkPJG16qeRL:after {
+    background-color: rgb(0, 0 , 0, 0);
+}
+
 /* Padding - TV */
 
 @media (min-width: 900px) {
