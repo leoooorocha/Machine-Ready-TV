@@ -1,0 +1,21 @@
+:root {
+    --tst-footer-background: transparent;
+    --tst-footer-filter: none;
+    --tst-footer-backdrop-filter: none;
+}
+
+/* Footer */
+
+._3T1iFy2maYycwqgFuzERyf, ._3T1iFy2maYycwqgFuzERyf::before {
+    backdrop-filter: var(--tst-footer-backdrop-filter);
+    background: var(--tst-footer-background);
+    filter: var(--tst-footer-filter);
+    border-top: none;
+}
+
+._3T1iFy2maYycwqgFuzERyf._2PZqiulqsNwAphWn25K5uZ {
+    backdrop-filter: var(--tst-footer-backdrop-filter);
+    background: var(--tst-footer-background);
+    filter: var(--tst-footer-filter);
+    border-top: none;
+}
