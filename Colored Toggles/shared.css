@@ -120,3 +120,9 @@ button.gamepaddialog_Button_1kn70.DialogButton.gpfocus.Primary, button.gamepaddi
 	background: var(--colored-toggles-main-color);
 	animation: var(--colored-toggles-animation);
 }
+
+/* Main Menu Marker */
+[class*=_2w9TpQwxU7vcwaAbf3KGv_] [class*=_1uLVHdiiCg78BRnhqLxUID] {
+	background: var(--colored-toggles-main-color);
+	animation: var(--colored-toggles-animation);
+}
