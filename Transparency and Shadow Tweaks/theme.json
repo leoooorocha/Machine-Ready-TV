@@ -6,119 +6,324 @@
     "target": "System-wide",
     "manifest_version": 9,
     "tabs": {
-        "default": [ "bigpicture", "QuickAccess" ]
+        "default": [ "bigpicture", "MainMenu", "QuickAccess" ]
     },
     "inject": {
         "filters.css": []
     },
     "patches": {
-        "Header Transparency": {
-            "type": "checkbox",
-            "default": "Yes",
+        "★ Glass Opacity": {
+            "type": "slider",
+            "default": "0.8",
             "values": {
-                "No": {},
-                "Yes": { "header/transparent-header.css": [] }
+                "0.1": {
+                    "--tst-glass-opacity": ["0.1"]
+                },
+                "0.2": {
+                    "--tst-glass-opacity": ["0.2"]
+                },
+                "0.3": {
+                    "--tst-glass-opacity": ["0.3"]
+                },
+                "0.4": {
+                    "--tst-glass-opacity": ["0.4"]
+                },
+                "0.5": {
+                    "--tst-glass-opacity": ["0.5"]
+                },
+                "0.6": {
+                    "--tst-glass-opacity": ["0.6"]
+                },
+                "0.7": {
+                    "--tst-glass-opacity": ["0.7"]
+                },
+                "0.8": {
+                    "--tst-glass-opacity": ["0.8"]
+                },
+                "0.9": {
+                    "--tst-glass-opacity": ["0.9"]
+                },
+                "1.0": {
+                    "--tst-glass-opacity": ["1.0"]
+                }
             }
         },
-        "Header Filters": {
-            "type": "slider",
-            "default": "Shadows",
+        "Header Style": {
+            "type": "dropdown",
+            "default": "Transparent + Dropshadows",
             "values": {
                 "Default": {},
-                "Shadows": { "header/header-dropshadows.css": [] },
-                "Stroke": { "header/header-stroke.css": [] }
+                "Transparent": {
+                    "home/header.css": []
+                },
+                "Transparent + Blur": {
+                    "home/header.css": [],
+                    "--tst-header-backdrop-filter": [ "var(--tst-main-blur)" ]
+                },
+                "Transparent + Dropshadows": {
+                    "home/header.css": [],
+                    "--tst-header-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Transparent + Stroke": {
+                    "home/header.css": [],
+                    "--tst-header-filter": [ "var(--tst-main-stroke)" ]
+                },
+                "★ Glass": {
+                    "home/header.css": [],
+                    "--tst-header-background": [ "var(--tst-glass-background)" ]
+                },
+                "★ Glass + Blur": {
+                    "home/header.css": [],
+                    "--tst-header-background": [ "var(--tst-glass-background)" ],
+                    "--tst-header-backdrop-filter": [ "var(--tst-main-blur)" ]
+                },
+                "Black": {
+                    "home/header.css": [],
+                    "--tst-header-background": [ "black" ]
+                }
             }
         },
-        "Footer Transparency": {
-            "type": "checkbox",
-            "default": "Yes",
-            "values": {
-                "No": {},
-                "Yes": { "footer/transparent-footer.css": [] }
-            }
-        },
-        "Footer Filters": {
-            "type": "slider",
-            "default": "Shadows",
-            "values": {
-                "Default": {},
-                "Shadows": { "footer/footer-dropshadows.css": [] },
-                "Stroke": { "footer/footer-stroke.css": [] }
-            }
-        },
-        "Remove Context Menus Border Shadow": {
-            "type": "checkbox",
-            "default": "Yes",
-            "values": {
-                "No": {},
-                "Yes": { "context-menus/remove-border-shadow.css": [] }
-            }
-        },
-        "Context Menu Title Shadows": {
-            "type": "checkbox",
-            "default": "Yes",
-            "values": {
-                "No": {},
-                "Yes": { "context-menus/cm-title-dropshadows.css": [] }
-            }
-        },
-        "Context Menu Title Blur": {
-            "type": "checkbox",
-            "default": "Yes",
-            "values": {
-                "No": {},
-                "Yes": { "context-menus/cm-title-blur.css": [] }
-            }
-        },
-        "QAM Sidebar Transparency": {
-            "type": "checkbox",
-            "default": "Yes",
-            "values": {
-                "No": {},
-                "Yes": { "qam/transparent-sidebar.css": [] }
-            }
-        },
-        "QAM Sidebar Filters": {
-            "type": "slider",
-            "default": "Shadows",
+        "Footer Style": {
+            "type": "dropdown",
+            "default": "Transparent + Dropshadows",
             "values": {
                 "Default": {},
-                "Shadows": { "qam/sidebar-dropshadows.css": [] },
-                "Stroke": { "qam/sidebar-stroke.css": [] }
+                "Transparent": {
+                    "home/footer.css": []
+                },
+                "Transparent + Blur": {
+                    "home/footer.css": [],
+                    "--tst-footer-backdrop-filter": [ "var(--tst-main-blur)" ]
+                },
+                "Transparent + Dropshadows": {
+                    "home/footer.css": [],
+                    "--tst-footer-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Transparent + Stroke": {
+                    "home/footer.css": [],
+                    "--tst-footer-filter": [ "var(--tst-main-stroke)" ]
+                },
+                "★ Glass": {
+                    "home/footer.css": [],
+                    "--tst-footer-background": [ "var(--tst-glass-background)" ]
+                },
+                "★ Glass + Blur": {
+                    "home/footer.css": [],
+                    "--tst-footer-background": [ "var(--tst-glass-background)" ],
+                    "--tst-footer-backdrop-filter": [ "var(--tst-main-blur)" ]
+                },
+                "Black": {
+                    "home/footer.css": [],
+                    "--tst-footer-background": [ "black" ]
+                }
             }
         },
-        "Carousel Transparency": {
-            "type": "checkbox",
-            "default": "Yes",
+        "Game Title Style": {
+            "type": "dropdown",
+            "default": "Hidden",
             "values": {
-                "No": {},
-                "Yes": { "carousel/carousel-transparency.css": [] }
+                "Default": {},
+                "Hidden": {
+                    "home/game-title.css": [],
+                    "--tst-game-title-color": [ "#00000000" ]
+                },
+                "Drop-shadows": {
+                    "home/game-title.css": [],
+                    "--tst-game-title-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Stroke": {
+                    "home/game-title.css": [],
+                    "--tst-game-title-filter": [ "var(--tst-main-stroke)" ]
+                }
             }
         },
         "Carousel Opacity": {
             "type": "slider",
-            "default": "0.5",
+            "default": "0.3",
             "values": {
-                "0.1": { "--carousel-opacity": ["0.1"] },
-                "0.2": { "--carousel-opacity": ["0.2"] },
-                "0.3": { "--carousel-opacity": ["0.3"] },
-                "0.4": { "--carousel-opacity": ["0.4"] },
-                "0.5": { "--carousel-opacity": ["0.5"] },
-                "0.6": { "--carousel-opacity": ["0.6"] },
-                "0.7": { "--carousel-opacity": ["0.7"] },
-                "0.8": { "--carousel-opacity": ["0.8"] },
-                "0.9": { "--carousel-opacity": ["0.9"] }
+                "0.1": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.1"]
+                },
+                "0.2": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.2"]
+                },
+                "0.3": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.3"]
+                },
+                "0.4": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.4"]
+                },
+                "0.5": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.5"]
+                },
+                "0.6": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.6"]
+                },
+                "0.7": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.7"]
+                },
+                "0.8": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.8"]
+                },
+                "0.9": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["0.9"]
+                },
+                "1.0": {
+                    "home/carousel.css": [],
+                    "--tst-carousel-opacity": ["1.0"]
+                }
             }
         },
-        "Game Title Filters": {
-            "type": "slider",
-            "default": "Shadows",
+        "Main Menu Style": {
+            "type": "dropdown",
+            "default": "★ Glass",
             "values": {
-                "Default": {},
-                "Shadows": { "carousel/game-title-dropshadows.css": [] },
-                "Stroke": { "carousel/game-title-stroke.css": [] }
+                "Default": {
+                    "menus/main-menu.css": []
+                },
+                "★ Glass": {
+                    "menus/main-menu.css": [],
+                    "--tst-main-menu-background-color": [ "var(--tst-glass-background)" ]
+                },
+                "Black": {
+                    "menus/main-menu.css": [],
+                    "--tst-main-menu-background-color": [ "black" ]
+                }
             }
+        },
+        "Context Menu Style": {
+            "type": "dropdown",
+            "default": "★ Glass",
+            "values": {
+                "Default": {
+                    "menus/context-menu.css": []
+                },
+                "★ Glass": {
+                    "menus/context-menu.css": [],
+                    "--tst-context-menu-background": [ "var(--tst-glass-background)" ]
+                },
+                "Black": {
+                    "menus/context-menu.css": [],
+                    "--tst-context-menu-background": [ "black" ]
+                }
+            }
+        },
+        "Sidebar Style": {
+            "type": "dropdown",
+            "default": "Transparent + Dropshadows",
+            "values": {
+                "Default": {
+                    "menus/sidebar.css": []
+                },
+                "Transparent": {
+                    "menus/sidebar.css": [],
+                    "--tst-qam-sidebar-background": [ "transparent" ]
+                },
+                "Transparent + Dropshadows": {
+                    "menus/sidebar.css": [],
+                    "--tst-qam-sidebar-background": [ "transparent" ],
+                    "--tst-qam-sidebar-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Transparent + Stroke": {
+                    "menus/sidebar.css": [],
+                    "--tst-qam-sidebar-background": [ "transparent" ],
+                    "--tst-qam-sidebar-filter": [ "var(--tst-main-stroke)" ]
+                },
+                "★ Glass": {
+                    "menus/sidebar.css": [],
+                    "--tst-qam-sidebar-background": [ "var(--tst-glass-background)" ]
+                },
+                "Black": {
+                    "menus/sidebar.css": [],
+                    "--tst-qam-sidebar-background": [ "black" ]
+                }
+            }
+        },
+        "QAM Style": {
+            "type": "dropdown",
+            "default": "★ Glass",
+            "values": {
+                "Default": {
+                    "menus/qam.css": []
+                },
+                "★ Glass": {
+                    "menus/qam.css": [],
+                    "--tst-qam-background": [ "var(--tst-glass-background)" ],
+                    "--tst-title-background": [ "transparent" ],
+                    "--tst-title-box-shadow-color": [ "transparent" ]
+                },
+                "Black": {
+                    "menus/qam.css": [],
+                    "--tst-qam-background": [ "black" ],
+                    "--tst-title-background": [ "black" ],
+                    "--tst-title-box-shadow-color": [ "black" ]
+                }
+            }
+        },
+        "In-game Panel Style": {
+            "type": "dropdown",
+            "default": "★ Glass",
+            "values": {
+                "Default": {
+                    "menus/ingame-panel.css": []
+                },
+                "★ Glass": {
+                    "menus/ingame-panel.css": [],
+                    "--tst-ingame-panel-background": [ "var(--tst-glass-background)" ]
+                },
+                "Black": {
+                    "menus/ingame-panel.css": [],
+                    "--tst-ingame-panel-background": [ "black" ]
+                }
+            }
+        },
+        "Controller Panel Style": {
+            "type": "dropdown",
+            "default": "Custom",
+            "values": {
+                "Default": {
+                    "menus/controller-panel.css": []
+                },
+                "★ Glass": {
+                    "menus/controller-panel.css": [],
+                    "--tst-ingame-controller-background": [ "var(--tst-glass-background)" ]
+                },
+                "Black": {
+                    "menus/controller-panel.css": [],
+                    "--tst-ingame-controller-background": [ "black" ]
+                },
+                "Custom": {
+                    "menus/controller-panel.css": [],
+                    "--tst-ingame-controller-background": [ "linear-gradient(138deg, var(--tst-controller-panel-background-color-a), var(--tst-controller-panel-background-color-b))" ]
+                }
+            },
+            "components": [
+                {
+                    "name": "Panel Color A",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#391d3e",
+                    "css_variable": "--tst-controller-panel-background-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Panel Color B",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#0c3534",
+                    "css_variable": "--tst-controller-panel-background-color-b",
+                    "tabs": []
+                }
+            ]
         }
-    },
-    "id": "9bc8baf0-243f-4980-980d-d624314d6c77"
+    }
 }
