@@ -1,0 +1,15 @@
+:root {
+    --tst-qam-background: var(--tst-steam-default-background-color);
+    --tst-title-background: var(--tst-steam-default-background-color);
+    --tst-title-box-shadow-color: var(--tst-steam-default-background-color);
+}
+
+/* Page Content */
+._2BB6uf--jFaAmdnwLOqMU7 {
+    background: var(--tst-qam-background);
+}
+
+._34nl5vUoFCDYYnmHNL7axB {
+    background: var(--tst-title-background);
+    box-shadow: 0 0 7px 12px var(--tst-title-box-shadow-color);
+}

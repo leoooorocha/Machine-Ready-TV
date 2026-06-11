@@ -1,0 +1,23 @@
+:root {
+    --tst-qam-sidebar-background: var(--tst-steam-default-background-color);
+    --tst-qam-sidebar-filter: none;
+}
+
+/* Sidebar Background */
+.V0cr-SAnDhzAWmPZdrJQJ {
+    background: var(--tst-qam-sidebar-background);
+}
+
+/* Icons Filter - Idle*/
+._1S76C3gQf4oOTbLdTMVH0m {
+    filter: var(--tst-qam-sidebar-filter);
+    transition: none;
+    color: white;
+}
+
+/* Icons Filter - Selected */
+._1S76C3gQf4oOTbLdTMVH0m.quickaccessmenu_Selected_2QHMu, ._1S76C3gQf4oOTbLdTMVH0m.gpfocus {
+    filter: none !important;
+    color: black !important;
+    background: white !important;
+}

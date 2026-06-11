@@ -1,0 +1,8 @@
+:root {
+    --tst-ingame-panel-background: var(--tst-steam-default-background-color);
+}
+
+/* Panel */
+._12NNtyso3nbzJGi2XxHzcN {
+    background: var(--tst-ingame-panel-background);
+}
