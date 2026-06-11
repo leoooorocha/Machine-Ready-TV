@@ -47,7 +47,7 @@
                 "Connected": {},
                 "Semi-transparent": {
                     "--CGV-hero-height": [ "100vh" ],
-                    "--CGV-playbar-background": [ "rgba(0, 0, 0, .7)" ]
+                    "--CGV-playbar-background": [ "rgba(0, 0, 0, .8)" ]
                 },
                 "Fully Transparent": {
                     "--CGV-hero-height": [ "100vh" ],
