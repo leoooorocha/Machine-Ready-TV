@@ -77,6 +77,14 @@
         "Yes": { "main-menu/main-menu-collapse.css": [] }
       }
     },
+    "In-game Menu": {
+      "type": "checkbox",
+      "default": "Yes",
+      "values": {
+        "No": {},
+        "Yes": { "main-menu/ingame-panel.css": [] }
+      }
+    },
     "Settings Page": {
       "type": "checkbox",
       "default": "Yes",
