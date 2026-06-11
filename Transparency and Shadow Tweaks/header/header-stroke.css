@@ -1,4 +1,0 @@
-[id="header"],
-[id="header"]::before {
-    filter: var(--tt-main-stroke) !important;
-}
