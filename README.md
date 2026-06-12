@@ -40,25 +40,32 @@ Full credit for the original themes above goes to SuchMeme and EMERALD#0874.
 
 ### Home
 <img width="1280" height="800" alt="1000364796" src="https://github.com/user-attachments/assets/0aa1e7bc-4cbe-46c0-a5af-69790436cf2f" />
+<img width="1280" height="800" alt="1000365777" src="https://github.com/user-attachments/assets/765129ce-ffd1-474f-9d1a-8f88e4c4fee1" />
 
 ### Gameview
 <img width="1280" height="800" alt="1000364794" src="https://github.com/user-attachments/assets/ffed3ddf-5a4b-494a-9411-84626312c1b7" />
-
+<img width="1280" height="800" alt="1000365782" src="https://github.com/user-attachments/assets/ca03232f-a637-4ba9-8941-0adde36b5b19" />
 
 ### Main Menu
 <img width="1280" height="800" alt="1000364798" src="https://github.com/user-attachments/assets/95036cb0-729d-4cd1-b1ee-de1c8c589a25" />
+<img width="1280" height="800" alt="1000365780" src="https://github.com/user-attachments/assets/e6e2071b-76e4-4b28-b3f5-891c74e8966a" />
 
 ### Context Menu
 <img width="1280" height="800" alt="1000364795" src="https://github.com/user-attachments/assets/782ad63d-9908-4ff2-9ee6-e0a8b8c2531b" />
+<img width="1280" height="800" alt="1000365775" src="https://github.com/user-attachments/assets/4872c8e8-4acf-4c3b-8050-94bcf2a08abd" />
 
 ### Quick Access Menu
 <img width="1280" height="800" alt="1000364800" src="https://github.com/user-attachments/assets/e55f34d5-4a57-4eab-9b5f-4eeb91508294" />
+<img width="1280" height="800" alt="1000365778" src="https://github.com/user-attachments/assets/bc1bfe64-4bba-46ba-82c1-19f0790d22ed" />
 
 ### Settings Page
 <img width="1280" height="800" alt="1000364793" src="https://github.com/user-attachments/assets/7dae4748-5c5b-445e-a617-0dc0c66e4571" />
+<img width="1280" height="800" alt="1000365779" src="https://github.com/user-attachments/assets/32d37c52-98c6-487c-9655-74a1ecaf9bc7" />
 
 ### Keyboard
 <img width="1280" height="800" alt="1000364797" src="https://github.com/user-attachments/assets/3e59d832-a30a-47bd-a425-1d70ceeea8a6" />
+<img width="1280" height="800" alt="1000365781" src="https://github.com/user-attachments/assets/3e485f6a-2b45-4c5d-8e8a-fe164b9735da" />
 
-## In-game Menu
+### In-game Menu
 <img width="1280" height="800" alt="1000364799" src="https://github.com/user-attachments/assets/62621272-dee5-4648-b879-437d627117ed" />
+<img width="1280" height="800" alt="1000365776" src="https://github.com/user-attachments/assets/1ddacfb9-e830-4972-b5b4-4183d6fa2b2a" />
