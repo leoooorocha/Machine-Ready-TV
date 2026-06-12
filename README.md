@@ -34,7 +34,7 @@ Full credit for the original themes above goes to SuchMeme and EMERALD#0874.
    - Volume Tweaker
 
 5. Return to CSS Loader and click **Refresh**.
-6. Select and apply the **Machine Ready - Optimized.profile** preset.
+6. Select and apply the **Machine Ready - Optimized.profile** or **Machine Ready - Oled.profile** preset.
 
 ## Preview
 
