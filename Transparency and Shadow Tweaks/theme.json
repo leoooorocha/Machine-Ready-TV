@@ -3,7 +3,7 @@
     "author": "Leozito",
     "version": "v1.0",
     "description": "Control transparency and shadows from interface elements for better visibility.",
-    "target": "System-wide",
+    "target": "System-Wide",
     "manifest_version": 9,
     "tabs": {
         "default": [ "bigpicture", "MainMenu", "QuickAccess" ]
@@ -318,5 +318,6 @@
                 }
             ]
         }
-    }
+    },
+    "id": "188504fc-e3bf-4ad3-801f-00c5e7e773f3"
 }
