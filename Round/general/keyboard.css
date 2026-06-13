@@ -9,15 +9,10 @@
     z-index: 999;
 }
 
-[class*="_2bothi051q1YZqD6NGaoDB"] {
-    left: calc(var(--round-radius-size) / 2);
+/* Fix Cropped Icon */
+._3VtXfHDGV1q2LCVruVnHed {
+    height: 20px;
+    transform: translateY(50%);
+    bottom: 50%;;
 }
 
-[class*="_2Q0Ip_IWHuGAzjG8gs-fgD"] {
-    right: calc(var(--round-radius-size) / 2);
-}
-
-[class*="_2bothi051q1YZqD6NGaoDB"],
-[class*="_2Q0Ip_IWHuGAzjG8gs-fgD"] {
-    bottom: 3px;
-}
