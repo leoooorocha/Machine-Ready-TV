@@ -1,6 +1,8 @@
 ## update June 13
 
-added options to Gameview Logo
+added options to Gameview, Gameplay Logos
+
+added options to Playtime bar
 
 
 ## update June 12
