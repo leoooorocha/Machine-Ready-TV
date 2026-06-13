@@ -1,0 +1,9 @@
+:root {
+    --tst-gameview-playtime-opacity: 1;
+    --tst-gameview-playtime-filter: none;
+}
+
+._1YbtIWcfkQJOysLXQbwzRf {
+    opacity: var(--tst-gameview-playtime-opacity);
+    filter: var(--tst-gameview-playtime-filter);
+}
