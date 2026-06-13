@@ -189,6 +189,25 @@
                 }
             }
         },
+        "Gameview Playtime Style": {
+            "type": "dropdown",
+            "default": "Drop-shadows",
+            "values": {
+                "Default": {},
+                "Hidden": {
+                    "gameview/playtime.css": [],
+                    "--tst-gameview-playtime-opacity": [ "0" ]
+                },
+                "Drop-shadows": {
+                    "gameview/playtime.css": [],
+                    "--tst-gameview-playtime-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Stroke": {
+                    "gameview/playtime.css": [],
+                    "--tst-gameview-playtime-filter": [ "var(--tst-main-stroke)" ]
+                }
+            }
+        },
         "Gameplay Logo Style": {
             "type": "dropdown",
             "default": "Drop-shadows",
@@ -205,6 +224,17 @@
                 "Stroke": {
                     "gameview/gameplay-logo.css": [],
                     "--tst-gameplay-logo-filter": [ "var(--tst-main-stroke)" ]
+                }
+            }
+        },
+        "Gameplay Cover Filter": {
+            "type": "dropdown",
+            "default": "None",
+            "values": {
+                "Default": {},
+                "None": {
+                    "gameview/gameplay-cover.css": [],
+                    "--tst-gameplay-cover-opacity": [ "1" ]
                 }
             }
         },
