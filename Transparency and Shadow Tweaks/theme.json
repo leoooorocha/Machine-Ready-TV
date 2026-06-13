@@ -47,7 +47,7 @@
         },
         "Header Style": {
             "type": "dropdown",
-            "default": "Dropshadows",
+            "default": "Drop-shadows",
             "values": {
                 "Default": {},
                 "Transparent": {
@@ -57,7 +57,7 @@
                     "home/header.css": [],
                     "--tst-header-backdrop-filter": [ "var(--tst-main-blur)" ]
                 },
-                "Dropshadows": {
+                "Drop-shadows": {
                     "home/header.css": [],
                     "--tst-header-filter": [ "var(--tst-main-shadow)" ]
                 },
@@ -77,7 +77,7 @@
         },
         "Footer Style": {
             "type": "dropdown",
-            "default": "Dropshadows",
+            "default": "Drop-shadows",
             "values": {
                 "Default": {},
                 "Transparent": {
@@ -87,7 +87,7 @@
                     "home/footer.css": [],
                     "--tst-footer-backdrop-filter": [ "var(--tst-main-blur)" ]
                 },
-                "Dropshadows": {
+                "Drop-shadows": {
                     "home/footer.css": [],
                     "--tst-footer-filter": [ "var(--tst-main-shadow)" ]
                 },
@@ -170,6 +170,44 @@
                 }
             }
         },
+        "Gameview Logo Style": {
+            "type": "dropdown",
+            "default": "Drop-shadows",
+            "values": {
+                "Default": {},
+                "Hidden": {
+                    "gameview/gameview-logo.css": [],
+                    "--tst-gameview-logo-opacity": [ "0" ]
+                },
+                "Drop-shadows": {
+                    "gameview/gameview-logo.css": [],
+                    "--tst-gameview-logo-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Stroke": {
+                    "gameview/gameview-logo.css": [],
+                    "--tst-gameview-logo-filter": [ "var(--tst-main-stroke)" ]
+                }
+            }
+        },
+        "Gameplay Logo Style": {
+            "type": "dropdown",
+            "default": "Drop-shadows",
+            "values": {
+                "Default": {},
+                "Hidden": {
+                    "gameview/gameplay-logo.css": [],
+                    "--tst-gameplay-logo-opacity": [ "0" ]
+                },
+                "Drop-shadows": {
+                    "gameview/gameplay-logo.css": [],
+                    "--tst-gameplay-logo-filter": [ "var(--tst-main-shadow)" ]
+                },
+                "Stroke": {
+                    "gameview/gameplay-logo.css": [],
+                    "--tst-gameplay-logo-filter": [ "var(--tst-main-stroke)" ]
+                }
+            }
+        },
         "Main Menu Style": {
             "type": "dropdown",
             "default": "★ Glass",
@@ -206,7 +244,7 @@
         },
         "Sidebar Style": {
             "type": "dropdown",
-            "default": "Dropshadows",
+            "default": "Drop-shadows",
             "values": {
                 "Default Colors": {
                     "menus/sidebar.css": []
@@ -215,7 +253,7 @@
                     "menus/sidebar.css": [],
                     "--tst-qam-sidebar-background": [ "transparent" ]
                 },
-                "Dropshadows": {
+                "Drop-shadows": {
                     "menus/sidebar.css": [],
                     "--tst-qam-sidebar-background": [ "transparent" ],
                     "--tst-qam-sidebar-filter": [ "var(--tst-main-shadow)" ]
