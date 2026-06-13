@@ -1,3 +1,8 @@
+## update June 13
+
+added options to Gameview Logo
+
+
 ## update June 12
 
 fixed overflow from QAM * Glass, now QAM should not be over the Footer
