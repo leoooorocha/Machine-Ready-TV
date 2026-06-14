@@ -1,8 +1,8 @@
 # Machine Ready TV
 
-- [Instalation](##Instalation)
-- [Other Themes Used - Optional](###Optional)
-- [Profile Previews](##Previews)
+- [Installation](#installation)
+- [Optional](#optional)
+- [Profile Previews](#previews)
 
 ## Description
 
@@ -40,7 +40,7 @@ Full credit for the original themes above goes to SuchMeme and EMERALD#0874.
    - Volume Tweaker
 
 5. Return to CSS Loader and click **Refresh**.
-6. Select and apply the **Machine Ready - Optimized.profile** or **Machine Ready - Oled.profile** preset.
+6. Select and apply your preferred Machine Ready profile.
 
 ## Previews
 
