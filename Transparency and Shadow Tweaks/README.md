@@ -1,3 +1,8 @@
+## update June 14
+
+added an option to replace default color by custom color
+
+
 ## update June 13
 
 added options to Gameview, Gameplay Logos
