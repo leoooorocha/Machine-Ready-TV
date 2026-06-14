@@ -1,1 +1,180 @@
-{"display_name": "Machine Ready - Teal", "name": "Machine Ready - Teal.profile", "manifest_version": 9, "flags": ["PRESET"], "dependencies": {"Avatar Customization Suite": {"Options are [avatar] [status].": "Rounded Only"}, "Better Blur": {"Blur Strength": "8", "Opacity": "0.0"}, "Clean Game Launch": {}, "Clean Gameview": {"Art Cover Alignment": "Cover", "Lock Logo": "Yes", "Playbar Style": "Blurred", "Steam Cloud": "Button", "Footer Height": "40px"}, "Clean Library Capsule": {"Disable Library Capsule": "No", "No Home Text Patch": "No", "Background Image": "Yes", "Bold Text": "Yes", "Outline": "Yes", "Outline Size": "3", "Colors": {"value": "_", "components": {"Text Color": "hsla(0, 0%, 100%, 0)", "Outline Color": "hsla(0, 0%, 0%, 0)", "Background Color": "hsla(0, 0%, 20%, 0)", "Background Image": "Clean Library Capsule/example_steam.jpg"}}}, "Colored Toggles": {"Theme Color": {"value": "Custom Gradient", "components": {"Main Color": "hsla(274, 100%, 40%, 1)", "Gradient Color 1": "hsla(175, 100%, 40%, 1)", "Gradient Color 2": "hsla(175, 100%, 20%, 1)"}}, "Animated Gradient": "No", "Text Color": {"value": "White", "components": {"Text Color": "#FFFFFF"}}}, "Familyless Gameview": {}, "Focus Highlight Color": {"Highlight Colors": {"value": "_", "components": {"Main Color 1": "hsla(175, 100%, 40%, 1)", "Main Color 2": "hsla(175, 100%, 20%, 1)", "On Highlighted Color": "hsla(175, 100%, 60%, 1)"}}, "Round Compatibility": "Yes"}, "Game Cover Shine Animation Color": {"Shine Color": {"value": "Emerald", "components": {"Base Color": "#FFFFFF"}}}, "Gradient Keyboard": {"Keyboard Background": {"value": "Custom", "components": {"Main Color": "hsla(175, 100%, 20%, 1)", "Gradient Color 1": "hsla(274, 100%, 10%, 0.9)", "Gradient Color 2": "hsla(274, 100%, 10%, 0.9)"}}, "Gradient Direction": "135\u00b0 \u2198", "Main Theme": "Dark", "Main Color": "Theme Default"}, "Hero Zoom Eradication": {}, "Machine Ready": {"Quicksand Font": "Yes"}, "Main Menu Hide Tabs (hide the Store)": {"Home": "Yes", "Library": "Yes", "Store": "Yes", "Friends & Chat": "No", "Media": "Yes", "Downloads": "Yes", "Settings": "Yes", "Power": "Yes"}, "No Hero Gradient": {}, "No Home Game Glow": {}, "No Home Recent Text": {}, "no_home_tabs": {}, "Percentages": {}, "QAM Hide Tabs": {"Remote Play Together": "No", "Notifications": "Yes", "Friends": "Yes", "Settings": "Yes", "Performance": "Yes", "Soundtrack": "No", "Help": "No", "Keyboard": "No"}, "Round": {"Intensity (px)": "10", "Outlines": "Round", "Header & Search": "Yes", "Keyboard": "Yes", "Library Info": "Yes", "Main Menu": "Yes", "Main Menu Collapse": "Yes", "In-game Menu": "Yes", "Settings Page - Menu": "Yes", "Settings Page - Page": "Yes", "Settings Page Padding": "Yes", "QAM": "Yes", "QAM Side-Bar Buttons": "Yes"}, "Separator Eradicator": {"Settings Page": "Yes", "Context Menus": "Yes", "Quick Access": "Yes"}, "Settings Gradient Background": {"Background": {"value": "Gradient", "components": {"Color": "hsla(274, 50%, 10%, 1)", "Color A": "hsla(175, 100%, 10%, 1)", "Color B": "hsla(175, 100%, 10%, 1)"}}, "Interface": "Darker", "Menu Highlight": "Brighter", "Page Highlight": {"value": "Brighter", "components": {"Color A": "hsla(274, 100%, 20%, 1)", "Color B": "hsla(274, 100%, 10%, 1)"}}}, "Top Bar Padding": {"Home Menu Top Padding": "0px", "Sideways Padding": "20px", "Only Show Sideways Padding On Home": "No", "Left Side Profile": "Yes", "Left Side Time": "Yes", "Left Side Battery": "No"}, "Transparency and Shadow Tweaks": {"Default Color as Custom Color": {"value": "Yes", "components": {"Background": "hsla(175, 100%, 10%, 1)"}}, "\u2605 Glass - Background Opacity": "0.8", "Header Style": "Default Color", "Footer Style": "Default Color", "Game Title Style": "Drop-shadows", "Carousel Opacity": "0.5", "Gameview Logo Style": "Drop-shadows", "Gameview Playtime Style": "Default", "Gameplay Logo Style": "Drop-shadows", "Gameplay Cover Filter": "None", "Main Menu Style": "Default Color", "Context Menu Style": "Default Color", "Sidebar Style": "Default Color", "QAM Style": "Transparent", "In-game Panel Style": "Default Color", "Controller Panel Style": {"value": "Default Color", "components": {"Color A": "#391d3e", "Color B": "#0c3534"}}}}}
+{
+  "display_name": "Machine Ready - Teal",
+  "name": "Machine Ready - Teal.profile",
+  "manifest_version": 9,
+  "flags": ["PRESET"],
+  "dependencies": {
+    "Avatar Customization Suite": {
+      "Options are [avatar] [status].": "Rounded Only"
+    },
+    "Better Blur": {
+      "Blur Strength": "8",
+      "Opacity": "0.0"
+    },
+    "Clean Game Launch": {},
+    "Clean Gameview": {
+      "Art Cover Alignment": "Cover",
+      "Lock Logo": "Yes",
+      "Playbar Style": "Blurred",
+      "Steam Cloud": "Button",
+      "Footer Height": "40px"
+    },
+    "Clean Library Capsule": {
+      "Disable Library Capsule": "No",
+      "No Home Text Patch": "No",
+      "Background Image": "Yes",
+      "Bold Text": "Yes",
+      "Outline": "Yes",
+      "Outline Size": "3",
+      "Colors": {
+        "value": "_",
+        "components": {
+          "Text Color": "hsla(0, 0%, 100%, 0)",
+          "Outline Color": "hsla(0, 0%, 0%, 0)",
+          "Background Color": "hsla(0, 0%, 20%, 0)",
+          "Background Image": "Clean Library Capsule/example_steam.jpg"
+        }
+      }
+    },
+    "Colored Toggles": {
+      "Theme Color": {
+        "value": "Custom Gradient",
+        "components": {
+          "Gradient Color 1": "hsla(175, 100%, 40%, 1)",
+          "Gradient Color 2": "hsla(175, 100%, 20%, 1)"
+        }
+      },
+      "Animated Gradient": "No",
+      "Text Color": {
+        "value": "White",
+        "components": {
+          "Text Color": "#FFFFFF"
+        }
+      }
+    },
+    "Familyless Gameview": {},
+    "Focus Highlight Color": {
+      "Highlight Colors": {
+        "value": "_",
+        "components": {
+          "Main Color 1": "hsla(175, 100%, 40%, 1)",
+          "Main Color 2": "hsla(175, 100%, 20%, 1)",
+          "On Highlighted Color": "hsla(175, 100%, 60%, 1)"
+        }
+      },
+      "Round Compatibility": "Yes"
+    },
+    "Game Cover Shine Animation Color": {
+      "Shine Color": {
+        "value": "Emerald"
+      }
+    },
+    "Gradient Keyboard": {
+      "Keyboard Background": {
+        "value": "Custom",
+        "components": {
+          "Main Color": "hsla(175, 100%, 20%, 1)"
+        }
+      },
+      "Gradient Direction": "135° ↘",
+      "Main Theme": "Dark",
+      "Main Color": "Theme Default"
+    },
+    "Hero Zoom Eradication": {},
+    "Machine Ready": {
+      "Quicksand Font": "Yes"
+    },
+    "Main Menu Hide Tabs (hide the Store)": {
+      "Home": "Yes",
+      "Library": "Yes",
+      "Store": "Yes",
+      "Friends & Chat": "No",
+      "Media": "Yes",
+      "Downloads": "Yes",
+      "Settings": "Yes",
+      "Power": "Yes"
+    },
+    "No Hero Gradient": {},
+    "No Home Game Glow": {},
+    "No Home Recent Text": {},
+    "no_home_tabs": {},
+    "Percentages": {},
+    "QAM Hide Tabs": {
+      "Remote Play Together": "No",
+      "Notifications": "Yes",
+      "Friends": "Yes",
+      "Settings": "Yes",
+      "Performance": "Yes",
+      "Soundtrack": "No",
+      "Help": "No",
+      "Keyboard": "No"
+    },
+    "Round": {
+      "Intensity (px)": "10",
+      "Outlines": "Round",
+      "Header & Search": "Yes",
+      "Keyboard": "Yes",
+      "Library Info": "Yes",
+      "Main Menu": "Yes",
+      "Main Menu Collapse": "Yes",
+      "In-game Menu": "Yes",
+      "Settings Page - Menu": "Yes",
+      "Settings Page - Page": "Yes",
+      "Settings Page Padding": "Yes",
+      "QAM": "Yes",
+      "QAM Side-Bar Buttons": "Yes"
+    },
+    "Separator Eradicator": {
+      "Settings Page": "Yes",
+      "Context Menus": "Yes",
+      "Quick Access": "Yes"
+    },
+    "Settings Gradient Background": {
+      "Background": {
+        "value": "Gradient",
+        "components": {
+          "Color A": "hsla(175, 100%, 10%, 1)",
+          "Color B": "hsla(175, 100%, 10%, 1)"
+        }
+      },
+      "Interface": "Darker",
+      "Menu Highlight": "Brighter",
+      "Page Highlight": {
+        "value": "Brighter"
+      }
+    },
+    "Top Bar Padding": {
+      "Home Menu Top Padding": "0px",
+      "Sideways Padding": "20px",
+      "Only Show Sideways Padding On Home": "No",
+      "Left Side Profile": "Yes",
+      "Left Side Time": "Yes",
+      "Left Side Battery": "No"
+    },
+    "Transparency and Shadow Tweaks": {
+      "Default Color as Custom Color": {
+        "value": "Yes",
+        "components": {
+          "Background": "hsla(175, 100%, 10%, 1)"
+        }
+      },
+      "★ Glass - Background Opacity": "0.8",
+      "Header Style": "Default Color",
+      "Footer Style": "Default Color",
+      "Game Title Style": "Drop-shadows",
+      "Carousel Opacity": "0.5",
+      "Gameview Logo Style": "Drop-shadows",
+      "Gameview Playtime Style": "Default",
+      "Gameplay Logo Style": "Drop-shadows",
+      "Gameplay Cover Filter": "None",
+      "Main Menu Style": "Default Color",
+      "Context Menu Style": "Default Color",
+      "Sidebar Style": "Default Color",
+      "QAM Style": "Transparent",
+      "In-game Panel Style": "Default Color",
+      "Controller Panel Style": {
+        "value": "Default Color"
+      }
+    }
+  }
+}
