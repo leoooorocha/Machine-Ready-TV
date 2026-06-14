@@ -1,5 +1,5 @@
 :root {
-    --tst-footer-background: transparent;
+    --tst-footer-background: var(--tst-steam-default-background-color);
     --tst-footer-filter: none;
     --tst-footer-backdrop-filter: none;
 }

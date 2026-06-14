@@ -1,5 +1,5 @@
 :root {
-    --tst-header-background: transparent;
+    --tst-header-background: var(--tst-steam-default-background-color);
     --tst-header-filter: none;
     --tst-header-backdrop-filter: none;
 }
@@ -21,8 +21,13 @@
 }
 
 ._1E_SL1bTibeQ3PQRBZoS_-._3x-XEqWonUA-lbEznRNgk2 {
-    background-color: #000;
     backdrop-filter: var(--tst-header-backdrop-filter);
     background: var(--tst-header-background);
     filter: var(--tst-header-filter);
+}
+
+
+/* Header In-game */
+._3k5MHjpKaOv6C29MKPgd6x {
+    background: var(--tst-header-background);
 }
