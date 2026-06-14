@@ -175,6 +175,40 @@
       "Controller Panel Style": {
         "value": "Default Color"
       }
+    },
+    "Volume Tweaker": {
+      "Preview": "No",
+      "Position": "Top Center",
+      "Text Position": "Hidden",
+      "Width": "10",
+      "Round Corners": "16px",
+      "Bar animation": "Yes",
+      "Speaker Icon": "Yes",
+      "Background Color": {
+        "value": "Yes",
+        "components": {
+          "Background Color Picker": "hsla(175, 100%, 10%, 1)"
+        }
+      },
+      "Speaker Color": {
+        "value": "Yes",
+        "components": {
+          "Speaker Color Picker": "hsla(0, 0%, 100%, 1)"
+        }
+      },
+      "Bar Color": {
+        "value": "Yes",
+        "components": {
+          "Bar Color Picker": "#1A9fff",
+          "Background Bar Picker": "hsla(0, 0%, 100%, 0.1)"
+        }
+      },
+      "Text Color": {
+        "value": "No",
+        "components": {
+          "Text Color Picker": "#969696"
+        }
+      }
     }
   }
 }
