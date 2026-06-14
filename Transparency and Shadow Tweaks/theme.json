@@ -12,6 +12,26 @@
         "shared.css": []
     },
     "patches": {
+        "Default Color as Custom Color": {
+            "type": "checkbox",
+            "Default": "No",
+            "values": {
+                "No": {},
+                "Yes": {
+                    "custom-color.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Background",
+                    "type": "color-picker",
+                    "on": "Yes",
+                    "default": "hsla(274.6153846153845, 100%, 10%, 1)",
+                    "css_variable": "--tst-custom-background-color",
+                    "tabs": []
+                }
+            ]
+        },
         "★ Glass - Background Opacity": {
             "type": "slider",
             "default": "0.8",
@@ -50,19 +70,26 @@
             "default": "Drop-shadows",
             "values": {
                 "Default": {},
-                "Transparent": {
+                "Default Color": {
                     "home/header.css": []
+                },
+                "Transparent": {
+                    "home/header.css": [],
+                    "--tst-header-background": [ "transparent" ]
                 },
                 "Blur": {
                     "home/header.css": [],
+                    "--tst-header-background": [ "transparent" ],
                     "--tst-header-backdrop-filter": [ "var(--tst-main-blur)" ]
                 },
                 "Drop-shadows": {
                     "home/header.css": [],
+                    "--tst-header-background": [ "transparent" ],
                     "--tst-header-filter": [ "var(--tst-main-shadow)" ]
                 },
                 "Stroke": {
                     "home/header.css": [],
+                    "--tst-header-background": [ "transparent" ],
                     "--tst-header-filter": [ "var(--tst-main-stroke)" ]
                 },
                 "★ Glass": {
@@ -80,19 +107,26 @@
             "default": "Drop-shadows",
             "values": {
                 "Default": {},
-                "Transparent": {
+                "Default Color": {
                     "home/footer.css": []
+                },
+                "Transparent": {
+                    "home/footer.css": [],
+                    "--tst-footer-background": [ "transparent" ]
                 },
                 "Blur": {
                     "home/footer.css": [],
+                    "--tst-footer-background": [ "transparent" ],
                     "--tst-footer-backdrop-filter": [ "var(--tst-main-blur)" ]
                 },
                 "Drop-shadows": {
                     "home/footer.css": [],
+                    "--tst-footer-background": [ "transparent" ],
                     "--tst-footer-filter": [ "var(--tst-main-shadow)" ]
                 },
                 "Stroke": {
                     "home/footer.css": [],
+                    "--tst-footer-background": [ "transparent" ],
                     "--tst-footer-filter": [ "var(--tst-main-stroke)" ]
                 },
                 "★ Glass": {
@@ -242,7 +276,7 @@
             "type": "dropdown",
             "default": "★ Glass",
             "values": {
-                "Default Colors": {
+                "Default Color": {
                     "menus/main-menu.css": []
                 },
                 "★ Glass": {
@@ -259,7 +293,7 @@
             "type": "dropdown",
             "default": "★ Glass",
             "values": {
-                "Default Colors": {
+                "Default Color": {
                     "menus/context-menu.css": []
                 },
                 "★ Glass": {
@@ -276,7 +310,7 @@
             "type": "dropdown",
             "default": "Drop-shadows",
             "values": {
-                "Default Colors": {
+                "Default Color": {
                     "menus/sidebar.css": []
                 },
                 "Transparent": {
@@ -307,7 +341,7 @@
             "type": "dropdown",
             "default": "★ Glass",
             "values": {
-                "Default Colors": {
+                "Default Color": {
                     "menus/qam.css": []
                 },
                 "Transparent": {
@@ -334,7 +368,7 @@
             "type": "dropdown",
             "default": "OLED Black",
             "values": {
-                "Default Colors": {
+                "Default Color": {
                     "menus/ingame-panel.css": []
                 },
                 "★ Glass": {
@@ -351,7 +385,7 @@
             "type": "dropdown",
             "default": "Custom Gradient",
             "values": {
-                "Default Colors": {
+                "Default Color": {
                     "menus/controller-panel.css": []
                 },
                 "★ Glass": {
