@@ -1,9 +1,5 @@
 # Machine Ready TV
 
-- [Installation](#installation)
-- [Optional](#optional)
-- [Profile Previews](#previews)
-
 ## Description
 
 Custom CSS Loader themes designed to deliver a more console-like Steam Big Picture experience, including customized versions of:
