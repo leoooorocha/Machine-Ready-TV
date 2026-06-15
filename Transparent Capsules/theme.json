@@ -1,1 +1,30 @@
-
+{
+    "name": "Transparent Capsules",
+    "author": "Leozito",
+    "version": "v1.0",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture" ]
+    },
+    "inject": {
+        "shared.css": []
+    },
+    "patches": {
+        "Opacity": {
+            "type": "slider",
+            "default": "0.3",
+            "values": {
+                "0.1": { "--ct-carousel-opacity": [ "0.1" ] },
+                "0.2": { "--ct-carousel-opacity": [ "0.2" ] },
+                "0.3": { "--ct-carousel-opacity": [ "0.3" ] },
+                "0.4": { "--ct-carousel-opacity": [ "0.4" ] },
+                "0.5": { "--ct-carousel-opacity": [ "0.5" ] },
+                "0.6": { "--ct-carousel-opacity": [ "0.6" ] },
+                "0.7": { "--ct-carousel-opacity": [ "0.7" ] },
+                "0.8": { "--ct-carousel-opacity": [ "0.8" ] },
+                "0.9": { "--ct-carousel-opacity": [ "0.9" ] }
+            }
+        }
+    },
+    "id": "64dcc0f6-2717-4172-9d42-c91d5bb94110"
+}
