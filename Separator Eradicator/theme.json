@@ -32,6 +32,14 @@
                 "No": {},
                 "Yes": { "qam.css": [] }
             }
+        },
+        "In-game Menu": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "ingame-menu.css": [] }
+            }
         }
     },
     "id": "c93edf17-bdf7-416e-bbaa-2774eb537dad"
