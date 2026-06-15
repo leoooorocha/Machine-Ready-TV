@@ -86,7 +86,7 @@
         "Yes": { "main-menu/ingame-panel.css": [] }
       }
     },
-    "Settings Page - Menu": {
+    "Settings Page - Left": {
       "type": "checkbox",
       "default": "Yes",
       "values": {
@@ -96,7 +96,7 @@
         }
       }
     },
-    "Settings Page - Page": {
+    "Settings Page - Right": {
       "type": "checkbox",
       "default": "Yes",
       "values": {
@@ -122,13 +122,13 @@
         "Yes": { "qam/qam.css": [] }
       }
     },
-    "QAM Side-Bar Buttons": {
+    "QAM Sidebar": {
       "type": "checkbox",
       "default": "Yes",
       "values": {
         "No": {},
         "Yes": {
-          "qam/side-bar-buttons.css": []
+          "qam/sidebar.css": []
         }
       }
     }
