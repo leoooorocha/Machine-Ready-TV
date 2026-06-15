@@ -1,1 +1,25 @@
-
+{
+    "name": "Clean Game Launch",
+    "author": "Niko, Leozito",
+    "version": "v1.1",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture" ]
+    },
+    "inject": {
+        "shared.css": []
+    },
+    "patches": {
+        "Remove Hero Filter": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": {
+                    "remove-filter.css": []
+                }
+            }
+        }
+    },
+    "id": "acb2027a-003f-45b2-889c-f72ef791cda5"
+}
