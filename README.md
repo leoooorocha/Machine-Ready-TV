@@ -3,11 +3,12 @@
 ## Description
 
 Custom CSS Loader themes designed to deliver a more console-like Steam Big Picture experience, including customized versions of:
+- Clean Game launch
 - Clean Gameview
 - Colored Toggles
 - Round
 
-Full credit for the original themes above goes to SuchMeme and EMERALD#0874.
+Full credit for the original themes above goes to Niko, SuchMeme and EMERALD#0874.
 
 **Thank you for making this project possible!**
 
