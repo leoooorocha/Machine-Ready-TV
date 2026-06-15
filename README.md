@@ -23,7 +23,6 @@ Full credit for the original themes above goes to Niko, SuchMeme and EMERALD#087
 4. Open the CSS Loader Theme Store and install the following themes:
    - Avatar Customization Suite
    - Better Blur
-   - Clean Game Launch
    - Clean Library Capsule
    - Focus Highlight Color
    - Game Cover Shine Animation Color
