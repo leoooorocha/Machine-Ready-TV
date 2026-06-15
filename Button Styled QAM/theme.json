@@ -1,1 +1,10 @@
-
+{
+  "name": "Button Styled QAM",
+  "author": "Leozito",
+  "version": "v1.0",
+  "manifest_version": 9,
+  "inject": {
+    "shared.css": [ "QuickAccess" ]
+  },
+  "id": "00739d61-6325-4ae0-8233-5e89559877bf"
+}
