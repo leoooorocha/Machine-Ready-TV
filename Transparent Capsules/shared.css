@@ -1,15 +1,11 @@
 /* Carousel - Idle */
-.BasicUI .WYgDg9NyCcMIVuMyZ_NBC {
-    opacity: var(--ct-carousel-opacity);
+.WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv, .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm, .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8 {
+    opacity: var(--tc-capsules-opacity);
     transition: opacity 0.2s ease-in-out;
 }
 
-/* Carousel - Focused */
-.BasicUI .WYgDg9NyCcMIVuMyZ_NBC.gpfocuswithin {
-    opacity: 1 !important;
-}
-
-/* Carousel - Hover */
+/* Global Focus/Hover */
+.BasicUI .WYgDg9NyCcMIVuMyZ_NBC.Focusable:focus,
 .BasicUI .WYgDg9NyCcMIVuMyZ_NBC:hover {
-    opacity: 1 !important;
+    opacity: 1;
 }
