@@ -1,3 +1,8 @@
+# ⚠️ Major Update
+*June 16*
+
+## All themes were updated to make sense with the *Transparency and Shadows Tweaks* major update, that now is called *Transparency, Shadows & More*. Colored .profiles were added (you asked and I did). Enjoy!
+
 # Machine Ready TV
 
 ## Description
@@ -19,6 +24,7 @@ Full credit for the original themes above goes to Niko, SuchMeme and EMERALD#087
 3. Paste them into `home/homebrew/themes` (alongside your existing themes).
 
 ### Optional
+*Download this if you want to use the .profiles*
 
 4. Open the CSS Loader Theme Store and install the following themes:
    - Avatar Customization Suite
