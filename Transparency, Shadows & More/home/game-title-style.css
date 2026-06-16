@@ -1,0 +1,26 @@
+:root {
+    --tasm-game-title-color: #FFFFFF;
+    --tasm-game-title-playtime-icon: #59bf40;
+    --tasm-game-title-playtime-color: #E6E6E6;
+    --tasm-game-title-filter: none;
+}
+
+/* Game Title */
+.BasicUI ._3gwMkKp82bb5aZj4EeQnpi ._3CRLA2FFclTRCznNBgtiIH {
+    color: var(--tasm-game-title-color);
+    filter: var(--tasm-game-title-filter);
+}
+
+/* Playtime Icon */
+._12eKcQAZM2bwKDDQhiBCPr ._25QboeMYEk12Wt3i35P_EG {
+    color: var(--tasm-game-title-playtime-icon);
+    filter: var(--tasm-game-title-filter);
+}
+
+/* Playtime Text */
+._1BtXgm_u14cFdsGMjTpY59 {
+    color: var(--tasm-game-title-playtime-color);
+    filter: var(--tasm-game-title-filter);
+}
+
+
