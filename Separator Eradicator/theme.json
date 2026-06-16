@@ -6,7 +6,7 @@
     "target": "System-wide",
     "manifest_version": 9,
     "tabs": {
-        "default": [ "bigpicture", "QuickAccess" ]
+        "default": [ "bigpicture", "QuickAccess", "MainMenu" ]
     },
     "patches": {
         "Settings Page": {
