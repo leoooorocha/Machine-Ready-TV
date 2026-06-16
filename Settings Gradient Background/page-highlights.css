@@ -1,5 +1,5 @@
 [class*="eKmEXJCm_lgme24Fp_HWt"]:not([class*="_2QgNsvFPYTZ5yRiTm7mUyu"])[class*="_2HFrmMgB38Ike5w4rVxzEX"][class*="gpfocus"],
 [class*="eKmEXJCm_lgme24Fp_HWt"]:not([class*="_2QgNsvFPYTZ5yRiTm7mUyu"])[class*="_2HFrmMgB38Ike5w4rVxzEX"][class*="gpfocuswithin"] {
     animation: none;
-    background: linear-gradient(138deg, var(--sp-bg-page-highlight-color-a), var(--sp-bg-page-highlight-color-b));
+    background: var(--sp-bg-page-highlight);
 }

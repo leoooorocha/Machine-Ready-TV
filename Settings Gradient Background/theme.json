@@ -13,60 +13,62 @@
     },
     "patches": {
         "Background": {
-            "type": "slider",
-            "default": "Gradient",
+            "type": "dropdown",
+            "default": "Custom Gradient",
             "values": {
                 "Default": {},
-                "Simple": {
-                    "background.css": [],
-                    "--sp-bg-background-color-b": [ "#0000004d" ]
+                "Custom": {
+                    "background.css": []
                 },
-                "Gradient": { "background.css": [] }
+                "Custom Gradient": {
+                    "background.css": [],
+                    "--sp-bg-background": [ "linear-gradient(138deg, var(--sp-bg-background-color-a), var(--sp-bg-background-color-b))" ]
+                }
             },
             "components": [
                 {
                     "name": "Color",
                     "type": "color-picker",
-                    "on": "Simple",
+                    "on": "Custom",
                     "default": "#bd5ece",
-                    "css_variable": "--sp-bg-background-color-a",
+                    "css_variable": "--sp-bg-background",
                     "tabs": []
                 },
                 {
                     "name": "Color A",
                     "type": "color-picker",
-                    "on": "Gradient",
-                    "default": "#bd5ece4d",
+                    "on": "Custom Gradient",
+                    "default": "#bd5ece",
                     "css_variable": "--sp-bg-background-color-a",
                     "tabs": []
                 },
                 {
                     "name": "Color B",
                     "type": "color-picker",
-                    "on": "Gradient",
-                    "default": "#2ab1ac4d",
+                    "on": "Custom Gradient",
+                    "default": "#2ab1ac",
                     "css_variable": "--sp-bg-background-color-b",
                     "tabs": []
                 }
             ]
         },
         "Interface": {
-            "type": "slider",
-            "default": "Brighter",
+            "type": "dropdown",
+            "default": "Darker",
             "values": {
                 "Default": {},
                 "Darker": {
                     "interface.css": [],
-                    "--sp-bg-interface-color": [ "#0000004d" ]
+                    "--sp-bg-interface-color": [ "#00000033" ]
                 },
                 "Brighter": {
                     "interface.css": [],
-                    "--sp-bg-interface-color": [ "#ffffff1a" ]
+                    "--sp-bg-interface-color": [ "#ffffff20" ]
                 }
             }
         },
         "Menu Highlight": {
-            "type": "slider",
+            "type": "dropdown",
             "default": "Brighter",
             "values": {
                 "Default": {},
@@ -87,38 +89,48 @@
             }
         },
         "Page Highlight": {
-            "type": "slider",
-            "default": "Gradient",
+            "type": "dropdown",
+            "default": "Custom Gradient",
             "values": {
                 "Default": {},
                 "Darker": {
                     "page-highlights.css": [],
-                    "--sp-bg-page-highlight-color-a": [ "#0000006d" ],
-                    "--sp-bg-page-highlight-color-b": [ "#0000006d" ]
+                    "--sp-bg-page-highlight": [ "#00000066" ]
                 },
                 "Brighter": {
                     "page-highlights.css": [],
-                    "--sp-bg-page-highlight-color-a": [ "#ffffff2a" ],
-                    "--sp-bg-page-highlight-color-b": [ "#ffffff2a" ]
+                    "--sp-bg-page-highlight": [ "#ffffff66" ]
                 },
-                "Gradient": {
+                "Custom": {
                     "page-highlights.css": []
+                },
+                "Custom Gradient": {
+                    "page-highlights.css": [],
+                    "--sp-bg-page-highlight": [ "linear-gradient(138deg, var(--sp-bg-page-highlight-color-a), var(--sp-bg-page-highlight-color-b))" ]
                 }
             },
             "components": [
                 {
+                    "name": "Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#bd5ece",
+                    "css_variable": "--sp-bg-page-highlight",
+                    "tabs": []
+                },
+                {
                     "name": "Color A",
                     "type": "color-picker",
-                    "on": "Gradient",
-                    "default": "#bd5ece4d",
+                    "on": "Custom Gradient",
+                    "default": "#bd5ece",
                     "css_variable": "--sp-bg-page-highlight-color-a",
                     "tabs": []
                 },
                 {
                     "name": "Color B",
                     "type": "color-picker",
-                    "on": "Gradient",
-                    "default": "#2ab1ac4d",
+                    "on": "Custom Gradient",
+                    "default": "#2ab1ac",
                     "css_variable": "--sp-bg-page-highlight-color-b",
                     "tabs": []
                 }
