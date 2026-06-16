@@ -1,9 +1,0 @@
-:root {
-    --tst-gameplay-logo-opacity: 1;
-    --tst-gameplay-logo-filter: none;
-}
-
-._2uvMXiAbRHw9k3P6oyGdFz img {
-    opacity: var(--tst-gameplay-logo-opacity);
-    filter: var(--tst-gameplay-logo-filter);
-}
