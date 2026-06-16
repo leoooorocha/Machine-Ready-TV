@@ -38,12 +38,40 @@ Full credit for the original themes above goes to Niko, SuchMeme and EMERALD#087
 5. Return to CSS Loader and click **Refresh**.
 6. Select and apply your preferred Machine Ready profile.
 
-## Previews
+## Preview
 
-[Machine Ready - Optimized](https://github.com/leoooorocha/Machine-Ready-TV/tree/main/Machine%20Ready%20-%20Optimized.profile#readme)
+### Standard
 
-[Machine Ready - Oled](https://github.com/leoooorocha/Machine-Ready-TV/tree/main/Machine%20Ready%20-%20Oled.profile#readme)
+<img src="Assets/Standard.jpg" width="800">
 
-[Machine Ready - Purple](https://github.com/leoooorocha/Machine-Ready-TV/tree/main/Machine%20Ready%20-%20Purple.profile#readme)
+### OLED
 
-[Machine Ready - Teal](https://github.com/leoooorocha/Machine-Ready-TV/tree/main/Machine%20Ready%20-%20Teal.profile#readme)
+<img src="Assets/Oled.jpg" width="800">
+
+### Red
+
+<img src="Assets/Red.jpg" width="800">
+
+### Orange
+
+<img src="Assets/Orange.jpg" width="800">
+
+### Green
+
+<img src="Assets/Green.jpg" width="800">
+
+### Teal
+
+<img src="Assets/Teal.jpg" width="800">
+
+### Blue
+
+<img src="Assets/Blue.jpg" width="800">
+
+### Indigo
+
+<img src="Assets/Indigo.jpg" width="800">
+
+### Purple
+
+<img src="Assets/Purple.jpg" width="800">
