@@ -12,7 +12,7 @@
     "patches": {
         "Balance": {
             "type": "slider",
-            "default": "7",
+            "default": "5",
             "values": {
                 "1": {
                     "--dc-carousel-idle-var": [ "-10px" ],
@@ -50,7 +50,18 @@
                     "--dc-carousel-idle-var": [ "-50px" ],
                     "--dc-carousel-focus-var": [ "50px" ]
                 }
-
+            }
+        },
+        "Safe Magnify": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {
+                    "aggresive-magnify.css": []
+                },
+                "Yes": {
+                    "safe-magnify.css": []
+                }
             }
         }
     },
