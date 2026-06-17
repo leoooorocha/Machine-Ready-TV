@@ -5,16 +5,40 @@
     "description": "Clean consolifyed home screen with fullscreen hero and centered carousel.",
     "target": "Home",
     "manifest_version": 9,
-    "inject": {
-        "shared.css": [ "bigpicture" ]
+    "tabs": {
+        "default": [ "bigpicture" ]
     },
-    "patches": {
+    "inject": {
+        "shared.css": []
+    },
+    "patches":{
+            "Hero Alignment": {
+            "type": "dropdown",
+            "default": "Cover",
+            "values": {
+                "Cover": {},
+                "Contain": {
+                    "--mr-hero-alignment": [ "contain" ]
+                },
+                "Stretch": {
+                    "--mr-hero-alignment": [ "stretch" ]
+                },
+                "Left": {
+                    "--mr-hero-position": [ "left" ]
+                },
+                "Right": {
+                    "--mr-hero-position": [ "right" ]
+                }
+            }
+        },
         "Quicksand Font": {
             "type": "checkbox",
             "default": "Yes",
             "values": {
                 "No": {},
-                "Yes": { "quicksand.css": [ "bigpicture", "MainMenu", "QuickAccess" ] }
+                "Yes": {
+                    "quicksand.css": [ "bigpicture", "MainMenu", "QuickAccess" ]
+                }
             }
         }
     },
