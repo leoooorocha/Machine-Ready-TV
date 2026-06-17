@@ -1,0 +1,97 @@
+:root {
+    --mr-hero-position: center;
+    --mr-hero-alignment: cover;
+}
+
+/* Fix Overflow Tabs */
+.cE1SaW6jrVUDxcqRtyMo1 {
+    margin-top: 0px;
+}
+
+/* Home */
+._39tNvaLedsTrVh0fFsP4Jm {
+    height: 100vh;
+}
+
+/* Current/Recent Game */
+._35iRep_MLGWeAmkLbeny7R {
+    padding: 60px;
+    width: 100vw !important;
+}
+
+/* Behind Hero and Title/Carousel */
+._2_cRkGdbegoIbiRsy_-I7 {
+    padding: 0;
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+/* Hero */
+.QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
+    height: 100vh !important;
+    width: 100vw !important;
+    object-position: var(--mr-hero-position);
+    object-fit: var(--mr-hero-alignment);
+}
+
+/* Title and Carousel */
+._282X0J4BtrSF1IXctmOe-X {
+    height: 100vh !important;
+    width: 92%;
+}
+
+/* Title Height */
+.ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
+    bottom: 263px;
+}
+
+/* Carousel Container */
+._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
+    margin-top: 0px;
+    padding: 52px 40px 0 40px;
+    scroll-padding: 0px 40px;
+    height: 333px !important;
+    position: absolute !important;
+    left: 0px;
+    bottom: 0px;
+    width: 100vw !important;
+}
+
+/* Carousel Total Size */
+._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
+    width: 3054px !important;
+}
+
+/* Library Capsule Fix */
+[data-id*="GoToLibrary"] {
+    width: 134px !important;
+}
+
+@media (min-width: 900px) {
+
+    /* Title and Carousel - TV */
+    ._282X0J4BtrSF1IXctmOe-X {
+        width: 95%;
+    }
+
+    /* Title Height - TV */
+    .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
+        bottom: 320px;
+    }
+
+    /* Carousel Container - TV */
+    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
+        height: 391px !important;
+    }
+
+    /* Carousel Total Size - TV  */
+    ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
+        width: 3852px !important;
+    }
+
+    /* Library Capsule Fix- TV */
+    [data-id*="GoToLibrary"] {
+        width: 172px !important;
+    }
+
+}
