@@ -1,9 +1,0 @@
-:root {
-    --dc-carousel-idle-transform-strength: translateZ(var(--dc-carousel-idle-var));
-}
-
-/* Carousel - Idle */
-.WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv, .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm, .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8 {
-    transform: var(--dc-carousel-idle-transform-strength);
-    transition: all 0.2s ease-in-out;
-}
