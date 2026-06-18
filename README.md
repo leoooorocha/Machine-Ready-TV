@@ -1,7 +1,20 @@
-# ⚠️ Major Update
-*June 16*
+# Update
+*June 18*
 
-## All themes were updated to make sense with the *Transparency and Shadows Tweaks* major update, that now is called *Transparency, Shadows & More*. Colored .profiles were added (you asked and I did). Enjoy!
+**Machine Ready** home theme was updated! Added:
+- *new* **Switch Mode**, with centralized carousel.
+- *new* **Dynamic Carousel** with options to control balance between the idle and highlighted sized from capsules.
+
+NOTE: Both of this features works better with **Square Capsules** and **Matching Recent Capsules** from the Plugin *SteamGridDB*. Make sure to download it.
+
+<img src="https://github.com/leoooorocha/Machine-Ready-TV/blob/main/Assets/20260618101137_1.jpg" width=800>
+
+**Transparent Capsules** carousel/library theme was also updated! Fixed:
+- Library capsule (aka last carousel capsule) now will also have the transparency effect.
+
+### Features requested (on going)
+- PS5 carousel padding with the *new* **Dynamic Carousel**.
+- **Switch Grey** .profile.
 
 # Machine Ready TV
 
