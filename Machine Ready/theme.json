@@ -40,6 +40,73 @@
                     "quicksand.css": [ "bigpicture", "MainMenu", "QuickAccess" ]
                 }
             }
+        },
+        "Dynamic Carousel Balance": {
+            "type": "slider",
+            "default": "5",
+            "values": {
+                "Off": {
+                    "--mr-carousel-dynamic-idle-transform": [ "0px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "0px" ],
+                    "--mr-game-title-container-height": [ "52px" ]
+                },
+                "1": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-10px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "10px" ],
+                    "--mr-game-title-container-height": [ "52px" ]
+                },
+                "2": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-15px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "15px" ],
+                    "--mr-game-title-container-height": [ "53.83px" ]
+                },
+                "3": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-20px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "20px" ],
+                    "--mr-game-title-container-height": [ "55.71px" ]
+                },
+                "4": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-25px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "25px" ],
+                    "--mr-game-title-container-height": [ "57.67px" ]
+                },
+                "5": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-30px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "30px" ],
+                    "--mr-game-title-container-height": [ "59.70px" ]
+                },
+                "6": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-35px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "35px" ],
+                    "--mr-game-title-container-height": [ "61.82px" ]
+                },
+                "7": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-40px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "40px" ],
+                    "--mr-game-title-container-height": [ "63.99px" ]
+                },
+                "8": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-45px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "45px" ],
+                    "--mr-game-title-container-height": [ "66.27px" ]
+                },
+                "9": {
+                    "--mr-carousel-dynamic-idle-transform": [ "-50px" ],
+                    "--mr-carousel-dynamic-focus-transform": [ "50px" ],
+                    "--mr-game-title-container-height": [ "68.64px" ]
+                }
+            }
+        },
+        "Activate Switch Mode to use with SteamGridDB Square Capsules": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {
+                    "--mr-capsule-width": [ "var(--mr-capsule-height)" ],
+                    "--mr-carousel-container-height": [ "var(--mr-switch-mode)" ]
+                }
+            }
         }
     },
     "id": "d575cec7-eeb4-4c9c-b5ba-48679467111b"
