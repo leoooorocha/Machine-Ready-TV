@@ -5,7 +5,7 @@
 - *new* **Switch Mode**, with centralized carousel.
 - *new* **Dynamic Carousel** with options to control balance between the idle and highlighted sized from capsules.
 
-NOTE: Both of this features works better with **Square Capsules** and **Matching Recent Capsules** from the Plugin *SteamGridDB*. Make sure to download it.
+NOTE: Both of this features works better with **Square Capsules** and **Matching Recent Capsules** from the Plugin *SteamGridDB*. Make sure to download it from *Decky Loader Store*.
 
 <img src="https://github.com/leoooorocha/Machine-Ready-TV/blob/main/Assets/20260618101137_1.jpg" width=800>
 
@@ -26,7 +26,7 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 - Colored Toggles
 - Round
 
-Full credit for the original themes above goes to Niko, SuchMeme and EMERALD#0874.
+Full credit for the original themes above goes to **Niko**, **SuchMeme** and **EMERALD#0874**.
 
 **Thank you for making this project possible!**
 
