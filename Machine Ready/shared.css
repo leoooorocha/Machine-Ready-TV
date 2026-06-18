@@ -1,97 +1,114 @@
 :root {
+    /* General */
+    --mr-standard-padding: 40px;
     --mr-hero-position: center;
     --mr-hero-alignment: cover;
+    --mr-game-title-container-height: 52px;
+    --mr-game-title-position: calc(var(--mr-capsule-height) + var(--mr-game-title-container-height) + 10px);
+    --mr-carousel-container-height: calc(var(--mr-game-title-container-height) + var(--mr-capsule-height) + var(--mr-standard-padding) + var(--mr-footer-heigh));
+    --mr-carousel-container-width: calc(var(--mr-capsule-container-width) * 21 - var(--mr-capsule-padding));
+    --mr-carousel-dynamic-idle-transform: -10px;
+    --mr-carousel-dynamic-focus-transform: 10px;
+    --mr-capsule-container-width: calc(var(--mr-capsule-width) + var(--mr-capsule-padding));
+    --mr-capsule-padding: 12px;
+    --mr-footer-heigh: 40px;
+    --mr-switch-mode: calc(calc(calc(100vh + var(--mr-capsule-height)) / 2) + var(--mr-game-title-container-height) + 5px);
+
+    /* SD Variables */
+    --mr-capsule-height: 201px;
+    --mr-capsule-width: 134px;
+    --mr-center-carousel: 92%;
 }
 
-/* Fix Overflow Tabs */
-.cE1SaW6jrVUDxcqRtyMo1 {
-    margin-top: 0px;
+@media (min-width: 900px) {
+    :root {
+        /* TV Variables */
+        --mr-capsule-height: 258px;
+        --mr-capsule-width: 172px;
+        --mr-center-carousel: 95%;
+    }
 }
 
-/* Home */
-._39tNvaLedsTrVh0fFsP4Jm {
-    height: 100vh;
-}
+/* Full Screen */
+    ._39tNvaLedsTrVh0fFsP4Jm {
+        height: 100vh !important;
+    }
 
-/* Current/Recent Game */
+    ._282X0J4BtrSF1IXctmOe-X {
+        height: 100vh !important;
+        width: var(--mr-center-carousel);
+    }
+
+    ._2_cRkGdbegoIbiRsy_-I7 {
+        height: 100vh !important;
+        width: 100vw !important;
+        padding: 0;
+    }
+
+    /* Hero */
+    .QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
+        height: 100vh !important;
+        width: 100vw !important;
+        object-position: var(--mr-hero-position);
+        object-fit: var(--mr-hero-alignment);
+    }
+
+    .cE1SaW6jrVUDxcqRtyMo1 {
+        margin-top: 0px;
+    }
+
+/* Current/Recent Game Text Position */
 ._35iRep_MLGWeAmkLbeny7R {
-    padding: 60px;
-    width: 100vw !important;
-}
-
-/* Behind Hero and Title/Carousel */
-._2_cRkGdbegoIbiRsy_-I7 {
-    padding: 0;
-    height: 100vh !important;
-    width: 100vw !important;
-}
-
-/* Hero */
-.QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
-    height: 100vh !important;
-    width: 100vw !important;
-    object-position: var(--mr-hero-position);
-    object-fit: var(--mr-hero-alignment);
-}
-
-/* Title and Carousel */
-._282X0J4BtrSF1IXctmOe-X {
-    height: 100vh !important;
-    width: 92%;
+    padding-top: 60px;
+    padding-left: 60px;
 }
 
 /* Title Height */
 .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
-    bottom: 263px;
+    bottom: var(--mr-game-title-position);
 }
 
 /* Carousel Container */
 ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
     margin-top: 0px;
-    padding: 52px 40px 0 40px;
-    scroll-padding: 0px 40px;
-    height: 333px !important;
+    padding-top: var(--mr-game-title-container-height);
+    padding-bottom: 0px;
+    padding-left: var(--mr-standard-padding);
+    padding-right: var(--mr-standard-padding);
+    scroll-padding: var(--mr-standard-padding);
+    height: var(--mr-carousel-container-height) !important;
+    width: 100vw !important;
     position: absolute !important;
     left: 0px;
     bottom: 0px;
-    width: 100vw !important;
 }
 
 /* Carousel Total Size */
 ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
-    width: 3054px !important;
+    width: var( --mr-carousel-container-width) !important;
 }
 
-/* Library Capsule Fix */
+/* Library Capsule */
 [data-id*="GoToLibrary"] {
-    width: 134px !important;
+    perspective: 300px;
+    height: var(--mr-capsule-height) !important;
+    width: var(--mr-capsule-width) !important;
 }
 
-@media (min-width: 900px) {
+/* Dynamic Carousel */
 
-    /* Title and Carousel - TV */
-    ._282X0J4BtrSF1IXctmOe-X {
-        width: 95%;
+    /* Carousel - Idle */
+    .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv, .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm, .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8, ._3YYQ98HSj-wh5uljwl12bW {
+        transform: translateZ(var(--mr-carousel-dynamic-idle-transform));
+        transition: all 0.2s ease-in-out;
     }
 
-    /* Title Height - TV */
-    .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
-        bottom: 320px;
+    /* Carousel - Hover e Focus */
+    .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv:hover,
+    .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv:focus,
+    .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm:hover,
+    .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm:focus,
+    .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8:hover,
+    .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8:focus {
+        transform: translateZ(var(--mr-carousel-dynamic-focus-transform)) !important;
     }
-
-    /* Carousel Container - TV */
-    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        height: 391px !important;
-    }
-
-    /* Carousel Total Size - TV  */
-    ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
-        width: 3852px !important;
-    }
-
-    /* Library Capsule Fix- TV */
-    [data-id*="GoToLibrary"] {
-        width: 172px !important;
-    }
-
-}
