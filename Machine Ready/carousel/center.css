@@ -1,11 +1,12 @@
 /* Current/Recent Game Text */
     ._35iRep_MLGWeAmkLbeny7R {
-        top: 0px;
+        bottom: 0px;
     }
 
 /* Carousel Container */
     ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        bottom: 0px;
+        bottom: 50%;
+        transform: translateY(50%);
     }
 
 /* Title Position */
