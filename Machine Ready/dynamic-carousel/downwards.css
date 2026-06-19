@@ -1,0 +1,11 @@
+:root {
+
+    /* Downwards Calculation */
+        --mr-dynamic-carousel-idle-downwards: translateZ(calc(var(--mr-dynamic-carousel-strength) / -2)) translateY(calc(var(--mr-dynamic-carousel-strength) / -5));
+        --mr-dynamic-carousel-focus-downwards: translateZ(calc(var(--mr-dynamic-carousel-strength) / 2)) translateY(calc(var(--mr-dynamic-carousel-strength) / 5));
+
+    /* Downwards Application */
+        --mr-dynamic-carousel-idle-transform: var(--mr-dynamic-carousel-idle-downwards);
+        --mr-dynamic-carousel-focus-transform: var(--mr-dynamic-carousel-focus-downwards);
+
+}
