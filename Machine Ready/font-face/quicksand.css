@@ -1,1 +1,13 @@
+@font-face {
+    font-family: Quicksand;
+    src: url("/themes_custom/Machine Ready/font-face/Quicksand.ttf");
+}
 
+* {
+    font-family: Quicksand !important;
+}
+
+/* CSS Loader Title Fix */
+._34nl5vUoFCDYYnmHNL7axB>div {
+    font-size: 0.9em;
+}
