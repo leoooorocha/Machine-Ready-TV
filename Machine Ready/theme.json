@@ -9,19 +9,20 @@
         "default": [ "bigpicture" ]
     },
     "inject": {
-        "shared.css": []
+        "shared.css": [],
+        "dynamic-carousel.css": []
     },
     "patches":{
-            "Hero Alignment": {
+        "Hero Alignment": {
             "type": "dropdown",
             "default": "Cover",
             "values": {
                 "Cover": {},
                 "Contain": {
-                    "--mr-hero-alignment": [ "contain" ]
+                    "--mr-hero-fit": [ "contain" ]
                 },
                 "Stretch": {
-                    "--mr-hero-alignment": [ "stretch" ]
+                    "--mr-hero-fit": [ "stretch" ]
                 },
                 "Left": {
                     "--mr-hero-position": [ "left" ]
@@ -31,80 +32,118 @@
                 }
             }
         },
-        "Quicksand Font": {
-            "type": "checkbox",
-            "default": "Yes",
+        "Carousel Position": {
+            "type": "dropdown",
+            "default": "Bottom",
             "values": {
-                "No": {},
-                "Yes": {
-                    "quicksand.css": [ "bigpicture", "MainMenu", "QuickAccess" ]
+                "Top": {
+                    "carousel/top.css": [],
+                    "variables/top.css": []
+                },
+                "Center": {
+                    "carousel/center.css": [],
+                    "variables/center.css": []
+                },
+                "Bottom": {
+                    "carousel/bottom.css": [],
+                    "variables/bottom.css": []
                 }
             }
         },
-        "Dynamic Carousel Balance": {
+        "Dynamic Carousel Style": {
+            "type": "dropdown",
+            "default": "Upwards",
+            "values": {
+                "Upwards": {
+                    "dynamic-carousel/upwards.css": []
+                },
+                "Magnify": {
+                    "dynamic-carousel/magnify.css": []
+                },
+                "Downwards": {
+                    "dynamic-carousel/downwards.css": []
+                }
+            }
+        },
+        "Dynamic Carousel Strength": {
             "type": "slider",
             "default": "5",
             "values": {
-                "Off": {
-                    "--mr-carousel-dynamic-idle-transform": [ "0px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "0px" ],
-                    "--mr-game-title-container-height": [ "52px" ]
-                },
+                "Off": {},
                 "1": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-10px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "10px" ],
-                    "--mr-game-title-container-height": [ "52px" ]
+                    "--mr-dynamic-carousel-strength": [ "5px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "1" ]
                 },
                 "2": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-15px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "15px" ],
-                    "--mr-game-title-container-height": [ "53.83px" ]
+                    "--mr-dynamic-carousel-strength": [ "10px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "2" ]
                 },
                 "3": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-20px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "20px" ],
-                    "--mr-game-title-container-height": [ "55.71px" ]
+                    "--mr-dynamic-carousel-strength": [ "15px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "3" ]
                 },
                 "4": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-25px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "25px" ],
-                    "--mr-game-title-container-height": [ "57.67px" ]
+                    "--mr-dynamic-carousel-strength": [ "20px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "4" ]
                 },
                 "5": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-30px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "30px" ],
-                    "--mr-game-title-container-height": [ "59.70px" ]
+                    "--mr-dynamic-carousel-strength": [ "25px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "5" ]
                 },
                 "6": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-35px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "35px" ],
-                    "--mr-game-title-container-height": [ "61.82px" ]
+                    "--mr-dynamic-carousel-strength": [ "30px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "6" ]
                 },
                 "7": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-40px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "40px" ],
-                    "--mr-game-title-container-height": [ "63.99px" ]
+                    "--mr-dynamic-carousel-strength": [ "35px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "7" ]
                 },
                 "8": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-45px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "45px" ],
-                    "--mr-game-title-container-height": [ "66.27px" ]
+                    "--mr-dynamic-carousel-strength": [ "40px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "8" ]
                 },
                 "9": {
-                    "--mr-carousel-dynamic-idle-transform": [ "-50px" ],
-                    "--mr-carousel-dynamic-focus-transform": [ "50px" ],
-                    "--mr-game-title-container-height": [ "68.64px" ]
+                    "--mr-dynamic-carousel-strength": [ "45px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "9" ]
+                },
+                "10": {
+                    "--mr-dynamic-carousel-strength": [ "50px" ],
+                    "--mr-dynamic-carousel-strength-rule": [ "10" ]
                 }
             }
         },
-        "Activate Switch Mode to use with SteamGridDB Square Capsules": {
+        "Game Title Neutral Position": {
             "type": "checkbox",
             "default": "No",
             "values": {
                 "No": {},
                 "Yes": {
-                    "--mr-capsule-width": [ "var(--mr-capsule-height)" ],
-                    "--mr-carousel-container-height": [ "var(--mr-switch-mode)" ]
+                    "--mr-game-title-final-position": [ "var(--mr-game-title-neutral-position)" ]
+                }
+            }
+        },
+        "System Font": {
+            "type": "dropdown",
+            "default": "Quicksand",
+            "values": {
+                "Quicksand": {
+                    "font-face/quicksand.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "Nintendo Switch UI": {
+                    "font-face/nintendo-switch-ui.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "SST (Playstation 5)": {
+                    "font-face/sst.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
+                }
+            }
+        },
+        "Square Capsules Fix": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {
+                    "--mr-capsule-width": [ "var(--mr-capsule-height)" ]
                 }
             }
         }
