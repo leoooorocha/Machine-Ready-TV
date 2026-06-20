@@ -136,16 +136,6 @@
                     "font-face/sst.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
                 }
             }
-        },
-        "Square Capsules Fix": {
-            "type": "checkbox",
-            "default": "No",
-            "values": {
-                "No": {},
-                "Yes": {
-                    "--mr-capsule-width": [ "var(--mr-capsule-height)" ]
-                }
-            }
         }
     },
     "id": "d575cec7-eeb4-4c9c-b5ba-48679467111b"

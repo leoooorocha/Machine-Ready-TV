@@ -18,23 +18,33 @@
         --mr-capsule-container-width: calc(var(--mr-capsule-width) + var(--mr-capsule-padding));
         --mr-carousel-container-width: calc(var(--mr-capsule-container-width) * 21 - var(--mr-capsule-padding));
 
-    /* SD Variables */
-        --mr-capsule-height: 201px;
-        --mr-capsule-width: 134px;
-        --mr-centered-carousel: 92%;
-
 }
 
-@media (min-width: 900px) {
-    :root {
+/* SD Variables */
 
-        /* TV Variables */
-            --mr-capsule-height: 258px;
-            --mr-capsule-width: 172px;
-            --mr-centered-carousel: 95%;
-
-    }
+:root {
+    --mr-capsule-height: 201px;
+    --mr-capsule-width: 134px;
+    --mr-centered-carousel: 92%;
 }
+
+:root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 201px"]) {
+    --mr-capsule-width: 201px;
+}
+
+/* TV Variables */ @media (min-width: 900px) {
+
+:root {
+    --mr-capsule-height: 258px;
+    --mr-capsule-width: 172px;
+    --mr-centered-carousel: 95%;
+}
+
+:root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
+    --mr-capsule-width: 258px;
+}
+
+/* End of TV Variables */ }
 
 
 /* Full Screen Home */
