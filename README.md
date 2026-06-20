@@ -2,7 +2,7 @@
 *June 20*
 
 **Machine Ready** home theme was updated! Added:
-- ~~*new* **Switch Mode**, with centralized carousel.~~ Discontinued. Carousel width now adjust automatically basead on the capsule size.
+- ~~*new* **Switch Mode**, with centralized carousel.~~ Discontinued. Carousel width now adjust automatically based on the capsule size.
 - *new* **Carousel Position** with options to set Carousel on top, center or bottom.
 - *new* **Game Title** text the **Current Game** text now adjust automatically based on Carousel position.
 - *new* **Dynamic Carousel** with options to control balance between the idle and highlighted sized from capsules.
