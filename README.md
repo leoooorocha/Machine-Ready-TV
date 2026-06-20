@@ -6,6 +6,7 @@
 - *new* **Carousel Position** with options to set Carousel on top, center or bottom.
 - *new* **Game Title** text the **Current Game** text now adjust automatically based on Carousel position.
 - *new* **Dynamic Carousel** with options to control balance between the idle and highlighted sized from capsules.
+- *new* **Font-face** options were added, featuring the classic Quicksand, PlayStation and Switch fonts.
 
 NOTE: Both of this features works ~~better~~ with **Square Capsules** and **Matching Recent Capsules** from the Plugin *SteamGridDB*. Make sure to download it from *Decky Loader Store*.
 
@@ -17,7 +18,7 @@ Update (June 20) NOTE: I now only recommend the usage of those features above, *
 - Library capsule (aka last carousel capsule) now will also have the transparency effect.
 
 ### Features requested (on going)
-- ~~PS5 carousel padding with the *new* **Dynamic Carousel**.~~ Done. you can set Carousel Position to Top and use **Square Capsules**. Also check que Oled Profile.
+- ~~PS5 carousel padding with the *new* **Dynamic Carousel**.~~ Done. you can set Carousel Position to Top and use **Square Capsules**. Also check the *new* Oled Profile.
 
 <img src="https://github.com/leoooorocha/Machine-Ready-TV/blob/main/Assets/20260619195910_1.jpg" width="800">
 
