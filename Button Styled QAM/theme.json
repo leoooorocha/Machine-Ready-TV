@@ -50,6 +50,16 @@
                     "tabs": []
                 }
             ]
+        },
+        "Enable Custom Padding (leave disabled if youre using an old Steam Version)": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {
+                    "enable-custom-padding.css": []
+                }
+            }
         }
     },
     "id": "00739d61-6325-4ae0-8233-5e89559877bf"
