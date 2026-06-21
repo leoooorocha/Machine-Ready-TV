@@ -1,7 +1,7 @@
 ## Machine Ready
 - Custom Home theme (and the star of this project.
 - Features:
-- - Centralized Carousel and Hero.
+  - Centralized Carousel and Hero.
   - Custom fonts from gaming consoles.
   - 3 types of Carousel position.
   - 3 types of Carousel effects when browsing games.
