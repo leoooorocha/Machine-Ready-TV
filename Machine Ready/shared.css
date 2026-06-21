@@ -38,13 +38,13 @@
     --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
 }
 
-/* TV Variables */ @media (min-width: 900px) {
+/* TV Variables */ @media (min-width: 903px) {
 
 :root {
     --mr-capsule-height: 258px;
     --mr-capsule-width: 172px;
     --mr-first-capsule-width: 564px;
-    --mr-centered-carousel: 95%;
+    --mr-centered-carousel: 95.3%;
 }
 
 :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
