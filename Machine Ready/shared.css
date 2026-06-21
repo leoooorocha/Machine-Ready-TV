@@ -1,143 +1,103 @@
-:root {
+.DefaultTheme {
 
-    /* General */
-        --mr-standard-padding: 40px;
+    /* Keyboard Background */
+    --background-color: transparent;
 
-    /* Hero */
-        --mr-hero-position: center;
-        --mr-hero-fit: cover;
+    /* Hightlight */
 
-    /* Game Title */
-        --mr-game-title-height: 40px;
-        --mr-game-title-initial-position: calc(calc(var(--mr-capsule-height) / 2) + calc(var(--mr-game-title-height)) / 2);
-        --mr-game-title-final-position: calc(var(--mr-game-title-initial-position) + calc(2px * var(--mr-dynamic-carousel-strength-rule)) + 5px);
-        --mr-game-title-neutral-position: calc(var(--mr-game-title-initial-position) + 5px);
+    /* FG */
+    --key-focused-color: var(--gk-highlight-fg);
+    --key-focused-shift-label-color: var(--gk-highlight-fg);
+    --key-emoji-focused-color: var(--gk-highlight-fg);
 
-    /* Carousel */
-        --mr-capsule-padding: 12px;
-        --mr-capsule-container-width: calc(var(--mr-capsule-width) + var(--mr-capsule-padding));
-        --mr-carousel-container-width: calc(var(--mr-capsule-container-width) * 21 - var(--mr-capsule-padding));
+    /* BG */
+    --key-focused-background-color: var(--gk-highlight-bg);
+    --key-emoji-category-highlight-background-color: var(--gk-highlight-bg);
+    --key-emoji-focused-background-color: var(--gk-highlight-bg);
+
+    /* Extended Keys - Highlight */
+
+    /* FG */
+    --key-extendedkey-focused-color: var(--gk-ek-highlight-fg);
+    --key-extendedkey-hover-color: var(--gk-ek-highlight-fg);
+
+    /* BG */
+    --key-extendedkey-focused-background-color: var(--gk-ek-highlight-bg);
+    --key-extendedkey-hover-background-color: var(--gk-ek-highlight-bg);
+
+    /* Pressed Down */
+
+    /* FG */
+    --key-touched-color: var(--gk-pressed-fg);
+    --key-extendedkey-color: var(--gk-pressed-fg);
+
+    /* BG */
+    --key-touched-background-color: var(--gk-pressed-bg);
+    --key-extendedkey-background-color: var(--gk-pressed-bg);
+
+    /* Toggled-on */
+
+    /* FG */
+    --key-toggleon-color: var(--gk-toggled-fg);
+    --key-toggleoneshot-color: var(--gk-toggled-fg);
+
+    /* BG */
+    --key-toggleon-background-color: var(--gk-toggled-bg);
+    --key-toggleoneshot-background-color: var(--gk-toggled-bg);
+
+    /* Primary Keys - idle */
+
+    /* FG */
+    --key-color: var(--gk-main-fg-idle);
+    --key-spacebar-color: var(--gk-main-fg-idle);
+    --key-shift-label-color: var(--gk-main-fg-idle);
+    --key-emoji-color: var(--gk-main-fg-idle);
+
+    /* BG */
+    --key-background-color: var(--gk-main-bg-idle);
+    --key-spacebar-background-color: var(--gk-main-bg-idle);
+
+    /* Action Keys - idle */
+
+    /* FG */
+    --key-meta-color: var(--gk-action-fg-idle);
+    --key-tab-color: var(--gk-action-fg-idle);
+    --key-caps-color: var(--gk-action-fg-idle);
+    --key-shift-color: var(--gk-action-fg-idle);
+    --key-enter-color: var(--gk-action-fg-idle);
+    --key-backspace-color: var(--gk-action-fg-idle);
+
+    /* BG */
+    --key-meta-background-color: var(--gk-action-bg-idle);
+    --key-tab-background-color: var(--gk-action-bg-idle);
+    --key-caps-background-color: var(--gk-action-bg-idle);
+    --key-shift-background-color: var(--gk-action-bg-idle);
+    --key-enter-background-color: var(--gk-action-bg-idle);
+    --key-backspace-background-color: var(--gk-action-bg-idle);
+    --key-spacer-background-color: var(--gk-action-bg-idle);
 
 }
 
-/* SD Variables */
-
-:root {
-    --mr-capsule-height: 201px;
-    --mr-capsule-width: 134px;
-    --mr-centered-carousel: 92%;
+/* Middle Container */
+._45rH7-kY4P2uVEb3TxZhm {
+    background: var(--gk-keyboard-bg);
 }
 
-:root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 201px"]) {
-    --mr-capsule-width: 201px;
+/* Pressed-down Container */
+.DefaultTheme ._2KhPXikozxMpbIRo_6jPxW._3UFQq1GinEyksceos-TETi {
+    background: var(--key-touched-background-color);
 }
 
-/* TV Variables */ @media (min-width: 900px) {
-
-:root {
-    --mr-capsule-height: 258px;
-    --mr-capsule-width: 172px;
-    --mr-centered-carousel: 95%;
+/* Glyphs - idle/hover */
+._3VtXfHDGV1q2LCVruVnHed img {
+    filter: var(--gk-glyph-color);
 }
 
-:root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
-    --mr-capsule-width: 258px;
+._2KhPXikozxMpbIRo_6jPxW._21EoN2ZlmHNY3fjho_HMae img {
+    filter: var(--gk-glyph-color);
 }
 
-/* End of TV Variables */ }
-
-
-/* Full Screen Home */
-    ._39tNvaLedsTrVh0fFsP4Jm {
-        height: 100vh !important;
-    }
-
-    ._282X0J4BtrSF1IXctmOe-X {
-        height: 100vh !important;
-    }
-
-    ._2_cRkGdbegoIbiRsy_-I7 {
-        height: 100vh !important;
-        width: 100vw !important;
-        padding: 0;
-    }
-
-    .cE1SaW6jrVUDxcqRtyMo1 {
-        margin-top: 0px;
-    }
-
-/* Current/Recent Game Text */
-    ._35iRep_MLGWeAmkLbeny7R {
-        position: absolute;
-        left: 0px;
-        padding: calc(2 * var(--mr-standard-padding));
-        padding-left: var(--mr-standard-padding);
-        height: fit-content;
-        width: fit-content;
-    }
-
-/* Hero Alignment */
-    .QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
-        height: 100vh !important;
-        width: 100vw !important;
-        object-position: var(--mr-hero-position);
-        object-fit: var(--mr-hero-fit);
-    }
-
-/* Centered Carousel */
-    ._282X0J4BtrSF1IXctmOe-X {
-        width: var(--mr-centered-carousel);
-    }
-
-    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        width: 100vw !important;
-    }
-
-/* Carousel Container */
-    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        margin-top: 0px;
-        left: 0px;
-        padding: var(--mr-standard-padding);
-        padding-top: calc(2 * var(--mr-standard-padding));
-        padding-bottom: calc(2 * var(--mr-standard-padding));
-        scroll-padding: var(--mr-standard-padding);
-        height: var(--mr-capsule-height) !important;
-        box-sizing: unset !important;
-        position: absolute !important;
-    }
-
-    /* Capsule Sizing */
-        ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
-            height: var(--mr-capsule-height) !important;
-            width: var(--mr-carousel-container-width) !important;
-            padding-right: calc(2 * var(--mr-standard-padding));
-        }
-
-        [data-id*="GoToLibrary"] {
-            height: var(--mr-capsule-height) !important;
-            width: var(--mr-capsule-width) !important;
-        }
-
-/* Game Title */
-
-    /* Outer Container */
-    ._1HIFNGSxh4-jOhPiDynR4C {
-        height: var(--mr-capsule-height) !important;
-    }
-
-    /* Game Title Container */
-    .ZkD6We6MqGbOsa9K3yiY3 {
-        display: flex;
-        height: 100%;
-        padding-top: 4px;
-        top: 0;
-        position: absolute;
-        align-content: center;
-        flex-wrap: wrap;
-        transform: none;
-    }
-
-    /* Game Title - Text */
-    .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
-        margin-left: 0px;
-    }
+/* Glyphs - pressed-down */
+.DefaultTheme ._2KhPXikozxMpbIRo_6jPxW._3UFQq1GinEyksceos-TETi img {
+    filter: var(--gk-glyph-color-pressed);
+}
