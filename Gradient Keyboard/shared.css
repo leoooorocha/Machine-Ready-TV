@@ -1,7 +1,7 @@
 .DefaultTheme {
 
     /* Keyboard Background */
-    --background-color: var(--gk-keyboard-bg);
+    --background-color: transparent;
 
     /* Hightlight */
 
@@ -80,7 +80,7 @@
 
 /* Middle Container */
 ._45rH7-kY4P2uVEb3TxZhm {
-    background: transparent;
+    background: var(--gk-keyboard-bg);
 }
 
 /* Pressed-down Container */
