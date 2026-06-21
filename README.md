@@ -6,10 +6,10 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 
 ## Custom Patches
 
-- **Clean Game launch**, featuring fullscreen based on screen size and more options for the playbar.
+- **Clean Game launch**, featuring an additional option to remove filters when launching a game.
 <img src="Clean Game Launch/Clean Game Launch - Patch.jpg" width="800">
 
-- **Clean Gameview**, featuring an additional option to remove filters when launching a game.
+- **Clean Gameview**, featuring fullscreen based on screen size and more options for the playbar.
 <img src="Clean Gameview/Clean Gameview - Patch.jpg" width="800">
 
 - **Colored Toggles**, featuring more customization options, including an animated background for any custom gradient.
