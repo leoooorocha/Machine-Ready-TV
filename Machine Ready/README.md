@@ -8,6 +8,6 @@
   - Full compatibility with ALL themes on this Repository.
   - Full compatibility with SteamGridDB.
  
-<img src="Machine%20Ready/preview%201.jpg" width="800">
-<img src="Machine%20Ready/preview%202.jpg" width="800">
-<img src="Machine%20Ready/preview%203.jpg" width="800">
+<img src="preview%201.jpg" width="800">
+<img src="preview%202.jpg" width="800">
+<img src="preview%203.jpg" width="800">

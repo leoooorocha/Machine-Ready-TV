@@ -4,4 +4,4 @@
 - Cloud has now a button layout, that matches with other icons.
 - Footer height distance is now customizeable, to grant compatibility with Delly Footer.
 
-<img src="Clean%20Gameview/Clean%20Gameview%20-%20Patch.jpg" width="800">
+<img src="Clean%20Gameview%20-%20Patch.jpg" width="800">
