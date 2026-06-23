@@ -37,16 +37,13 @@
             "default": "Bottom",
             "values": {
                 "Top": {
-                    "carousel/top.css": [],
-                    "variables/top.css": []
+                    "carousel/top.css": []
                 },
                 "Center": {
-                    "carousel/center.css": [],
-                    "variables/center.css": []
+                    "carousel/center.css": []
                 },
                 "Bottom": {
-                    "carousel/bottom.css": [],
-                    "variables/bottom.css": []
+                    "carousel/bottom.css": []
                 }
             }
         },
