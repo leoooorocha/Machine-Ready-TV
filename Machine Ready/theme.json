@@ -10,7 +10,8 @@
     },
     "inject": {
         "shared.css": [],
-        "dynamic-carousel.css": []
+        "dynamic-carousel.css": [],
+        "resolution-patches.css": []
     },
     "patches":{
         "Hero Alignment": {

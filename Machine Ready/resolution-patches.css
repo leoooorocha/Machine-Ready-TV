@@ -1,0 +1,86 @@
+/* 1280x800 at 53% - rendered at 854x534 */ @media (min-width: 853px) {
+
+    :root {
+        --mr-capsule-width: 134px;
+        --mr-capsule-height: 201px;
+        --mr-first-capsule-width: 442.047px; /* First child container with padding */
+        --mr-centered-carousel: 92%;
+    }
+
+    /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
+    :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 201px"]) {
+        --mr-capsule-width: var(--mr-capsule-height);
+    }
+
+    /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
+    :root:has([role="listitem"][aria-posinset="1"][style*="width: 442.047px"]) {
+        --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
+    }
+
+/* End of Variables */ }
+
+
+/* 1280x720 at 40% - rendered at 1076x607 */ @media (min-width: 1075px) {
+
+    :root {
+        --mr-capsule-width: 134px;
+        --mr-capsule-height: 201px;
+        --mr-first-capsule-width: 442.047px; /* First child container with padding */
+        --mr-centered-carousel: 93.5%;
+    }
+
+    /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
+    :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 201px"]) {
+        --mr-capsule-width: var(--mr-capsule-height);
+    }
+
+    /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
+    :root:has([role="listitem"][aria-posinset="1"][style*="width: 442.047px"]) {
+        --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
+    }
+
+/* End of Variables */ }
+
+
+/* 1920x1080 at 26% - rendered at 1354x761 */ @media (min-width: 1353px) {
+
+    :root {
+        --mr-capsule-width: 172px;
+        --mr-capsule-height: 258px;
+        --mr-first-capsule-width: 564px; /* First child container with padding */
+        --mr-centered-carousel: 95%;
+    }
+
+    /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
+    :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
+        --mr-capsule-width: var(--mr-capsule-height);
+    }
+
+    /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
+    :root:has([role="listitem"][aria-posinset="1"][style*="width: 564px"]) {
+        --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
+    }
+
+/* End of Variables */ }
+
+
+/* 1920x1080 at 21% - rendered at 1500x845 */ @media (min-width: 1499px) {
+
+    :root {
+        --mr-capsule-width: 172px;
+        --mr-capsule-height: 258px;
+        --mr-first-capsule-width: 564px; /* First child container with padding */
+        --mr-centered-carousel: 95.4%;
+    }
+
+    /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
+    :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
+        --mr-capsule-width: var(--mr-capsule-height);
+    }
+
+    /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
+    :root:has([role="listitem"][aria-posinset="1"][style*="width: 564px"]) {
+        --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
+    }
+
+/* End of Variables */ }
