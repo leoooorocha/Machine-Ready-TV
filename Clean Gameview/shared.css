@@ -12,11 +12,6 @@
     --cgv-buttons-bg: rgba(172, 178, 201, 0.14);
 }
 
-/* Header Black Gradient */
-.BasicUI ._1IWSiRVmH1DlNlWSaBeUuZ {
-    background: transparent;
-}
-
 /* Hero Height */
 .sharedappdetailsheader_HeaderBackgroundImage_1sarA {
     height: var(--CGV-hero-height);

@@ -30,6 +30,21 @@
                 }
             }
         },
+        "Art Cover Gradient": {
+            "type": "dropdown",
+            "default": "Remove",
+            "values": {
+                "Default": {},
+                "Remove": {
+                    "gradient.css": [],
+                    "--CGV-gradient-filter": [ "transparent" ]
+                },
+                "Radial Gradient": {
+                    "gradient.css": [],
+                    "--CGV-gradient-filter": [ "radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%)" ]
+                }
+            }
+        },
         "Lock Logo": {
             "type": "checkbox",
             "default": "Yes",
