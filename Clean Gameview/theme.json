@@ -41,7 +41,7 @@
                 },
                 "Radial Gradient": {
                     "gradient.css": [],
-                    "--CGV-gradient-filter": [ "radial-gradient(ellipse farthest-corner at 50% 45%, rgba(255, 255, 255, 0) 25%, rgba(0, 0, 0, 0.8) 70%, #000000 100%)" ]
+                    "--CGV-gradient-filter": [ "radial-gradient(ellipse farthest-corner at 50% 35%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0.8) 100%)" ]
                 }
             }
         },
