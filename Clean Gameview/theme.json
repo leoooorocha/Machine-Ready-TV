@@ -32,16 +32,16 @@
         },
         "Art Cover Gradient": {
             "type": "dropdown",
-            "default": "Remove",
+            "default": "None",
             "values": {
                 "Default": {},
-                "Remove": {
+                "None": {
                     "gradient.css": [],
                     "--CGV-gradient-filter": [ "transparent" ]
                 },
                 "Radial Gradient": {
                     "gradient.css": [],
-                    "--CGV-gradient-filter": [ "radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%)" ]
+                    "--CGV-gradient-filter": [ "radial-gradient(ellipse farthest-corner at 50% 45%, rgba(255, 255, 255, 0) 25%, rgba(0, 0, 0, 0.8) 70%, #000000 100%)" ]
                 }
             }
         },
