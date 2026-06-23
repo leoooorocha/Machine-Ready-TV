@@ -3,7 +3,7 @@
     "author": "Leozito",
     "version": "v1.0",
     "description": "Remove separator from interface elements.",
-    "target": "System-wide",
+    "target": "System-Wide",
     "manifest_version": 9,
     "tabs": {
         "default": [ "bigpicture", "QuickAccess", "MainMenu" ]
