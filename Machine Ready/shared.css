@@ -21,6 +21,46 @@
 
 }
 
+/* Resolution Patch - Small Capsule */
+
+    /* Capsule Size */
+        :root {
+            --mr-capsule-width: 134px;
+            --mr-capsule-height: 201px;
+            --mr-first-capsule-width: 442.047px; /* First child container with padding */
+        }
+
+    /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
+        :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 201px"]) {
+            --mr-capsule-width: var(--mr-capsule-height);
+        }
+
+    /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
+        :root:has([role="listitem"][aria-posinset="1"][style*="width: 442.047px"]) {
+            --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
+        }
+
+/* Resolution Patch - Big Capsule */ @media (min-width: 1280px) {
+
+    /* Capsule Size */
+        :root {
+            --mr-capsule-width: 172px;
+            --mr-capsule-height: 258px;
+            --mr-first-capsule-width: 564px; /* First child container with padding */
+        }
+
+        /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
+        :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
+            --mr-capsule-width: var(--mr-capsule-height);
+        }
+
+        /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
+        :root:has([role="listitem"][aria-posinset="1"][style*="width: 564px"]) {
+            --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
+        }
+
+} /* End of "Resolution Patch - Big Capsule" */
+
 /* Full Screen Home */
     ._39tNvaLedsTrVh0fFsP4Jm {
         height: 100vh !important;
@@ -31,8 +71,8 @@
     }
 
     ._2_cRkGdbegoIbiRsy_-I7 {
-        height: 100vh !important;
         width: 100vw !important;
+        height: 100vh !important;
         padding: 0;
     }
 
@@ -44,74 +84,71 @@
     ._35iRep_MLGWeAmkLbeny7R {
         position: absolute;
         left: 0px;
+        width: fit-content;
+        height: fit-content;
         padding: calc(2 * var(--mr-standard-padding));
         padding-left: var(--mr-standard-padding);
-        height: fit-content;
-        width: fit-content;
     }
 
 /* Hero Alignment */
     .QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
-        height: 100vh !important;
         width: 100vw !important;
+        height: 100vh !important;
         object-position: var(--mr-hero-position);
         object-fit: var(--mr-hero-fit);
     }
 
 /* Centered Carousel */
     ._282X0J4BtrSF1IXctmOe-X {
-        width: var(--mr-centered-carousel);
-    }
-
-    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        width: 100vw !important;
+        width: calc(100% - 68px) !important;
     }
 
 /* Carousel Container */
     ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        margin-top: 0px;
+        position: absolute !important;
         left: 0px;
+        width: calc(100vw - calc(var(--mr-standard-padding)* 2)) !important;
+        height: var(--mr-capsule-height) !important;
+        margin-top: 0px;
         padding: var(--mr-standard-padding);
         padding-top: calc(2 * var(--mr-standard-padding));
         padding-bottom: calc(2 * var(--mr-standard-padding));
         scroll-padding: var(--mr-standard-padding);
-        height: var(--mr-capsule-height) !important;
         box-sizing: unset !important;
-        position: absolute !important;
     }
 
-    /* Capsule Sizing */
-        ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
-            height: var(--mr-capsule-height) !important;
-            width: var(--mr-carousel-container-width) !important;
-            padding-right: calc(2 * var(--mr-standard-padding));
-        }
+/* Capsule Sizing */
+    ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
+        width: var(--mr-carousel-container-width) !important;
+        height: var(--mr-capsule-height) !important;
+    }
 
-        [data-id*="GoToLibrary"] {
-            height: var(--mr-capsule-height) !important;
-            width: var(--mr-capsule-width) !important;
-        }
+    [data-id*="GoToLibrary"] {
+        width: var(--mr-capsule-width) !important;
+        height: var(--mr-capsule-height) !important;
+    }
 
 /* Game Title */
 
     /* Outer Container */
-    ._1HIFNGSxh4-jOhPiDynR4C {
-        height: var(--mr-capsule-height) !important;
-    }
+        ._1HIFNGSxh4-jOhPiDynR4C {
+            height: var(--mr-capsule-height) !important;
+        }
 
     /* Game Title Container */
-    .ZkD6We6MqGbOsa9K3yiY3 {
-        display: flex;
-        height: 100%;
-        padding-top: 4px;
-        top: 0;
-        position: absolute;
-        align-content: center;
-        flex-wrap: wrap;
-        transform: none;
-    }
+        .ZkD6We6MqGbOsa9K3yiY3 {
+            position: absolute;
+            top: 0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding-top: 4px;
+            align-content: center;
+            flex-wrap: wrap;
+            transform: none;
+        }
 
     /* Game Title - Text */
-    .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
-        margin-left: 0px;
-    }
+        .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
+            margin-left: 0px;
+        }
