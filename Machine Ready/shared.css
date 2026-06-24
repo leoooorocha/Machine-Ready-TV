@@ -18,6 +18,12 @@
         --mr-first-capsule-difference: 0px;
         --mr-capsule-container-width: calc(var(--mr-capsule-width) + var(--mr-capsule-padding));
         --mr-carousel-container-width: calc(var(--mr-capsule-container-width) * 21 - var(--mr-capsule-padding) + var(--mr-first-capsule-difference));
+        --mr-carousel-scaling: 1;
+        --mr-carousel-scaling-strength: 1;
+        --mr-carousel-adjustment: calc(-4% * calc(1 - var(--mr-carousel-scaling)));
+        --mr-scroll-padding-highlight: calc(calc(100% / var(--mr-carousel-scaling)) + var(--mr-carousel-adjustment) - 68.5px);
+        --mr-scroll-padding-end: 0px;
+
 
 }
 
@@ -67,6 +73,7 @@
     }
 
     ._282X0J4BtrSF1IXctmOe-X {
+        width: var(--mr-scroll-padding-highlight) !important;
         height: 100vh !important;
     }
 
@@ -98,29 +105,29 @@
         object-fit: var(--mr-hero-fit);
     }
 
-/* Centered Carousel */
-    ._282X0J4BtrSF1IXctmOe-X {
-        width: calc(100% - 68px) !important;
-    }
-
 /* Carousel Container */
     ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
         position: absolute !important;
         left: 0px;
-        width: calc(100vw - calc(var(--mr-standard-padding)* 2)) !important;
         height: var(--mr-capsule-height) !important;
         margin-top: 0px;
-        padding: var(--mr-standard-padding);
-        padding-top: calc(2 * var(--mr-standard-padding));
-        padding-bottom: calc(2 * var(--mr-standard-padding));
+        padding: calc(var(--mr-standard-padding) * var(--mr-carousel-scaling-strength));
+        padding-top: calc(calc(2 * var(--mr-standard-padding)) * var(--mr-carousel-scaling-strength));
+        padding-bottom: calc(calc(2 * var(--mr-standard-padding)) * var(--mr-carousel-scaling-strength));
         scroll-padding: var(--mr-standard-padding);
         box-sizing: unset !important;
     }
 
 /* Capsule Sizing */
+
+    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
+        width: calc(100vw / var(--mr-carousel-scaling) - calc(calc(var(--mr-standard-padding) * var(--mr-carousel-scaling-strength)) * 2)) !important;
+    }
+
     ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
         width: var(--mr-carousel-container-width) !important;
         height: var(--mr-capsule-height) !important;
+        padding-right: var(--mr-scroll-padding-end);
     }
 
     [data-id*="GoToLibrary"] {
