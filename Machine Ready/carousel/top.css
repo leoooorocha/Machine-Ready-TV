@@ -6,6 +6,8 @@
 /* Carousel Container */
     ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
         top: 0px;
+        transform: scale(var(--mr-carousel-scaling));
+        transform-origin: left top;
     }
 
 /* Title Position */
