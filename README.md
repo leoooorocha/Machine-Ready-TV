@@ -52,7 +52,7 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 5. Return to CSS Loader and click **Refresh**.
 6. Select and apply your preferred Machine Ready profile.
 
-## Preview
+## Preview - Machine Ready Special
 
 ### Standard
 
@@ -61,6 +61,10 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 ### PS OLED
 
 <img src="Machine Ready - PS Oled.profile/preview 1.jpg" width="800">
+
+### Soft Play
+
+<img src="Machine Ready - Soft Play.profile/preview 1.jpg" width="800">
 
 ## Preview - Machine Ready Colors
 
