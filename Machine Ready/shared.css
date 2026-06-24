@@ -20,7 +20,6 @@
         --mr-carousel-container-width: calc(var(--mr-capsule-container-width) * 21 - var(--mr-capsule-padding) + var(--mr-first-capsule-difference));
         --mr-carousel-scaling: 1;
         --mr-carousel-scaling-strength: 1;
-        --mr-carousel-adjustment: calc(-4% * calc(1 - var(--mr-carousel-scaling)));
         --mr-scroll-padding-highlight: calc(calc(100% / var(--mr-carousel-scaling)) + var(--mr-carousel-adjustment) - 68.5px);
         --mr-scroll-padding-end: 0px;
 
@@ -34,6 +33,7 @@
             --mr-capsule-width: 134px;
             --mr-capsule-height: 201px;
             --mr-first-capsule-width: 442.047px; /* First child container with padding */
+            --mr-carousel-adjustment: calc(-9% * calc(1 - var(--mr-carousel-scaling)));
         }
 
     /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
@@ -53,6 +53,7 @@
             --mr-capsule-width: 172px;
             --mr-capsule-height: 258px;
             --mr-first-capsule-width: 564px; /* First child container with padding */
+            --mr-carousel-adjustment: calc(-4% * calc(1 - var(--mr-carousel-scaling)));
         }
 
         /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
