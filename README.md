@@ -55,13 +55,13 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 ## Profile Previews
 
 ### Standard
-<img src="MR%20-%20Standard..profile/preview-1.jpg" width="800">
+<img src="MR%20-%20Standard.profile/preview-1.jpg" width="800">
 
 ### PSP OLED
 <img src="MR%20-%20PSP%20OLED.profile/preview-1.jpg" width="800">
 
 ### Soft Play
-<img src="MR%20-%20Soft%20Play/preview-1.jpg" width="800">
+<img src="MR%20-%20Soft%20Play.profile/preview-1.jpg" width="800">
 
 ### Switch Grey
 <img src="MR%20-%20Switch%20Grey.profile/preview-1.jpg" width="800">
