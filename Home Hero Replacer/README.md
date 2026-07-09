@@ -1,4 +1,4 @@
 ## Home Hero Replacer
-- Replace Hero with custom color.
+- Replace Home Hero image with a custom color.
 
 <img src="preview.jpg" width="800">
