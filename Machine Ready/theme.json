@@ -1,179 +1,101 @@
 {
     "name": "Machine Ready",
     "author": "Leozito",
-    "version": "v1.0",
-    "description": "Clean consolifyed home screen with fullscreen hero and centered carousel.",
+    "version": "v2.0",
+    "description": "Clean consolifyed home screen.",
     "target": "Home",
     "manifest_version": 9,
-    "tabs": {
-        "default": [ "bigpicture" ]
-    },
+    "tabs": { "default": [ "bigpicture" ] },
     "inject": {
         "shared.css": [],
-        "dynamic-carousel.css": []
+        "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+        "dynamic-carousel/shared.css": [],
+        "dynamic-carousel/dynamic-x.css": [],
+        "dynamic-carousel/dynamic-y.css": [],
+        "dynamic-carousel/dynamic-z.css": [],
+        "dynamic-carousel/size-tracker.css": []
     },
-    "patches":{
-        "Hero Alignment": {
+    "patches": {
+        "Hero Style": {
             "type": "slider",
-            "default": "Cover",
+            "default": "3",
             "values": {
-                "Cover": {},
-                "Contain": {
-                    "--mr-hero-fit": [ "contain" ]
-                },
-                "Stretch": {
-                    "--mr-hero-fit": [ "stretch" ]
-                },
-                "Left": {
-                    "--mr-hero-position": [ "left" ]
-                },
-                "Right": {
-                    "--mr-hero-position": [ "right" ]
-                }
+                "CT": { "--mr-hero-style": [ "contain" ] },
+                "1": { "--mr-hero-alignment": [ "100%" ] },
+                "2": { "--mr-hero-alignment": [ "75%" ] },
+                "3": { "--mr-hero-alignment": [ "50%" ] },
+                "4": { "--mr-hero-alignment": [ "25%" ] },
+                "5": { "--mr-hero-alignment": [ "0%" ] },
+                "ST": { "--mr-hero-style": [ "stretch" ] }
             }
         },
-        "Carousel Position": {
-            "type": "slider",
-            "default": "Bottom",
-            "values": {
-                "Top": {
-                    "carousel/top.css": []
-                },
-                "Center": {
-                    "carousel/center.css": []
-                },
-                "Bottom": {
-                    "carousel/bottom.css": []
-                }
-            }
-        },
-        "Carousel Navigation": {
-            "type": "slider",
-            "default": "Center",
-            "values": {
-                "Center": {},
-                "Left": {
-                    "--mr-scroll-padding-highlight": [ "calc(var(--mr-capsule-container-width) * 1.5)" ],
-                    "--mr-scroll-padding-end": [ "calc(100vw * var(--mr-carousel-scaling-strength))" ]
-                }
-            }
-        },
-        "Carousel Scaling": {
-            "type": "slider",
-            "default": "1.0",
-            "values": {
-                "1.0": {
-                    "--mr-carousel-scaling": [ "1.0" ],
-                    "--mr-carousel-scaling-strength": [ "1.0" ]
-                },
-                "0.9": {
-                    "--mr-carousel-scaling": [ "0.9" ],
-                    "--mr-carousel-scaling-strength": [ "1.1" ]
-                },
-                "0.8": {
-                    "--mr-carousel-scaling": [ "0.8" ],
-                    "--mr-carousel-scaling-strength": [ "1.2" ]
-                },
-                "0.7": {
-                    "--mr-carousel-scaling": [ "0.7" ],
-                    "--mr-carousel-scaling-strength": [ "1.3" ]
-                },
-                "0.6": {
-                    "--mr-carousel-scaling": [ "0.6" ],
-                    "--mr-carousel-scaling-strength": [ "1.4" ]
-                },
-                "0.5": {
-                    "--mr-carousel-scaling": [ "0.5" ],
-                    "--mr-carousel-scaling-strength": [ "1.5" ]
-                }
-            }
-        },
-        "Dynamic Z Style": {
-            "type": "slider",
-            "default": "Upwards",
-            "values": {
-                "Upwards": {
-                    "dynamic-carousel/upwards.css": []
-                },
-                "Magnify": {
-                    "dynamic-carousel/magnify.css": []
-                },
-                "Downwards": {
-                    "dynamic-carousel/downwards.css": []
-                }
-            }
-        },
-        "Dynamic Z Strength": {
-            "type": "slider",
-            "default": "5",
-            "values": {
-                "Off": {},
-                "1": {
-                    "--mr-dynamic-carousel-strength": [ "5px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "1" ]
-                },
-                "2": {
-                    "--mr-dynamic-carousel-strength": [ "10px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "2" ]
-                },
-                "3": {
-                    "--mr-dynamic-carousel-strength": [ "15px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "3" ]
-                },
-                "4": {
-                    "--mr-dynamic-carousel-strength": [ "20px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "4" ]
-                },
-                "5": {
-                    "--mr-dynamic-carousel-strength": [ "25px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "5" ]
-                },
-                "6": {
-                    "--mr-dynamic-carousel-strength": [ "30px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "6" ]
-                },
-                "7": {
-                    "--mr-dynamic-carousel-strength": [ "35px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "7" ]
-                },
-                "8": {
-                    "--mr-dynamic-carousel-strength": [ "40px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "8" ]
-                },
-                "9": {
-                    "--mr-dynamic-carousel-strength": [ "45px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "9" ]
-                },
-                "10": {
-                    "--mr-dynamic-carousel-strength": [ "50px" ],
-                    "--mr-dynamic-carousel-strength-rule": [ "10" ]
-                }
-            }
-        },
-        "Game Title Neutral Position": {
+        "Dynamic-X Left": {
             "type": "checkbox",
             "default": "No",
             "values": {
-                "No": {},
-                "Yes": {
-                    "--mr-game-title-final-position": [ "var(--mr-game-title-neutral-position)" ]
-                }
+                "No": { "dynamic-carousel/x/center.css": [] },
+                "Yes": { "dynamic-carousel/x/left.css": [] }
             }
         },
-        "System Font": {
+        "Dynamic-X Scaling": {
+            "type": "slider",
+            "default": "85%",
+            "values": {
+                "Off": { "--mr-dc-carousel-scaling": [ "1.00" ] },
+                "95%": { "--mr-dc-carousel-scaling": [ "0.95" ] },
+                "90%": { "--mr-dc-carousel-scaling": [ "0.90" ] },
+                "85%": { "--mr-dc-carousel-scaling": [ "0.85" ] },
+                "80%": { "--mr-dc-carousel-scaling": [ "0.80" ] },
+                "75%": { "--mr-dc-carousel-scaling": [ "0.75" ] },
+                "70%": { "--mr-dc-carousel-scaling": [ "0.70" ] }
+            }
+        },
+        "Dynamic-Y Position": {
+            "type": "slider",
+            "default": "Center",
+            "values": {
+                "Top": { "dynamic-carousel/y/top.css": [] },
+                "Center": { "dynamic-carousel/y/center.css": [] },
+                "Bottom": { "dynamic-carousel/y/bottom.css": [] }
+            }
+        },
+        "Dynamic-Z Style": {
+            "type": "slider",
+            "default": "Magnify",
+            "values": {
+                "Raise": { "dynamic-carousel/z/raise.css": [] },
+                "Magnify": { "dynamic-carousel/z/magnify.css": [] },
+                "Lower": { "dynamic-carousel/z/lower.css": [] }
+            }
+        },
+        "Dynamic-Z Strength": {
+            "type": "slider",
+            "default": "5",
+            "values": {
+                "Off": { "--mr-dc-ruler": [ "0" ] },
+                "1": { "--mr-dc-ruler": [ "1" ] },
+                "2": { "--mr-dc-ruler": [ "2" ] },
+                "3": { "--mr-dc-ruler": [ "3" ] },
+                "4": { "--mr-dc-ruler": [ "4" ] },
+                "5": { "--mr-dc-ruler": [ "5" ] },
+                "6": { "--mr-dc-ruler": [ "6" ] },
+                "7": { "--mr-dc-ruler": [ "7" ] },
+                "8": { "--mr-dc-ruler": [ "8" ] },
+                "9": { "--mr-dc-ruler": [ "9" ] },
+                "Max": { "--mr-dc-ruler": [ "10" ] }
+            }
+        },
+        "Custom Font": {
             "type": "dropdown",
             "default": "Quicksand",
             "values": {
-                "Default": {},
-                "Quicksand": {
-                    "font-face/quicksand.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
-                },
-                "Nintendo Switch UI": {
-                    "font-face/nintendo-switch-ui.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
-                },
-                "SST (Playstation 5)": {
-                    "font-face/sst.css": [ "bigpicture", "QuickAccess", "MainMenu" ]
-                }
+                "Bitcount": { "--mr-cf-font-name": [ "Bitcount", "bigpicture", "QuickAccess", "MainMenu" ] },
+                "Inter": { "--mr-cf-font-name": [ "Inter", "bigpicture", "QuickAccess", "MainMenu" ] },
+                "Montenegrin": { "--mr-cf-font-name": [ "Montenegrin", "bigpicture", "QuickAccess", "MainMenu" ] },
+                "Nunito": {"--mr-cf-font-name": [ "Nunito", "bigpicture", "QuickAccess", "MainMenu" ] },
+                "Quicksand": { "--mr-cf-font-name": [ "Quicksand", "bigpicture", "QuickAccess", "MainMenu" ] },
+                "Ubuntu": { "--mr-cf-font-name": [ "Ubuntu", "bigpicture", "QuickAccess", "MainMenu" ] },
+                "UnicaOne": { "--mr-cf-font-name": [ "UnicaOne", "bigpicture", "QuickAccess", "MainMenu" ] }
             }
         }
     },

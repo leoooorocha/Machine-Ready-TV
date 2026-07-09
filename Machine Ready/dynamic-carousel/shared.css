@@ -1,0 +1,15 @@
+:root {
+    --mr-dc-carousel-container-width: calc(var(--mr-dc-st-first-capsule-container-width) + calc(var(--mr-dc-st-other-capsule-container-width) * 20) - var(--mr-dc-st-capsule-container-default-right-padding));
+}
+
+/* Capsule Sizing */
+
+._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
+    width: var(--mr-dc-carousel-container-width) !important;
+    height: var(--mr-dc-st-all-capsule-height) !important;
+}
+
+[data-id*="GoToLibrary"] {
+    width: var(--mr-dc-st-other-capsule-width) !important;
+    height: var(--mr-dc-st-all-capsule-height) !important;
+}

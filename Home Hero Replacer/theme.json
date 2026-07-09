@@ -1,0 +1,50 @@
+{
+    "name": "Home Hero Replacer",
+    "author": "Leozito",
+    "version": "v1.0",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [ "bigpicture" ]
+    },
+    "patches": {
+        "Background Color": {
+            "type": "dropdown",
+            "default": "Custom",
+            "values": {
+                "Custom": {
+                    "custom.css": []
+                },
+                "Gradient": {
+                    "gradient.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Custom Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#FF8000",
+                    "css_variable": "--hhr-bg-color",
+                    "tabs": []
+                },
+                {
+                    "name": "Gradient Color A",
+                    "type": "color-picker",
+                    "on": "Gradient",
+                    "default": "#bd5ece",
+                    "css_variable": "--hhr-bg-gradient-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Gradient Color B",
+                    "type": "color-picker",
+                    "on": "Gradient",
+                    "default": "#2ab1ac",
+                    "css_variable": "--hhr-bg-gradient-b",
+                    "tabs": []
+                }
+            ]
+        }
+    },
+    "id": "f4c2d851-1f1d-4a40-886c-ed5fb83c1fbb"
+}

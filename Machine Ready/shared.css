@@ -1,162 +1,30 @@
 :root {
-
-    /* General */
-        --mr-standard-padding: 40px;
-
-    /* Hero */
-        --mr-hero-position: center;
-        --mr-hero-fit: cover;
-
-    /* Game Title */
-        --mr-game-title-height: 40px;
-        --mr-game-title-initial-position: calc(calc(var(--mr-capsule-height) / 2) + calc(var(--mr-game-title-height)) / 2);
-        --mr-game-title-final-position: calc(var(--mr-game-title-initial-position) + calc(2px * var(--mr-dynamic-carousel-strength-rule)) + 5px);
-        --mr-game-title-neutral-position: calc(var(--mr-game-title-initial-position) + 5px);
-
-    /* Carousel */
-        --mr-capsule-padding: 12px;
-        --mr-first-capsule-difference: 0px;
-        --mr-capsule-container-width: calc(var(--mr-capsule-width) + var(--mr-capsule-padding));
-        --mr-carousel-container-width: calc(var(--mr-capsule-container-width) * 21 - var(--mr-capsule-padding) + var(--mr-first-capsule-difference));
-        --mr-carousel-scaling: 1;
-        --mr-carousel-scaling-strength: 1;
-        --mr-scroll-padding-highlight: calc(calc(100% / var(--mr-carousel-scaling)) + var(--mr-carousel-adjustment) - 68.5px);
-        --mr-scroll-padding-end: 0px;
-
-
+    --mr-hero-style: cover;
 }
 
-/* Resolution Patch - Small Capsule */
-
-    /* Capsule Size */
-        :root {
-            --mr-capsule-width: 134px;
-            --mr-capsule-height: 201px;
-            --mr-first-capsule-width: 442.047px; /* First child container with padding */
-            --mr-carousel-adjustment: calc(-9% * calc(1 - var(--mr-carousel-scaling)));
-        }
-
-    /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
-        :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 201px"]) {
-            --mr-capsule-width: var(--mr-capsule-height);
-        }
-
-    /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
-        :root:has([role="listitem"][aria-posinset="1"][style*="width: 442.047px"]) {
-            --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
-        }
-
-/* Resolution Patch - Big Capsule */ @media (min-width: 1280px) {
-
-    /* Capsule Size */
-        :root {
-            --mr-capsule-width: 172px;
-            --mr-capsule-height: 258px;
-            --mr-first-capsule-width: 564px; /* First child container with padding */
-            --mr-carousel-adjustment: calc(-4% * calc(1 - var(--mr-carousel-scaling)));
-        }
-
-        /* Square Capsules from SteamGridDB - value in style must be equal to --mr-capsule-height */
-        :root:has(._1HIFNGSxh4-jOhPiDynR4C[style*="width: 258px"]) {
-            --mr-capsule-width: var(--mr-capsule-height);
-        }
-
-        /* Matching Recent Capsules fix, from SteamGridDB - value in style must be equal to --mr-first-capsule-width */
-        :root:has([role="listitem"][aria-posinset="1"][style*="width: 564px"]) {
-            --mr-first-capsule-difference: calc(var(--mr-first-capsule-width) - var(--mr-capsule-container-width));
-        }
-
-} /* End of "Resolution Patch - Big Capsule" */
-
 /* Full Screen Home */
-    ._39tNvaLedsTrVh0fFsP4Jm {
-        height: 100vh !important;
-    }
+._39tNvaLedsTrVh0fFsP4Jm {
+    height: 100vh !important;
+}
 
-    ._282X0J4BtrSF1IXctmOe-X {
-        width: var(--mr-scroll-padding-highlight) !important;
-        height: 100vh !important;
-    }
+._282X0J4BtrSF1IXctmOe-X {
+    height: 100vh !important;
+}
 
-    ._2_cRkGdbegoIbiRsy_-I7 {
-        width: 100vw !important;
-        height: 100vh !important;
-        padding: 0;
-    }
+._2_cRkGdbegoIbiRsy_-I7 {
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0;
+}
 
-    .cE1SaW6jrVUDxcqRtyMo1 {
-        margin-top: 0px;
-    }
-
-/* Current/Recent Game Text */
-    ._35iRep_MLGWeAmkLbeny7R {
-        position: absolute;
-        left: 0px;
-        width: fit-content;
-        height: fit-content;
-        padding: calc(2 * var(--mr-standard-padding));
-        padding-left: var(--mr-standard-padding);
-    }
+.cE1SaW6jrVUDxcqRtyMo1 {
+    margin-top: 0px;
+}
 
 /* Hero Alignment */
-    .QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
-        width: 100vw !important;
-        height: 100vh !important;
-        object-position: var(--mr-hero-position);
-        object-fit: var(--mr-hero-fit);
-    }
-
-/* Carousel Container */
-    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        position: absolute !important;
-        left: 0px;
-        height: var(--mr-capsule-height) !important;
-        margin-top: 0px;
-        padding: calc(var(--mr-standard-padding) * var(--mr-carousel-scaling-strength));
-        padding-top: calc(calc(2 * var(--mr-standard-padding)) * var(--mr-carousel-scaling-strength));
-        padding-bottom: calc(calc(2 * var(--mr-standard-padding)) * var(--mr-carousel-scaling-strength));
-        scroll-padding: var(--mr-standard-padding);
-        box-sizing: unset !important;
-    }
-
-/* Capsule Sizing */
-
-    ._282X0J4BtrSF1IXctmOe-X ._3MdH5Czolhh5rC_nofUlcQ {
-        width: calc(100vw / var(--mr-carousel-scaling) - calc(calc(var(--mr-standard-padding) * var(--mr-carousel-scaling-strength)) * 2)) !important;
-    }
-
-    ._3MdH5Czolhh5rC_nofUlcQ .ReactVirtualized__Grid__innerScrollContainer {
-        width: var(--mr-carousel-container-width) !important;
-        height: var(--mr-capsule-height) !important;
-        padding-right: var(--mr-scroll-padding-end);
-    }
-
-    [data-id*="GoToLibrary"] {
-        width: var(--mr-capsule-width) !important;
-        height: var(--mr-capsule-height) !important;
-    }
-
-/* Game Title */
-
-    /* Outer Container */
-        ._1HIFNGSxh4-jOhPiDynR4C {
-            height: var(--mr-capsule-height) !important;
-        }
-
-    /* Game Title Container */
-        .ZkD6We6MqGbOsa9K3yiY3 {
-            position: absolute;
-            top: 0;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            padding-top: 4px;
-            align-content: center;
-            flex-wrap: wrap;
-            transform: none;
-        }
-
-    /* Game Title - Text */
-        .ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ {
-            margin-left: 0px;
-        }
+.QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
+    width: 100vw !important;
+    height: 100vh !important;
+    object-position: var(--mr-hero-alignment);
+    object-fit: var(--mr-hero-style);
+}

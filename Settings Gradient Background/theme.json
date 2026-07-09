@@ -85,8 +85,40 @@
                     "--sp-bg-menu-highlight-color-a": [ "#ffffff66" ],
                     "--sp-bg-menu-highlight-color-b": [ "#ffffff33" ],
                     "--sp-bg-menu-highlight-color-c": [ "#ffffff00" ]
+                },
+                "Custom": {
+                    "menu-highlights.css": [],
+                    "--sp-bg-menu-highlight-marker": [ "#ffffff" ],
+                    "--sp-bg-menu-highlight-color-c": [ "#ffffff00" ]
                 }
-            }
+            },
+            "components": [
+                {
+                    "name": "Marker",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#bd5ece",
+                    "css_variable": "--sp-bg-menu-highlight-marker",
+                    "tabs": []
+                },
+                {
+                    "name": "Highlighted",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#bd5ece",
+                    "css_variable": "--sp-bg-menu-highlight-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Idle",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#2ab1ac",
+                    "css_variable": "--sp-bg-menu-highlight-color-b",
+                    "tabs": []
+                }
+            ]
+
         },
         "Page Highlight": {
             "type": "dropdown",
