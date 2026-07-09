@@ -34,7 +34,7 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 *Download this if you want to use the .profiles*
 
 4. Open the CSS Loader Theme Store and install the following themes:
-   - Animated PSP Waves Background → Only for **Machine Ready - PS OLED.profile**
+   - Animated PSP Waves Background → Only for **MR - PSP OLED.profile**
    - Avatar Customization Suite
    - Better Blur
    - Clean Library Capsule
