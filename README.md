@@ -66,3 +66,6 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 
 ### Switch Grey
 <img src="Profiles/MR%20-%20Switch%20Grey.profile/preview-1.jpg" width="800">
+
+### MR - Colors (several colors) Settings Page
+<img src="Profiles/MR%20-%20Colors%20-%20preview.jpg" width="800">
