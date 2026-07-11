@@ -85,48 +85,52 @@
             "values": {
                 "Theme Default": {},
                 "Red": {
-                    "--gk-highlight-fg": [ "Red !important" ],
-                    "--gk-glyph-filter": [ "invert(10%) sepia(98%) saturate(7498%) hue-rotate(1deg) brightness(104%) contrast(106%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(0, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(12%) sepia(96%) saturate(7464%) hue-rotate(3deg) brightness(110%) contrast(112%) !important" ]
                 },
                 "Orange": {
-                    "--gk-highlight-fg": [ "Orange !important" ],
-                    "--gk-glyph-filter": [ "invert(64%) sepia(25%) saturate(1963%) hue-rotate(359deg) brightness(101%) contrast(108%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(30, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(71%) sepia(59%) saturate(5464%) hue-rotate(358deg) brightness(98%) contrast(109%) !important" ]
                 },
                 "Yellow": {
-                    "--gk-highlight-fg": [ "Yellow !important" ],
-                    "--gk-glyph-filter": [ "invert(100%) sepia(53%) saturate(6382%) hue-rotate(358deg) brightness(107%) contrast(101%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(60, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(91%) sepia(27%) saturate(1860%) hue-rotate(4deg) brightness(107%) contrast(111%) !important" ]
                 },
                 "Lime": {
-                    "--gk-highlight-fg": [ "Lime !important" ],
-                    "--gk-glyph-filter": [ "invert(47%) sepia(91%) saturate(1581%) hue-rotate(85deg) brightness(123%) contrast(119%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(90, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(80%) sepia(66%) saturate(1243%) hue-rotate(34deg) brightness(97%) contrast(119%) !important" ]
                 },
                 "Green": {
-                    "--gk-highlight-fg": [ "Green !important" ],
-                    "--gk-glyph-filter": [ "invert(21%) sepia(99%) saturate(2087%) hue-rotate(100deg) brightness(103%) contrast(102%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(120, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(60%) sepia(73%) saturate(2773%) hue-rotate(79deg) brightness(113%) contrast(127%) !important" ]
+                },
+                "Mint": {
+                    "--gk-highlight-fg": [ "hsla(150, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(82%) sepia(42%) saturate(4848%) hue-rotate(94deg) brightness(110%) contrast(101%) !important" ]
                 },
                 "Cyan": {
-                    "--gk-highlight-fg": [ "Cyan !important" ],
-                    "--gk-glyph-filter": [ "invert(85%) sepia(85%) saturate(1046%) hue-rotate(107deg) brightness(102%) contrast(104%) !important" ]
-                },
-                "Teal": {
-                    "--gk-highlight-fg": [ "Teal !important" ],
-                    "--gk-glyph-filter": [ "invert(18%) sepia(87%) saturate(3627%) hue-rotate(170deg) brightness(101%) contrast(101%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(180, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(84%) sepia(76%) saturate(703%) hue-rotate(102deg) brightness(102%) contrast(105%) !important" ]
                 },
                 "Blue": {
-                    "--gk-highlight-fg": [ "Blue !important" ],
-                    "--gk-glyph-filter": [ "invert(9%) sepia(99%) saturate(6202%) hue-rotate(246deg) brightness(97%) contrast(146%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(210, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(32%) sepia(57%) saturate(3413%) hue-rotate(198deg) brightness(103%) contrast(106%) !important" ]
                 },
                 "Indigo": {
-                    "--gk-highlight-fg": [ "Indigo !important" ],
-                    "--gk-glyph-filter": [ "invert(13%) sepia(58%) saturate(5584%) hue-rotate(272deg) brightness(72%) contrast(119%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(240, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(8%) sepia(100%) saturate(7253%) hue-rotate(248deg) brightness(100%) contrast(143%) !important" ]
                 },
                 "Purple": {
-                    "--gk-highlight-fg": [ "Purple !important" ],
-                    "--gk-glyph-filter": [ "invert(16%) sepia(62%) saturate(5866%) hue-rotate(292deg) brightness(64%) contrast(117%) !important" ]
+                    "--gk-highlight-fg": [ "hsla(270, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(11%) sepia(93%) saturate(6161%) hue-rotate(271deg) brightness(103%) contrast(127%) !important" ]
                 },
                 "Magenta": {
-                    "--gk-highlight-fg": [ "Magenta !important" ],
-                    "--gk-glyph-filter": [ "invert(22%) sepia(43%) saturate(6156%) hue-rotate(291deg) brightness(107%) contrast(135%); !important" ]
+                    "--gk-highlight-fg": [ "hsla(300, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(16%) sepia(97%) saturate(3885%) hue-rotate(295deg) brightness(119%) contrast(123%); !important" ]
+                },
+                "Pink": {
+                    "--gk-highlight-fg": [ "hsla(330, 100%, 50%, 1) !important" ],
+                    "--gk-glyph-filter": [ "invert(18%) sepia(94%) saturate(7227%) hue-rotate(323deg) brightness(102%) contrast(107%); !important" ]
                 }
 
             }

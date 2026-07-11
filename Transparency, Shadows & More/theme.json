@@ -12,6 +12,12 @@
         "shared.css": []
     },
     "patches": {
+        ". Home .": {
+            "type": "none",
+            "values": {
+                "_": {}
+            }
+        },
         "Header Background": {
             "type": "dropdown",
             "default": "Transparent",
@@ -31,6 +37,10 @@
                 "OLED Black": {
                     "home/header-background.css": [],
                     "--tsam-header-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "home/header-background.css": [],
+                    "--tsam-header-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "home/header-background.css": []
@@ -101,6 +111,10 @@
                 "OLED Black": {
                     "home/footer-background.css": [],
                     "--tsam-footer-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "home/footer-background.css": [],
+                    "--tsam-footer-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "home/footer-background.css": []
@@ -173,6 +187,12 @@
                 }
             }
         },
+        ". Gameview .": {
+            "type": "none",
+            "values": {
+                "_": {}
+            }
+        },
         "Gameview Logo Style": {
             "type": "dropdown",
             "default": "Dropshadows",
@@ -230,6 +250,12 @@
                 }
             }
         },
+        ". Menus .": {
+            "type": "none",
+            "values": {
+                "_": {}
+            }
+        },
         "Main Menu Background": {
             "type": "dropdown",
             "default": "★ Glass",
@@ -242,6 +268,10 @@
                 "OLED Black": {
                     "menus/main-menu-background.css": [],
                     "--tsam-main-menu-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "menus/main-menu-background.css": [],
+                    "--tsam-main-menu-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "menus/main-menu-background.css": []
@@ -296,6 +326,10 @@
                     "--tsam-context-menu-highlight-color": [ "black" ],
                     "--tsam-context-menu-highlight-filter": [ "none" ]
                 },
+                "☾ Global Pallete": {
+                    "menus/context-menu-background.css": [],
+                    "--tsam-context-menu-background": [ "var(--tsam-global-pallete)" ]
+                },
                 "Custom": {
                     "menus/context-menu-background.css": []
                 },
@@ -346,6 +380,10 @@
                 "OLED Black": {
                     "menus/sidebar-background.css": [],
                     "--tsam-sidebar-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "menus/sidebar-background.css": [],
+                    "--tsam-sidebar-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "menus/sidebar-background.css": []
@@ -415,6 +453,10 @@
                     "menus/qam-background.css": [],
                     "--tsam-qam-background": [ "black" ]
                 },
+                "☾ Global Pallete": {
+                    "menus/qam-background.css": [],
+                    "--tsam-qam-background": [ "var(--tsam-global-pallete)" ]
+                },
                 "Custom": {
                     "menus/qam-background.css": []
                 },
@@ -452,6 +494,12 @@
                 }
             ]
         },
+        ". In-game Menus .": {
+            "type": "none",
+            "values": {
+                "_": {}
+            }
+        },
         "In-game Menu Background": {
             "type": "dropdown",
             "default": "Custom Gradient",
@@ -460,11 +508,14 @@
                 "★ Glass": {
                     "menus/ingame-menu-background.css": [],
                     "--tsam-ingame-menu-background": [ "var(--tsam-glass)" ]
-
                 },
                 "OLED Black": {
                     "menus/ingame-menu-background.css": [],
                     "--tsam-ingame-menu-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "menus/ingame-menu-background.css": [],
+                    "--tsam-ingame-menu-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "menus/ingame-menu-background.css": []
@@ -509,11 +560,14 @@
                 "★ Glass": {
                     "menus/controller-menu-background.css": [],
                     "--tsam-controller-menu-background": [ "var(--tsam-glass)" ]
-
                 },
                 "OLED Black": {
                     "menus/controller-menu-background.css": [],
                     "--tsam-controller-menu-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "menus/ingame-menu-background.css": [],
+                    "--tsam-ingame-menu-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "menus/controller-menu-background.css": []
@@ -546,6 +600,32 @@
                     "on": "Custom Gradient",
                     "default": "#2ab1ac",
                     "css_variable": "--tsam-controller-menu-background-color-b",
+                    "tabs": []
+                }
+            ]
+        },
+        ". Global Tweaks .": {
+            "type": "none",
+            "values": {
+                "_": {}
+            }
+        },
+        "☾ Global Pallete": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {
+                    "--tsam-global-pallete": [ "#0e141b"]
+                },
+                "Yes": {}
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Yes",
+                    "default": "#404040",
+                    "css_variable": "--tsam-global-pallete",
                     "tabs": []
                 }
             ]

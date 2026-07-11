@@ -17,35 +17,51 @@
             "type": "dropdown",
             "values": {
                 "Red": {
-                    "--colored-toggles-main-color": [ "red" ],
+                    "--colored-toggles-main-color": [ "hsla(0, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Orange": {
-                    "--colored-toggles-main-color": [ "orange" ],
+                    "--colored-toggles-main-color": [ "hsla(30, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Yellow": {
-                    "--colored-toggles-main-color": [ "yellow" ],
+                    "--colored-toggles-main-color": [ "hsla(60, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Lime": {
-                    "--colored-toggles-main-color": [ "lime" ],
+                    "--colored-toggles-main-color": [ "hsla(90, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Green": {
-                    "--colored-toggles-main-color": [ "green" ],
+                    "--colored-toggles-main-color": [ "hsla(120, 100%, 50%, 1)" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Mint": {
+                    "--colored-toggles-main-color": [ "hsla(150, 100%, 50%, 1)" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Cyan": {
+                    "--colored-toggles-main-color": [ "hsla(180, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Blue": {
-                    "--colored-toggles-main-color": [ "blue" ],
+                    "--colored-toggles-main-color": [ "hsla(210, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Indigo": {
-                    "--colored-toggles-main-color": [ "indigo" ],
+                    "--colored-toggles-main-color": [ "hsla(240, 100%, 50%, 1)" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Purple": {
+                    "--colored-toggles-main-color": [ "hsla(270, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Magenta": {
-                    "--colored-toggles-main-color": [ "magenta" ],
+                    "--colored-toggles-main-color": [ "hsla(300, 100%, 50%, 1)" ],
+                    "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
+                },
+                "Pink": {
+                    "--colored-toggles-main-color": [ "hsla(330, 100%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Gradient RGB": {
