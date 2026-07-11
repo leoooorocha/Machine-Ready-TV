@@ -49,3 +49,9 @@
     color: var(--tsam-context-menu-highlight-color);
     filter: var(--tsam-context-menu-highlight-filter);
 }
+
+/* Context Box */
+._3A5ujtARm6atH4phJ5i1i6>._16sYNwqxz6giarbVaRUl7R {
+    border: none;
+    background: var(--tsam-context-menu-highlight-background);
+}
