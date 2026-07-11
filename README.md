@@ -31,9 +31,10 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 3. Paste them into `home/homebrew/themes` (alongside your existing themes).
 
 ### Optional
-*Download this if you want to use the .profiles*
+*Do this if you want to use the .profiles*
 
-4. Open the CSS Loader Theme Store and install the following themes:
+4. Copy the desired `.profiles` from *Profiles* folder and paste alongside the themes.
+5. Open the CSS Loader Theme Store and install the following themes:
    - Animated PSP Waves Background → Only for **MR - PSP OLED.profile**
    - Avatar Customization Suite
    - Better Blur
@@ -49,19 +50,19 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
    - Top Bar Padding
    - Volume Tweaker
 
-5. Return to CSS Loader and click **Refresh**.
-6. Select and apply your preferred Machine Ready profile.
+6. Return to CSS Loader and click **Refresh**.
+7. Select and apply your preferred Machine Ready profile.
 
 ## Profile Previews
 
 ### Standard
-<img src="MR%20-%20Standard.profile/preview-1.jpg" width="800">
+<img src="Profiles/MR%20-%20Standard.profile/preview-1.jpg" width="800">
 
 ### PSP OLED
-<img src="MR%20-%20PSP%20OLED.profile/preview-1.jpg" width="800">
+<img src="Profiles/MR%20-%20PSP%20OLED.profile/preview-1.jpg" width="800">
 
 ### Soft Play
-<img src="MR%20-%20Soft%20Play.profile/preview-1.jpg" width="800">
+<img src="Profiles/MR%20-%20Soft%20Play.profile/preview-1.jpg" width="800">
 
 ### Switch Grey
-<img src="MR%20-%20Switch%20Grey.profile/preview-1.jpg" width="800">
+<img src="Profiles/MR%20-%20Switch%20Grey.profile/preview-1.jpg" width="800">
