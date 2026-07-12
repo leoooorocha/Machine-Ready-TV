@@ -12,7 +12,7 @@
         "shared.css": []
     },
     "patches": {
-        ". Home .": {
+        "↳ General": {
             "type": "none",
             "values": {
                 "_": {}
@@ -24,29 +24,29 @@
             "values": {
                 "Default": {},
                 "Transparent": {
-                    "home/header-background.css": []
+                    "general/header-background.css": []
                 },
                 "Blur": {
-                    "home/header-background.css": [],
+                    "general/header-background.css": [],
                     "--tsam-header-backdrop-filter": [ "var(--tsam-blur)" ]
                 },
                 "★ Glass": {
-                    "home/header-background.css": [],
+                    "general/header-background.css": [],
                     "--tsam-header-background": [ "var(--tsam-glass)" ]
                 },
                 "OLED Black": {
-                    "home/header-background.css": [],
+                    "general/header-background.css": [],
                     "--tsam-header-background": [ "black" ]
                 },
                 "☾ Global Pallete": {
-                    "home/header-background.css": [],
+                    "general/header-background.css": [],
                     "--tsam-header-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
-                    "home/header-background.css": []
+                    "general/header-background.css": []
                 },
                 "Custom Gradient": {
-                    "home/header-background.css": [],
+                    "general/header-background.css": [],
                     "--tsam-header-background": [ "linear-gradient(90deg, var(--tsam-header-background-color-a), var(--tsam-header-background-color-b))" ]
                 }
             },
@@ -83,11 +83,11 @@
             "values": {
                 "Default": {},
                 "Dropshadows": {
-                    "home/header-style.css": [],
+                    "general/header-style.css": [],
                     "--tsam-header-filter": [ "var(--tsam-dropshadows)" ]
                 },
                 "Stroke": {
-                    "home/header-style.css": [],
+                    "general/header-style.css": [],
                     "--tsam-header-filter": [ "var(--tsam-stroke)" ]
                 }
             }
@@ -98,29 +98,29 @@
             "values": {
                 "Default": {},
                 "Transparent": {
-                    "home/footer-background.css": []
+                    "general/footer-background.css": []
                 },
                 "Blur": {
-                    "home/footer-background.css": [],
+                    "general/footer-background.css": [],
                     "--tsam-footer-backdrop-filter": [ "var(--tsam-blur)" ]
                 },
                 "★ Glass": {
-                    "home/footer-background.css": [],
+                    "general/footer-background.css": [],
                     "--tsam-footer-background": [ "var(--tsam-glass)" ]
                 },
                 "OLED Black": {
-                    "home/footer-background.css": [],
+                    "general/footer-background.css": [],
                     "--tsam-footer-background": [ "black" ]
                 },
                 "☾ Global Pallete": {
-                    "home/footer-background.css": [],
+                    "general/footer-background.css": [],
                     "--tsam-footer-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
-                    "home/footer-background.css": []
+                    "general/footer-background.css": []
                 },
                 "Custom Gradient": {
-                    "home/footer-background.css": [],
+                    "general/footer-background.css": [],
                     "--tsam-footer-background": [ "linear-gradient(90deg, var(--tsam-footer-background-color-a), var(--tsam-footer-background-color-b))" ]
                 }
             },
@@ -157,14 +157,56 @@
             "values": {
                 "Default": {},
                 "Dropshadows": {
-                    "home/footer-style.css": [],
+                    "general/footer-style.css": [],
                     "--tsam-footer-filter": [ "var(--tsam-dropshadows)" ]
                 },
                 "Stroke": {
-                    "home/footer-style.css": [],
+                    "general/footer-style.css": [],
                     "--tsam-footer-filter": [ "var(--tsam-stroke)" ]
                 }
             }
+        },
+        "↳ Home": {
+            "type": "none",
+            "values": {
+                "_": {}
+            }
+        },
+        "Game Title Color": {
+            "type": "dropdown",
+            "default": "White",
+            "values": {
+                "Default": {},
+                "White": {
+                    "home/game-title-color.css": [],
+                    "--tasm-game-title-color": [ "#FFFFFF" ]
+                },
+                "Black": {
+                    "home/game-title-color.css": [],
+                    "--tasm-game-title-color": [ "#000000" ]
+                },
+                "Grey": {
+                    "home/game-title-color.css": [],
+                    "--tasm-game-title-color": [ "#808080" ]
+                },
+                "Transparent (Hidden)": {
+                    "home/game-title-color.css": [],
+                    "--tasm-game-title-color": [ "#00000000" ]
+                },
+                "Custom": {
+                    "home/game-title-color.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#800080",
+                    "css_variable": "--tasm-game-title-color",
+                    "tabs": []
+                }
+            ]
         },
         "Game Title Style": {
             "type": "dropdown",
@@ -172,10 +214,7 @@
             "values": {
                 "Default": {},
                 "Hidden": {
-                    "home/game-title-style.css": [],
-                    "--tasm-game-title-color": [ "#00000000" ],
-                    "--tasm-game-title-playtime-icon": [ "#00000000" ],
-                    "--tasm-game-title-playtime-color": [ "#00000000" ]
+                    "home/game-title-hide.css": []
                 },
                 "Dropshadows": {
                     "home/game-title-style.css": [],
@@ -187,7 +226,120 @@
                 }
             }
         },
-        ". Gameview .": {
+        "Playtime Icon Color": {
+            "type": "dropdown",
+            "default": "Grey",
+            "values": {
+                "Default": {},
+                "White": {
+                    "home/playtime-icon-color.css": [],
+                    "--tasm-playtime-icon-color": [ "#FFFFFF" ]
+                },
+                "Black": {
+                    "home/playtime-icon-color.css": [],
+                    "--tasm-playtime-icon-color": [ "#000000" ]
+                },
+                "Grey": {
+                    "home/playtime-icon-color.css": [],
+                    "--tasm-playtime-icon-color": [ "#808080" ]
+                },
+                "Transparent (Hidden)": {
+                    "home/playtime-icon-color.css": [],
+                    "--tasm-playtime-icon-color": [ "#00000000" ]
+                },
+                "Custom": {
+                    "home/playtime-icon-color.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#800080",
+                    "css_variable": "--tasm-playtime-icon-color",
+                    "tabs": []
+                }
+            ]
+        },
+        "Playtime Text Color": {
+            "type": "dropdown",
+            "default": "Grey",
+            "values": {
+                "Default": {},
+                "White": {
+                    "home/playtime-text-color.css": [],
+                    "--tasm-playtime-text-color": [ "#FFFFFF" ]
+                },
+                "Black": {
+                    "home/playtime-text-color.css": [],
+                    "--tasm-playtime-text-color": [ "#000000" ]
+                },
+                "Grey": {
+                    "home/playtime-text-color.css": [],
+                    "--tasm-playtime-text-color": [ "#E6E6E6" ]
+                },
+                "Transparent (Hidden)": {
+                    "home/playtime-text-color.css": [],
+                    "--tasm-playtime-text-color": [ "#00000000" ]
+                },
+                "Custom": {
+                    "home/playtime-text-color.css": []
+                }
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#800080",
+                    "css_variable": "--tasm-playtime-text-color",
+                    "tabs": []
+                }
+            ]
+        },
+        "Playtime Style": {
+            "type": "dropdown",
+            "default": "Dropshadows",
+            "values": {
+                "Default": {},
+                "Hidden": {
+                    "home/playtime-hide.css": []
+                },
+                "Dropshadows": {
+                    "home/playtime-style.css": [],
+                    "--tasm-playtime-filter": [ "var(--tsam-dropshadows)" ]
+                },
+                "Stroke": {
+                    "home/playtime-style.css": [],
+                    "--tasm-playtime-filter": [ "var(--tsam-stroke)" ]
+                }
+            }
+        },
+        "Carousel Shadows": {
+            "type": "dropdown",
+            "default": "Dropshadows",
+            "values": {
+                "Default": {},
+                "Dropshadows": {
+                    "home/carousel-shadows.css": []
+                },
+                "Hide Hover/Focus": {
+                    "home/carousel-shadows.css": [],
+                    "--tsam-box-shadow-hover": [ "none" ]
+                },
+                "Hide Idle": {
+                    "home/carousel-shadows.css": [],
+                    "--tsam-box-shadow-idle": [ "none" ]
+                },
+                "Hidden": {
+                    "home/carousel-shadows.css": [],
+                    "--tsam-box-shadow-hover": [ "none" ],
+                    "--tsam-box-shadow-idle": [ "none" ]
+                }
+            }
+        },
+        "↳ Gameview": {
             "type": "none",
             "values": {
                 "_": {}
@@ -250,7 +402,7 @@
                 }
             }
         },
-        ". Menus .": {
+        "↳ Menus": {
             "type": "none",
             "values": {
                 "_": {}
@@ -494,7 +646,7 @@
                 }
             ]
         },
-        ". In-game Menus .": {
+        "↳ In-game Menus": {
             "type": "none",
             "values": {
                 "_": {}
@@ -604,7 +756,7 @@
                 }
             ]
         },
-        ". Global Tweaks .": {
+        "↳ Global Tweaks": {
             "type": "none",
             "values": {
                 "_": {}

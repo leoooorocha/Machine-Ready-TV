@@ -1,3 +1,7 @@
+:root {
+    --tc-box-shadow: 0px 12px 10px 0px rgba(0, 0, 0, .5);
+}
+
 /* Global - Idle */
 .BasicUI .WYgDg9NyCcMIVuMyZ_NBC {
     opacity: var(--tc-capsules-opacity);
@@ -8,4 +12,5 @@
 .BasicUI .WYgDg9NyCcMIVuMyZ_NBC.Focusable:focus,
 .BasicUI .WYgDg9NyCcMIVuMyZ_NBC:hover {
     opacity: 1;
+    box-shadow: var(--tc-box-shadow);
 }

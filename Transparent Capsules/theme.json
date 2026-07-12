@@ -22,7 +22,8 @@
                 "0.6": { "--tc-capsules-opacity": [ "0.6" ] },
                 "0.7": { "--tc-capsules-opacity": [ "0.7" ] },
                 "0.8": { "--tc-capsules-opacity": [ "0.8" ] },
-                "0.9": { "--tc-capsules-opacity": [ "0.9" ] }
+                "0.9": { "--tc-capsules-opacity": [ "0.9" ] },
+                "1.0": { "--tc-capsules-opacity": [ "0.9" ] }
             }
         },
         "Apply to Library": {

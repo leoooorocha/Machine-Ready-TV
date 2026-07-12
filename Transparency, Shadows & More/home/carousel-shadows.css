@@ -1,31 +1,28 @@
 :root {
-    --tc-box-shadow: 0px 12px 10px 0px rgba(0, 0, 0, .5);
+    --tsam-box-shadow-idle: 0 4px 6px 0px rgba(0, 0, 0, .8);
+    --tsam-box-shadow-hover: 0 12px 10px 0px rgba(0, 0, 0, .8);
 }
 
 /* Carousel - Idle */
 .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv,
 .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm,
 .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8 {
-    opacity: var(--tc-capsules-opacity);
-    transition: all 0.2s ease-in-out;
+    box-shadow: var(--tsam-box-shadow-idle) !important;
 }
 
 /* Library Capsule - Idle */
 [data-id*="GoToLibrary"] {
-    opacity: var(--tc-capsules-opacity);
-    transition: all 0.2s ease-in-out;
+    box-shadow: var(--tsam-box-shadow-idle) !important;
 }
 
 /* Carousel - Focus */
 .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv:hover, .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv:focus,
 .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm:hover, .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm:focus,
 .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8:hover, .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8:focus {
-    opacity: 1;
-    box-shadow: var(--tc-box-shadow) !important;
+    box-shadow: var(--tsam-box-shadow-hover) !important;
 }
 
 /* Library Capsule - Focus */
 [data-id*="GoToLibrary"].gpfocuswithin {
-    opacity: 1;
-    box-shadow: var(--tc-box-shadow) !important;
+    box-shadow: var(--tsam-box-shadow-hover) !important;
 }

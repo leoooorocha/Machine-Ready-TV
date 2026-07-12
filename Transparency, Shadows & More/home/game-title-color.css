@@ -1,4 +1,4 @@
 /* Game Title */
 .BasicUI ._3gwMkKp82bb5aZj4EeQnpi ._3CRLA2FFclTRCznNBgtiIH {
-    filter: var(--tasm-game-title-filter);
+    color: var(--tasm-game-title-color);
 }
