@@ -33,8 +33,9 @@
 
 /* Custom Selection */
 ._34o03-8cUc3fQX1u650c0L._3fVa8M_7D9Vjz28uYnahhd {
-    background: grey;
-    color: black;
+    background: var(--tsam-context-menu-background);
+    color: white;
+    filter: brightness(1.2) saturate(1.5);
 }
 
 ._34o03-8cUc3fQX1u650c0L._3-IFyrv9R_fZqALBsjlUS5.OQmT6NKuekm5HuXQnkl2a,
