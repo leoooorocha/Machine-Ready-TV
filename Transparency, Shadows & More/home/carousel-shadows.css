@@ -11,7 +11,7 @@
 }
 
 /* Library Capsule - Idle */
-[data-id*="GoToLibrary"] {
+._3bvCHoWj4rDdZr3mnKlXaf {
     box-shadow: var(--tsam-box-shadow-idle) !important;
 }
 
@@ -23,6 +23,6 @@
 }
 
 /* Library Capsule - Focus */
-[data-id*="GoToLibrary"].gpfocuswithin {
+._3bvCHoWj4rDdZr3mnKlXaf.gpfocuswithin {
     box-shadow: var(--tsam-box-shadow-hover) !important;
 }

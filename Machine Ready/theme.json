@@ -8,7 +8,6 @@
     "tabs": { "default": [ "bigpicture" ] },
     "inject": {
         "shared.css": [],
-        "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
         "dynamic-carousel/shared.css": [],
         "dynamic-carousel/dynamic-x.css": [],
         "dynamic-carousel/dynamic-y.css": [],
@@ -89,13 +88,35 @@
             "type": "dropdown",
             "default": "Quicksand",
             "values": {
-                "Bitcount": { "--mr-cf-font-name": [ "Bitcount", "bigpicture", "QuickAccess", "MainMenu" ] },
-                "Inter": { "--mr-cf-font-name": [ "Inter", "bigpicture", "QuickAccess", "MainMenu" ] },
-                "Montenegrin": { "--mr-cf-font-name": [ "Montenegrin", "bigpicture", "QuickAccess", "MainMenu" ] },
-                "Nunito": {"--mr-cf-font-name": [ "Nunito", "bigpicture", "QuickAccess", "MainMenu" ] },
-                "Quicksand": { "--mr-cf-font-name": [ "Quicksand", "bigpicture", "QuickAccess", "MainMenu" ] },
-                "Ubuntu": { "--mr-cf-font-name": [ "Ubuntu", "bigpicture", "QuickAccess", "MainMenu" ] },
-                "UnicaOne": { "--mr-cf-font-name": [ "UnicaOne", "bigpicture", "QuickAccess", "MainMenu" ] }
+                "Default": {},
+                "Bitcount": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "Bitcount", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "Inter": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "Inter", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "Montenegrin": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "Montenegrin", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "Nunito": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "Nunito", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "Quicksand": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "Quicksand", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "Ubuntu": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "Ubuntu", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
+                "UnicaOne": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "UnicaOne", "bigpicture", "QuickAccess", "MainMenu" ]
+                }
             }
         }
     },
