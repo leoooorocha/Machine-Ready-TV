@@ -34,7 +34,7 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 3. Paste them into your Deck's theme directory: `home/homebrew/themes`.
 
 ### 2. Optional Profiles
-*Follow these steps if you want to use the pre-configured `.profiles`*
+*Follow these steps if you want to use the pre-configured `.profiles`. I recommend the use of SteamGridDB for square capsules and matching recent capsule.*
 
 1. Copy the desired `.profiles` from the **Profiles** folder and paste them alongside your themes.
 2. Open the **CSS Loader Theme Store** and install the following dependencies:
