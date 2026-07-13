@@ -718,8 +718,8 @@
                     "--tsam-controller-menu-background": [ "black" ]
                 },
                 "☾ Global Pallete": {
-                    "menus/ingame-menu-background.css": [],
-                    "--tsam-ingame-menu-background": [ "var(--tsam-global-pallete)" ]
+                    "menus/controller-menu-background.css": [],
+                    "--tsam-controller-menu-background": [ "var(--tsam-global-pallete)" ]
                 },
                 "Custom": {
                     "menus/controller-menu-background.css": []
