@@ -61,7 +61,7 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 
 ## 🖼️ Profile Previews
 
-### Standard
+### Clean Glass (old Standard)
 <img src="Profiles/MR - Clean Glass.profile/preview-1.jpg" width="800">
 
 ### PSP OLED
