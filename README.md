@@ -35,14 +35,16 @@ Full credit for the original themes above goes to Niko, SuchMeme, and EMERALD#08
 
 4. Copy the desired `.profiles` from *Profiles* folder and paste alongside the themes.
 5. Open the CSS Loader Theme Store and install the following themes:
-   - Animated PSP Waves Background → Only for **MR - PSP OLED.profile**
+   - Animated PSP Waves Background
    - Avatar Customization Suite
    - Better Blur
+   - Centered Game Text
    - Clean Library Capsule
    - Focus Highlight Color
    - Game Cover Shine Animation Color
    - Hero Zoom Eradication
    - Main Menu Hide Tabs (Hide the Store)
+   - No Friend Playing Icon
    - No Hero Gradient
    - No Home Game Glow
    - No Home Tabs
