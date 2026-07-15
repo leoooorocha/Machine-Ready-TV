@@ -45,11 +45,9 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
     *   Clean Library Capsule
     *   Focus Highlight Color
     *   Game Cover Shine Animation Color
-    *   Hero Zoom Eradication
     *   Main Menu Hide Tabs *(Hide the Store)*
     *   No Friend Playing Icon
     *   No Hero Gradient
-    *   No Home Game Glow
     *   No Home Tabs
     *   QAM Hide Tabs
     *   Top Bar Padding
