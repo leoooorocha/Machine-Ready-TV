@@ -1,7 +1,7 @@
 {
     "name": "Machine Ready",
     "author": "Leozito",
-    "version": "v2.0",
+    "version": "v2.1",
     "description": "Clean consolifyed home screen.",
     "target": "Home",
     "manifest_version": 9,
@@ -16,16 +16,57 @@
     },
     "patches": {
         "Hero Style": {
+            "type": "Dropdown",
+            "default": "Cover",
+            "values": {
+                "Cover": {
+                     "--mr-hero-style": [ "cover" ],
+                     "--mr-hero-alignment": [ "var(--mr-hero-ruler) 50%"]
+                },
+                "Contain": {
+                     "--mr-hero-style": [ "contain" ],
+                     "--mr-hero-alignment": [ "50% var(--mr-hero-ruler)" ]
+                },
+                "Stretch": {
+                    "--mr-hero-style": [ "stretch" ]
+                }
+            }
+        },
+        "Hero Position": {
             "type": "slider",
             "default": "3",
             "values": {
-                "CT": { "--mr-hero-style": [ "contain" ] },
-                "1": { "--mr-hero-alignment": [ "100%" ] },
-                "2": { "--mr-hero-alignment": [ "75%" ] },
-                "3": { "--mr-hero-alignment": [ "50%" ] },
-                "4": { "--mr-hero-alignment": [ "25%" ] },
-                "5": { "--mr-hero-alignment": [ "0%" ] },
-                "ST": { "--mr-hero-style": [ "stretch" ] }
+                "1": { "--mr-hero-ruler": [ "100%" ] },
+                "2": { "--mr-hero-ruler": [ "75%" ] },
+                "3": { "--mr-hero-ruler": [ "50%" ] },
+                "4": { "--mr-hero-ruler": [ "25%" ] },
+                "5": { "--mr-hero-ruler": [ "0%" ] }
+            }
+        },
+        "Header & Footer Padding": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {
+                    "--mr-hero-fullscreen": [ "40px" ]
+                },
+                "Yes": {}
+            }
+        },
+        "Remove Hero Zoom Animation": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "tweaks/remove-zoom-animation.css":[] }
+            }
+        },
+        "Remove Carousel Glow": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "tweaks/remove-carousel-glow.css":[] }
             }
         },
         "Dynamic-X Left": {

@@ -1,5 +1,5 @@
 :root {
-    --mr-hero-style: cover;
+    --mr-hero-fullscreen: 0px;
 }
 
 /* Full Screen Home */
@@ -24,7 +24,8 @@
 /* Hero Alignment */
 .QNkOtW3xS-yj6LviWHvnd, ._30D-80Lg-Luy-KxOumBlaY, ._30D-80Lg-Luy-KxOumBlaY img {
     width: 100vw !important;
-    height: 100vh !important;
+    height: calc(100vh - calc(var(--mr-hero-fullscreen) * 2)) !important;
     object-position: var(--mr-hero-alignment);
     object-fit: var(--mr-hero-style);
+    padding-top: var(--mr-hero-fullscreen);
 }
