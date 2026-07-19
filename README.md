@@ -71,6 +71,9 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 ### Switch Grey
 <img src="Profiles/MR - Switch Grey.profile/preview-1.jpg" width="800">
 
+### Back 2 Basic
+<img src="Profiles/MR - Back 2 Basic.profile/preview-1.jpg" width="800">
+
 ### Colors
 *(Red, Orange, Yellow, Lime, Green, Mint, Cyan, Blue, Indigo, Purple, Magenta, Pink)*
 

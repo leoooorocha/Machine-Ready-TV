@@ -12,7 +12,7 @@
         "shared.css": []
     },
     "patches": {
-        "↳ General": {
+        ".. General ..": {
             "type": "none",
             "values": {
                 "_": {}
@@ -166,7 +166,55 @@
                 }
             }
         },
-        "↳ Home": {
+        "Root Background": {
+            "type": "dropdown",
+            "default": "Default",
+            "values": {
+                "Default": {},
+                "OLED Black": {
+                    "general/root-background.css": [],
+                    "--tsam-root-background": [ "black" ]
+                },
+                "☾ Global Pallete": {
+                    "general/root-background.css": [],
+                    "--tsam-root-background": [ "var(--tsam-global-pallete)" ]
+                },
+                "Custom": {
+                    "general/root-background.css": []
+                },
+                "Custom Gradient": {
+                    "general/root-background.css": [],
+                    "--tsam-root-background": [ "linear-gradient(90deg, var(--tsam-root-background-color-a), var(--tsam-root-background-color-b))" ]
+                }
+            },
+            "components": [
+                {
+                    "name": "Main Color",
+                    "type": "color-picker",
+                    "on": "Custom",
+                    "default": "#400040",
+                    "css_variable": "--tsam-root-background",
+                    "tabs": []
+                },
+                {
+                    "name": "Main Color A",
+                    "type": "color-picker",
+                    "on": "Custom Gradient",
+                    "default": "#bd5ece",
+                    "css_variable": "--tsam-root-background-color-a",
+                    "tabs": []
+                },
+                {
+                    "name": "Main Color B",
+                    "type": "color-picker",
+                    "on": "Custom Gradient",
+                    "default": "#2ab1ac",
+                    "css_variable": "--tsam-root-background-color-b",
+                    "tabs": []
+                }
+            ]
+        },
+        ".. Home ..": {
             "type": "none",
             "values": {
                 "_": {}
@@ -339,7 +387,7 @@
                 }
             }
         },
-        "↳ Gameview": {
+        ".. Gameview ..": {
             "type": "none",
             "values": {
                 "_": {}
@@ -402,7 +450,7 @@
                 }
             }
         },
-        "↳ Menus": {
+        ".. Menus ..": {
             "type": "none",
             "values": {
                 "_": {}
@@ -646,7 +694,7 @@
                 }
             ]
         },
-        "↳ In-game Menus": {
+        ".. In-game Menus ..": {
             "type": "none",
             "values": {
                 "_": {}
@@ -756,7 +804,7 @@
                 }
             ]
         },
-        "↳ Global Tweaks": {
+        ".. Global Tweaks ..": {
             "type": "none",
             "values": {
                 "_": {}
@@ -767,7 +815,7 @@
             "default": "No",
             "values": {
                 "No": {
-                    "--tsam-global-pallete": [ "#0e141b"]
+                    "--tsam-global-pallete": [ "#0e141b" ]
                 },
                 "Yes": {}
             },

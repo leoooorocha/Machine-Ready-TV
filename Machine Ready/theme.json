@@ -20,12 +20,13 @@
             "default": "Cover",
             "values": {
                 "Cover": {
-                     "--mr-hero-style": [ "cover" ],
-                     "--mr-hero-alignment": [ "var(--mr-hero-ruler) 50%"]
+                    "--mr-hero-style": [ "cover" ],
+                    "--mr-hero-alignment": [ "var(--mr-hero-ruler) 50%"]
                 },
                 "Contain": {
-                     "--mr-hero-style": [ "contain" ],
-                     "--mr-hero-alignment": [ "50% var(--mr-hero-ruler)" ]
+                    "--mr-hero-style": [ "contain" ],
+                    "--mr-hero-alignment": [ "50% var(--mr-hero-ruler)" ],
+                    "tweaks/linear-gradient.css": []
                 },
                 "Stretch": {
                     "--mr-hero-style": [ "stretch" ]
@@ -36,11 +37,41 @@
             "type": "slider",
             "default": "3",
             "values": {
-                "1": { "--mr-hero-ruler": [ "100%" ] },
-                "2": { "--mr-hero-ruler": [ "75%" ] },
-                "3": { "--mr-hero-ruler": [ "50%" ] },
-                "4": { "--mr-hero-ruler": [ "25%" ] },
-                "5": { "--mr-hero-ruler": [ "0%" ] }
+                "1": {
+                    "--mr-hero-ruler": [ "0%" ],
+                    "--mr-hero-contain-gradient-top-image-tv": [ "0%" ],
+                    "--mr-hero-contain-gradient-bot-image-tv": [ "55%" ],
+                    "--mr-hero-contain-gradient-top-image-sd": [ "0%" ],
+                    "--mr-hero-contain-gradient-bot-image-sd": [ "49%" ]
+                },
+                "2": {
+                    "--mr-hero-ruler": [ "25%" ],
+                    "--mr-hero-contain-gradient-top-image-tv": [ "13%" ],
+                    "--mr-hero-contain-gradient-bot-image-tv": [ "65.5%" ],
+                    "--mr-hero-contain-gradient-top-image-sd": [ "14.5%" ],
+                    "--mr-hero-contain-gradient-bot-image-sd": [ "61.5%" ]
+                },
+                "3": {
+                    "--mr-hero-ruler": [ "50%" ],
+                    "--mr-hero-contain-gradient-top-image-tv": [ "23.5%" ],
+                    "--mr-hero-contain-gradient-bot-image-tv": [ "76.5%" ],
+                    "--mr-hero-contain-gradient-top-image-sd": [ "26.5%" ],
+                    "--mr-hero-contain-gradient-bot-image-sd": [ "73.5%" ]
+                },
+                "4": {
+                    "--mr-hero-ruler": [ "75%" ],
+                    "--mr-hero-contain-gradient-top-image-tv": [ "34.5%" ],
+                    "--mr-hero-contain-gradient-bot-image-tv": [ "87%" ],
+                    "--mr-hero-contain-gradient-top-image-sd": [ "38.5%" ],
+                    "--mr-hero-contain-gradient-bot-image-sd": [ "85.5%" ]
+                },
+                "5": {
+                    "--mr-hero-ruler": [ "100%" ],
+                    "--mr-hero-contain-gradient-top-image-tv": [ "45%" ],
+                    "--mr-hero-contain-gradient-bot-image-tv": [ "100%" ],
+                    "--mr-hero-contain-gradient-top-image-sd": [ "51%" ],
+                    "--mr-hero-contain-gradient-bot-image-sd": [ "100%" ]
+                }
             }
         },
         "Header & Footer Padding": {
@@ -61,12 +92,28 @@
                 "Yes": { "tweaks/remove-zoom-animation.css":[] }
             }
         },
+        "Remove Hero Gradient": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "tweaks/remove-gradient.css": [] }
+            }
+        },
         "Remove Carousel Glow": {
             "type": "checkbox",
             "default": "Yes",
             "values": {
                 "No": {},
-                "Yes": { "tweaks/remove-carousel-glow.css":[] }
+                "Yes": { "tweaks/remove-glow.css":[] }
+            }
+        },
+        "Remove Brightness Filter": {
+            "type": "checkbox",
+            "default": "Yes",
+            "values": {
+                "No": {},
+                "Yes": { "tweaks/remove-filters.css":[] }
             }
         },
         "Dynamic-X Left": {

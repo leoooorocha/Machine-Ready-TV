@@ -6,11 +6,11 @@
     --gk-pressed-fg: var(--gk-highlight-bg);
     --gk-pressed-bg: var(--gk-highlight-fg);
     --gk-toggled-fg: var(--gk-highlight-fg);
-    --gk-toggled-bg: #FFFFFFBF;
+    --gk-toggled-bg: #FFFFFF99;
     --gk-main-fg-idle: var(--gk-highlight-fg);
-    --gk-main-bg-idle: #FFFFFF40;
+    --gk-main-bg-idle: #FFFFFF33;
     --gk-action-fg-idle: var(--gk-highlight-fg);
-    --gk-action-bg-idle: #FFFFFF80;
+    --gk-action-bg-idle: #FFFFFF66;
     --gk-glyph-color: brightness(0) saturate(100%) var(--gk-glyph-filter);
     --gk-glyph-filter: invert(0%) sepia(0%) saturate(7%) hue-rotate(253deg) brightness(103%) contrast(100%);
     --gk-glyph-color-pressed: brightness(1);
