@@ -28,17 +28,40 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 
 ## 💾 Installation
 
-### 1. Core Themes
+### 🚀 Option 1: Automatic Installation (Recommended)
+The fastest and easiest way to install all themes and profiles is using our automated script. It checks your internet connection, installs Decky Loader (if you don't have it yet), and clones the latest version of the repository directly into your themes folder.
+
+1. Switch your Steam Deck to **Desktop Mode** (`STEAM` button → `Power` → `Switch to Desktop`).
+2. Open the **Konsole** app from your application menu.
+3. Copy, paste, and run the following command:
+```bash
+curl -sSL https://raw.githubusercontent.com/leoooorocha/Machine-Ready-TV/main/scripts/install_custom_themes.sh | bash
+```
+4. Once completed, return to **Gaming Mode** using the desktop shortcut.
+5. Skip directly to **Step 3 (Post-Installation & Dependencies)** below.
+
+---
+
+### 📦 Option 2: Manual Installation
+If you prefer to set up everything by hand, follow these steps:
+
+#### 1. Core Themes
 1. Click **Code** → **Download ZIP** (or clone the repository).
 2. Extract the archive and copy all themes from the included folder.
 3. Paste them into your Deck's theme directory:  
    `home/homebrew/themes`
 
-### 2. Optional Profiles
+#### 2. Optional Profiles
+1. Copy the desired `.profiles` from the **Profiles** folder and paste them alongside your themes inside `home/homebrew/themes`.
+
+---
+
+### ⚙️ 3. Post-Installation & Dependencies
 > 💡 *Highly recommended to use **SteamGridDB** for square capsules and matching recent capsules.*
 
-1. Copy the desired `.profiles` from the **Profiles** folder and paste them alongside your themes.
-2. Open the **CSS Loader Theme Store** and install the following dependencies:
+Whether you installed automatically or manually, you need to configure CSS Loader:
+
+1. Open the **CSS Loader Theme Store** and install the following dependencies:
    * **Animated PSP Waves Background** *(only for **PSP OLED** profile)*
    * **Avatar Customization Suite**
    * **Better Blur**
@@ -54,12 +77,11 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
    * **QAM Hide Tabs**
    * **Top Bar Padding**
    * **Volume Tweaker**
-3. Return to **CSS Loader**.
-4. Click the **Settings** ⚙️ button on the top-right.
-5. Navigate to **Settings** → **Enable Nav Patch**, and toggle this **On**.
+2. Click the **Settings** ⚙️ button on the top-right of CSS Loader.
+3. Navigate to **Settings** → **Enable Nav Patch**, and toggle this **On**.
 > 💡 *Some themes require Nav Patch to make Steam desconsider hidden elements.*
-6. Go back to QAM CSS Loader, scroll down to the very bottom and click **Refresh**.
-7. Select and apply your preferred **Machine Ready** profile.
+4. Go back to QAM CSS Loader, scroll down to the very bottom and click **Refresh**.
+5. Select and apply your preferred **Machine Ready** profile.
 
 ---
 
@@ -85,12 +107,12 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 
 | | |
 |---|---|
-| <img src="Profiles/Machine Ready Colors/MR - Colors 01 - Red.profile/preview-1.jpg" width="400"> | <img src="Profiles/Machine Ready Colors/MR - Colors 02 - Orange.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/Machine Ready Colors/MR - Colors 03 - Yellow.profile/preview-1.jpg" width="400"> | <img src="Profiles/Machine Ready Colors/MR - Colors 04 - Lime.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/Machine Ready Colors/MR - Colors 05 - Green.profile/preview-1.jpg" width="400"> | <img src="Profiles/Machine Ready Colors/MR - Colors 06 - Mint.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/Machine Ready Colors/MR - Colors 07 - Cyan.profile/preview-1.jpg" width="400"> | <img src="Profiles/Machine Ready Colors/MR - Colors 08 - Blue.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/Machine Ready Colors/MR - Colors 09 - Indigo.profile/preview-1.jpg" width="400"> | <img src="Profiles/Machine Ready Colors/MR - Colors 10 - Purple.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/Machine Ready Colors/MR - Colors 11 - Magenta.profile/preview-1.jpg" width="400"> | <img src="Profiles/Machine Ready Colors/MR - Colors 12 - Pink.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 01 - Red.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 02 - Orange.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 03 - Yellow.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 04 - Lime.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 05 - Green.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 06 - Mint.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 07 - Cyan.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 08 - Blue.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 09 - Indigo.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 10 - Purple.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 11 - Magenta.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 12 - Pink.profile/preview-1.jpg" width="400"> |
 
 ---
 
@@ -100,5 +122,8 @@ Full credit for the original themes featured in the custom patches goes to the a
 * **Niko**
 * **SuchMeme**
 * **EMERALD#0874**
+
+Special thanks to:
+* **Hannaway96** for writing and contributing the incredible bash automation installer.
 
 *Thank you for making this project possible!*
