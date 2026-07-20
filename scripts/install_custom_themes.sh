@@ -54,7 +54,6 @@ trap cleanup EXIT
 ########################################
 
 check_internet() {
-
     info "Checking internet connection..."
 
     if ping -c1 github.com >/dev/null 2>&1; then
@@ -65,11 +64,9 @@ check_internet() {
     warn "No internet connection detected."
     warn "Will continue with any locally cached repository."
     return 1
-
 }
 
 install_decky() {
-
     if [[ -d "$HOMEBREW_DIR" ]]; then
         success "Decky Loader already installed."
         return 0
@@ -84,18 +81,14 @@ install_decky() {
     fi
 
     local TMP_INSTALLER="/tmp/install_decky.sh"
-
     info "Downloading official Decky installer..."
 
-    if ! curl -fsSL \
-        "$DECKY_INSTALLER_URL" \
-        -o "$TMP_INSTALLER"; then
+    if ! curl -fsSL "$DECKY_INSTALLER_URL" -o "$TMP_INSTALLER"; then
         warn "Could not download Decky installer."
         return 1
     fi
 
     chmod +x "$TMP_INSTALLER"
-
     info "Running Decky installer..."
 
     if ! bash "$TMP_INSTALLER"; then
@@ -113,11 +106,9 @@ install_decky() {
 
     success "Decky Loader installed."
     return 0
-
 }
 
 ensure_themes_dir() {
-
     if [[ -d "$THEMES_DIR" ]]; then
         return 0
     fi
@@ -136,11 +127,9 @@ ensure_themes_dir() {
 
     success "Created themes directory: ${THEMES_DIR}"
     return 0
-
 }
 
 report_repo_commit() {
-
     local DIR="$1"
 
     if [[ -d "$DIR/.git" ]] && command -v git >/dev/null 2>&1; then
@@ -154,21 +143,16 @@ report_repo_commit() {
     if [[ -n "$REPO_COMMIT" ]]; then
         info "Repository version: ${REPO_COMMIT}"
     fi
-
 }
 
 download_repo() {
-
     mkdir -p "$WORKDIR"
     SOURCE=""
     REPO_ACTION=""
 
     if command -v git >/dev/null 2>&1; then
-
         if [[ -d "$REPODIR/.git" ]]; then
-
             info "Updating Machine Ready..."
-
             local LOCAL_HASH REMOTE_HASH PULL_OK=0
 
             git -C "$REPODIR" remote set-url origin "$REPO_URL" 2>/dev/null || true
@@ -195,11 +179,8 @@ download_repo() {
                 REPO_ACTION="failed"
                 SOURCE="$REPODIR"
             fi
-
         else
-
             info "Cloning Machine Ready repository..."
-
             rm -rf "$REPODIR" 2>/dev/null || true
 
             if git clone --branch "$REPO_BRANCH" --depth 1 "$REPO_URL" "$REPODIR" 2>/dev/null; then
@@ -209,22 +190,18 @@ download_repo() {
             else
                 warn "Git clone failed."
             fi
-
         fi
-
     else
         warn "Git not available."
     fi
 
     if [[ -z "$SOURCE" ]]; then
-
         if ! ping -c1 github.com >/dev/null 2>&1; then
             fail "Cannot download repository without internet."
             return 1
         fi
 
         warn "Falling back to ZIP download."
-
         info "Downloading ZIP archive..."
 
         if ! curl -fsSL "$ZIP_URL" -o "$ZIPFILE"; then
@@ -245,16 +222,13 @@ download_repo() {
         REPO_ACTION="downloaded"
         success "Repository downloaded."
         SOURCE="$ZIPDIR"
-
     fi
 
     report_repo_commit "$SOURCE"
     return 0
-
 }
 
 find_named_subdir() {
-
     local BASE="$1"
     shift
     local NAME DIR
@@ -268,11 +242,9 @@ find_named_subdir() {
     done
 
     return 1
-
 }
 
 should_skip_repo_dir() {
-
     local NAME="$1"
 
     case "$NAME" in
@@ -282,11 +254,9 @@ should_skip_repo_dir() {
     esac
 
     return 1
-
 }
 
 install_item() {
-
     local SRC="$1"
     local LABEL="${2:-$(basename "$SRC")}"
     local DEST="${THEMES_DIR}/$(basename "$SRC")"
@@ -312,11 +282,9 @@ install_item() {
     fail "${LABEL}"
     FAILED_COUNT=$((FAILED_COUNT + 1))
     return 1
-
 }
 
 install_from_directory() {
-
     local ROOT="$1"
     local KIND="$2"
 
@@ -341,7 +309,6 @@ install_from_directory() {
     fi
 
     info "Found ${#DIRS[@]} ${KIND}."
-
     echo
     echo "Installing:"
 
@@ -349,11 +316,9 @@ install_from_directory() {
         NAME="$(basename "$DIR")"
         install_item "$DIR" "$NAME" || true
     done
-
 }
 
 install_machine_ready() {
-
     if [[ -z "$SOURCE" || ! -d "$SOURCE" ]]; then
         fail "No repository source available to install from."
         return 1
@@ -364,7 +329,6 @@ install_machine_ready() {
     SKIPPED_COUNT=0
 
     local PROFILES_ROOT THEMES_ROOT
-
     PROFILES_ROOT="$(find_named_subdir "$SOURCE" Profiles profiles || true)"
     THEMES_ROOT="$(find_named_subdir "$SOURCE" Themes themes || true)"
 
@@ -417,29 +381,33 @@ install_machine_ready() {
     fi
 
     return 0
-
 }
 
 print_companion_notes() {
-
     echo "Optional CSS Loader Theme Store dependencies (install manually):"
-    echo "  Avatar Customization Suite, Better Blur, Centered Game Text,"
-    echo "  Clean Library Capsule, Focus Highlight Color,"
-    echo "  Game Cover Shine Animation Color, Main Menu Hide Tabs,"
-    echo "  No Friend Playing Icon, No Hero Gradient, No Home Tabs,"
-    echo "  QAM Hide Tabs, Top Bar Padding, Volume Tweaker"
+    echo "  - Avatar Customization Suite"
+    echo "  - Better Blur"
+    echo "  - Centered Game Text"
+    echo "  - Clean Library Capsule"
+    echo "  - Focus Highlight Color"
+    echo "  - Game Cover Shine Animation Color"
+    echo "  - Main Menu Hide Tabs"
+    echo "  - No Friend Playing Icon"
+    echo "  - No Hero Gradient"
+    echo "  - No Home Tabs"
+    echo "  - QAM Hide Tabs"
+    echo "  - Top Bar Padding"
+    echo "  - Volume Tweaker"
     echo
     echo "Profile-specific extras:"
-    echo "  PSP OLED → Animated PSP Waves Background"
-    echo "  Back 2 Basic → Proper Hero Scaling"
+    echo "  - PSP OLED → Animated PSP Waves Background"
+    echo "  - Back 2 Basic → Proper Hero Scaling"
     echo
     echo "After installing themes, enable Nav Patch in CSS Loader settings."
     echo
-
 }
 
 finish() {
-
     echo
     echo "=========================================="
     echo " Installation Complete"
@@ -447,12 +415,12 @@ finish() {
     echo
 
     case "$REPO_ACTION" in
-        cloned)     echo "Repository: cloned" ;;
-        updated)    echo "Repository: updated" ;;
+        cloned)          echo "Repository: cloned" ;;
+        updated)         echo "Repository: updated" ;;
         already_current) echo "Repository: already current" ;;
-        downloaded) echo "Repository: downloaded (ZIP)" ;;
-        failed)     echo "Repository: update failed (used local copy)" ;;
-        *)          echo "Repository: unknown status" ;;
+        downloaded)      echo "Repository: downloaded (ZIP)" ;;
+        failed)          echo "Repository: update failed (used local copy)" ;;
+        *)               echo "Repository: unknown status" ;;
     esac
 
     if [[ -n "$REPO_COMMIT" ]]; then
@@ -470,11 +438,9 @@ finish() {
 
     echo "Decky → CSS Loader → Refresh"
     echo
-
 }
 
 main() {
-
     echo
     echo "=========================================="
     echo " Machine Ready Theme Installer"
@@ -496,7 +462,6 @@ main() {
 
     install_machine_ready || true
     finish
-
 }
 
 main "$@"
