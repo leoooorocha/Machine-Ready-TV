@@ -4,25 +4,34 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 
 ---
 
-## 🛠️ Custom Patches
+## 🖼️ Profile Previews
 
-*   **Clean Game Launch**
-    *   Features an additional option to remove filters when launching a game.
-    <img src="Clean Game Launch/Clean Game Launch - Patch.jpg" width="800" alt="Clean Game Launch">
+### Clean Glass (Old Standard)
+<img src="Profiles/MR - Clean Glass.profile/preview-1.jpg" width="800">
 
-*   **Clean Gameview**
-    *   Features fullscreen layout based on screen size and more options for the playbar.
-    <img src="Clean Gameview/Clean Gameview - Patch.jpg" width="800" alt="Clean Gameview">
+### PSP OLED
+<img src="Profiles/MR - PSP OLED.profile/preview-1.jpg" width="800">
 
-*   **Colored Toggles**
-    *   Features advanced customization options, including an animated background for any custom gradient.
-    <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="800" alt="Colored Toggles">
+### Soft Play
+<img src="Profiles/MR - Soft Play.profile/preview-1.jpg" width="800">
 
-*   **Round**
-    *   Includes several patches with expanded options for the keyboard (with padding so roundness doesn't hide action buttons), all menus, and the settings page.
-    <img src="Round/Round - Patch 1.jpg" width="800" alt="Round Patch">
+### Switch Grey
+<img src="Profiles/MR - Switch Grey.profile/preview-1.jpg" width="800">
 
-> 💡 *Check each theme folder to see all available custom patches.*
+### Back 2 Basic
+<img src="Profiles/MR - Back 2 Basic.profile/preview-1.jpg" width="800">
+
+### 🎨 Color Palette
+*Red, Orange, Yellow, Lime, Green, Mint, Cyan, Blue, Indigo, Purple, Magenta, Pink*
+
+| | |
+|---|---|
+| <img src="Profiles/MR - Colors 01 - Red.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 02 - Orange.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 03 - Yellow.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 04 - Lime.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 05 - Green.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 06 - Mint.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 07 - Cyan.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 08 - Blue.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 09 - Indigo.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 10 - Purple.profile/preview-1.jpg" width="400"> |
+| <img src="Profiles/MR - Colors 11 - Magenta.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 12 - Pink.profile/preview-1.jpg" width="400"> |
 
 ---
 
@@ -67,7 +76,7 @@ Whether you installed automatically or manually, you need to configure CSS Loade
    * **Better Blur**
    * **Centered Game Text**
    * **Clean Library Capsule**
-   * **Focus Highlight Color**     
+   * **Focus Highlight Color**      
    * **Game Cover Shine Animation Color**
    * **Main Menu Hide Tabs** *(Hide the Store)*
    * **No Friend Playing Icon**
@@ -78,41 +87,34 @@ Whether you installed automatically or manually, you need to configure CSS Loade
    * **Top Bar Padding**
    * **Volume Tweaker**
 2. Click the **Settings** ⚙️ button on the top-right of CSS Loader.
-3. Navigate to **Settings** → **Enable Nav Patch**, and toggle this **On**.
-> 💡 *Some themes require Nav Patch to make Steam desconsider hidden elements.*
+3. Navigate to **Settings** → **Enable Nav Patch**, and toggle it **On**.
+> 💡 *Some themes require Nav Patch to force Steam to ignore hidden elements.*
 4. Go back to QAM CSS Loader, scroll down to the very bottom and click **Refresh**.
 5. Select and apply your preferred **Machine Ready** profile.
 
 ---
 
-## 🖼️ Profile Previews
+## 🛠️ About Custom Patches
 
-### Clean Glass (old Standard)
-<img src="Profiles/MR - Clean Glass.profile/preview-1.jpg" width="800">
+These themes already exist in the Store, but I created custom patches to further improve their compatibility with Machine Ready.
 
-### PSP OLED
-<img src="Profiles/MR - PSP OLED.profile/preview-1.jpg" width="800">
+*   **Clean Game Launch**
+    *   Features an additional option to remove filters when launching a game.
+    <img src="Clean Game Launch/Clean Game Launch - Patch.jpg" width="800" alt="Clean Game Launch">
 
-### Soft Play
-<img src="Profiles/MR - Soft Play.profile/preview-1.jpg" width="800">
+*   **Clean Gameview**
+    *   Features a fullscreen layout based on screen size and more options for the playbar.
+    <img src="Clean Gameview/Clean Gameview - Patch.jpg" width="800" alt="Clean Gameview">
 
-### Switch Grey
-<img src="Profiles/MR - Switch Grey.profile/preview-1.jpg" width="800">
+*   **Colored Toggles**
+    *   Features advanced customization options, including an animated background for any custom gradient.
+    <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="800" alt="Colored Toggles">
 
-### Back 2 Basic
-<img src="Profiles/MR - Back 2 Basic.profile/preview-1.jpg" width="800">
+*   **Round**
+    *   Includes several patches with expanded options for the keyboard (with padding so roundness doesn't hide action buttons), all menus, and the settings page.
+    <img src="Round/Round - Patch 1.jpg" width="800" alt="Round Patch">
 
-### 🎨 Colors Palette
-*Red, Orange, Yellow, Lime, Green, Mint, Cyan, Blue, Indigo, Purple, Magenta, Pink*
-
-| | |
-|---|---|
-| <img src="Profiles/MR - Colors 01 - Red.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 02 - Orange.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/MR - Colors 03 - Yellow.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 04 - Lime.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/MR - Colors 05 - Green.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 06 - Mint.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/MR - Colors 07 - Cyan.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 08 - Blue.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/MR - Colors 09 - Indigo.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 10 - Purple.profile/preview-1.jpg" width="400"> |
-| <img src="Profiles/MR - Colors 11 - Magenta.profile/preview-1.jpg" width="400"> | <img src="Profiles/MR - Colors 12 - Pink.profile/preview-1.jpg" width="400"> |
+> 💡 *Check each theme folder to see all available custom patches.*
 
 ---
 
