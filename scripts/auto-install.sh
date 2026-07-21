@@ -1,52 +1,36 @@
 #!/usr/bin/env bash
 
-# Exit immediately if a command fails, treat unset variables as errors,
-# and prevent pipe errors.
 set -Euo pipefail
 
-# ==============================================================================
-# Global Configurations & Constants
-# ==============================================================================
-
-# Repository details for Machine-Ready-TV themes & profiles
 REPO_URL="https://github.com/leoooorocha/Machine-Ready-TV.git"
 ZIP_URL="https://github.com/leoooorocha/Machine-Ready-TV/archive/refs/heads/main.zip"
 REPO_BRANCH="main"
 
-# Temporary working directory paths
 WORKDIR="/tmp/machine-ready"
 REPODIR="${WORKDIR}/Machine-Ready-TV"
 ZIPFILE="${WORKDIR}/Machine-Ready-TV.zip"
 ZIPDIR="${WORKDIR}/Machine-Ready-TV-main"
 
-# Target installation directories for Decky plugins and themes
 HOMEBREW_DIR="${HOME}/homebrew"
 PLUGINS_DIR="${HOMEBREW_DIR}/plugins"
 THEMES_DIR="${HOMEBREW_DIR}/themes"
 
-# Runtime state variables
 SOURCE=""
 REPO_ACTION=""
 REPO_COMMIT=""
 INSTALL_PROFILES=0
 
-# Counters for installation summary reporting
 NEW_INSTALLED_COUNT=0
 UPDATED_COUNT=0
 FAILED_COUNT=0
 SKIPPED_COUNT=0
 
-# ANSI Color codes for styled terminal output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
-NC='\033[0m' # No Color
-
-# ==============================================================================
-# Helper Functions & Logging
-# ==============================================================================
+NC='\033[0m'
 
 info()    { echo -e "🔹 ${BLUE}$1${NC}"; }
 success() { echo -e "   ${GREEN}✔${NC} $1"; }
@@ -59,28 +43,24 @@ cleanup() {
 
 trap cleanup EXIT
 
-# ==============================================================================
-# Pre-requisite Checks
-# ==============================================================================
-
 check_internet() {
     echo
     info "Checking internet connection..."
 
     if ping -c1 github.com >/dev/null 2>&1; then
         success "Internet connection OK."
-        echo
         return 0
     fi
 
     warn "No internet connection detected."
     warn "Will continue with any locally cached repository."
-    echo
     return 1
 }
 
-# Check if Decky Loader is installed
 check_decky_loader() {
+    echo
+    info "Checking Decky Loader installation..."
+
     if [[ -d "$HOMEBREW_DIR" ]]; then
         success "Decky Loader detected."
         return 0
@@ -104,8 +84,10 @@ check_decky_loader() {
     return 1
 }
 
-# Check if CSS Loader plugin is installed
 check_css_loader() {
+    echo
+    info "Checking CSS Loader plugin..."
+
     if [[ -d "${PLUGINS_DIR}/SDH-CssLoader" || -d "${PLUGINS_DIR}/CSSLoader" ]]; then
         success "CSS Loader plugin detected."
         return 0
@@ -129,16 +111,11 @@ check_css_loader() {
     return 1
 }
 
-# Ensure destination themes directory exists
 ensure_themes_dir() {
     if [[ ! -d "$THEMES_DIR" ]]; then
         mkdir -p "$THEMES_DIR" 2>/dev/null || true
     fi
 }
-
-# ==============================================================================
-# Repository Management
-# ==============================================================================
 
 report_repo_commit() {
     local DIR="$1"
@@ -240,10 +217,6 @@ download_repo() {
     report_repo_commit "$SOURCE"
     return 0
 }
-
-# ==============================================================================
-# Theme & Profile Processing Logic
-# ==============================================================================
 
 find_named_subdir() {
     local BASE="$1"
@@ -381,9 +354,8 @@ install_from_directory() {
 prompt_profile_installation() {
     echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    
+
     local REPLY=""
-    # Reads directly from /dev/tty to ensure user interaction works even in piped executions
     if [[ -c /dev/tty ]]; then
         read -n 1 -rp "❓ Do you want to install pre-configured profiles? (y/N): " REPLY < /dev/tty
         echo
@@ -391,7 +363,7 @@ prompt_profile_installation() {
         warn "Non-interactive terminal detected. Skipping profile installation."
         REPLY="n"
     fi
-    
+
     echo -e "${BLUE}--------------------------------------------------${NC}"
 
     if [[ "$REPLY" =~ ^[YySs]$ ]]; then
@@ -416,12 +388,10 @@ install_machine_ready() {
     PROFILES_ROOT="$(find_named_subdir "$SOURCE" Profiles profiles || true)"
     THEMES_ROOT="$(find_named_subdir "$SOURCE" Themes themes || true)"
 
-    # Install Profiles ONLY if user answered YES
     if [[ $INSTALL_PROFILES -eq 1 && -n "$PROFILES_ROOT" ]]; then
         install_from_directory "$PROFILES_ROOT" "profiles"
     fi
 
-    # Always install Themes
     if [[ -n "$THEMES_ROOT" ]]; then
         install_from_directory "$THEMES_ROOT" "themes"
     fi
@@ -470,10 +440,6 @@ install_machine_ready() {
 
     return 0
 }
-
-# ==============================================================================
-# Reporting & Companion Instructions
-# ==============================================================================
 
 print_companion_notes() {
     echo
@@ -540,15 +506,10 @@ finish() {
     echo -e "  - ${RED}Failed:   ${NC}   ${FAILED_COUNT}"
     echo
 
-    # Only print dependencies guide if user requested profiles
     if [[ $INSTALL_PROFILES -eq 1 ]]; then
         print_companion_notes
     fi
 }
-
-# ==============================================================================
-# Main Execution Flow
-# ==============================================================================
 
 main() {
     echo
@@ -558,32 +519,25 @@ main() {
 
     check_internet || true
 
-    # Step 1: Check Decky Loader. Stop if missing.
     if ! check_decky_loader; then
         exit 1
     fi
 
-    # Step 2: Check CSS Loader. Stop if missing.
     if ! check_css_loader; then
         exit 1
     fi
 
-    # Step 3: Ensure destination themes folder exists
     ensure_themes_dir
 
-    # Step 4: Download repository
     if ! download_repo; then
         fail "Could not obtain Machine Ready repository."
         exit 1
     fi
 
-    # Step 5: Ask user about installing pre-configured profiles
     prompt_profile_installation
 
-    # Step 6: Perform theme/profile copy
     install_machine_ready || true
 
-    # Step 7: Show summary & conditional companion notes
     finish
 }
 
