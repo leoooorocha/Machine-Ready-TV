@@ -273,6 +273,8 @@ install_item() {
         return 1
     fi
 
+    rm -rf "$DEST"
+
     if cp -a "$SRC" "$DEST" 2>/dev/null; then
         success "${LABEL}"
         INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
