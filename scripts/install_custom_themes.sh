@@ -32,10 +32,10 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-info()    { echo -e "${BLUE}==>${NC} $1"; }
-success() { echo -e "${GREEN}✓${NC} $1"; }
-warn()    { echo -e "${YELLOW}!${NC} $1"; }
-fail()    { echo -e "${RED}✗${NC} $1"; }
+info()    { echo -e "🔹 ${BLUE}$1${NC}"; }
+success() { echo -e "   ${GREEN}✔${NC} $1"; }
+warn()    { echo -e "   ${YELLOW}⚠️  $1${NC}"; }
+fail()    { echo -e "   ${RED}✖  $1${NC}"; }
 
 cleanup() {
     rm -f "$ZIPFILE" 2>/dev/null || true
@@ -148,7 +148,7 @@ download_repo() {
     if command -v git >/dev/null 2>&1; then
         if [[ -d "$REPODIR/.git" ]]; then
             echo
-            info "Updating Machine Ready..."
+            info "Updating Machine Ready repository..."
             local LOCAL_HASH REMOTE_HASH PULL_OK=0
 
             git -C "$REPODIR" remote set-url origin "$REPO_URL" 2>/dev/null || true
@@ -306,19 +306,19 @@ install_item() {
 
     if [[ $SUCCESS_FLAG -eq 1 ]]; then
         if [[ $IS_NEW -eq 1 ]]; then
-            echo -e "${GREEN}[INSTALLED]${NC} ${LABEL}"
+            echo -e "   ${GREEN}[INSTALLED]${NC} ${LABEL}"
             NEW_INSTALLED_COUNT=$((NEW_INSTALLED_COUNT + 1))
         elif [[ -n "$CHANGES" ]]; then
-            echo -e "${CYAN}[UPDATED]${NC}   ${LABEL}"
+            echo -e "   ${CYAN}[UPDATED]${NC}   ${LABEL}"
             UPDATED_COUNT=$((UPDATED_COUNT + 1))
         else
-            echo -e "${YELLOW}[SKIPPED]${NC}   ${LABEL}"
+            echo -e "   ${YELLOW}[SKIPPED]${NC}   ${LABEL}"
             SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
         fi
         return 0
     fi
 
-    echo -e "${RED}[FAILED]${NC}    ${LABEL}"
+    echo -e "   ${RED}[FAILED]${NC}    ${LABEL}"
     FAILED_COUNT=$((FAILED_COUNT + 1))
     return 1
 }
@@ -348,10 +348,16 @@ install_from_directory() {
         return 0
     fi
 
+    local ICON="📦"
+    if [[ "$KIND" == "themes" ]]; then
+        ICON="🎨"
+    fi
+
     echo
-    info "Found ${#DIRS[@]} ${KIND}."
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo -e "${CYAN}${ICON} Processing ${KIND} (${#DIRS[@]} items)${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    echo "Processing ${KIND}:"
 
     for DIR in "${DIRS[@]}"; do
         NAME="$(basename "$DIR")"
@@ -400,9 +406,10 @@ install_machine_ready() {
 
         if [[ ${#ROOT_DIRS[@]} -gt 0 ]]; then
             echo
-            info "Found ${#ROOT_DIRS[@]} root themes."
+            echo -e "${BLUE}--------------------------------------------------${NC}"
+            echo -e "${CYAN}🎨 Processing themes (${#ROOT_DIRS[@]} items)${NC}"
+            echo -e "${BLUE}--------------------------------------------------${NC}"
             echo
-            echo "Processing themes:"
             for DIR in "${ROOT_DIRS[@]}"; do
                 install_item "$DIR" "$(basename "$DIR")" || true
             done
@@ -464,9 +471,9 @@ print_companion_notes() {
 
 finish() {
     echo
-    echo "=========================================="
-    echo " Installation Summary"
-    echo "=========================================="
+    echo -e "${BLUE}==================================================${NC}"
+    echo -e "${CYAN}📊 Installation Summary${NC}"
+    echo -e "${BLUE}==================================================${NC}"
     echo
 
     case "$REPO_ACTION" in
@@ -498,10 +505,9 @@ finish() {
 
 main() {
     echo
-    echo "=========================================="
-    echo " Machine Ready Theme Installer"
-    echo "=========================================="
-    echo
+    echo -e "${BLUE}==================================================${NC}"
+    echo -e "${CYAN}🎮 Machine Ready Theme Installer${NC}"
+    echo -e "${BLUE}==================================================${NC}"
 
     check_internet || true
     install_decky || true
