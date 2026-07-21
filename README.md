@@ -17,7 +17,7 @@ The fastest and easiest way to install all themes and profiles. The installer ve
 2. Open the **Konsole** app from your application menu.
 3. Copy, paste, and run the following command:
 ```bash
-curl -sSL [https://raw.githubusercontent.com/leoooorocha/Machine-Ready-TV/main/scripts/auto-install.sh](https://raw.githubusercontent.com/leoooorocha/Machine-Ready-TV/main/scripts/auto-install.sh) | bash
+curl -sSL https://raw.githubusercontent.com/leoooorocha/Machine-Ready-TV/main/scripts/auto-install.sh | bash
 ```
 4. Follow the prompt in the terminal asking if you want to install pre-configured profiles.
 5. Once completed, return to **Gaming Mode** using the desktop shortcut.
