@@ -189,6 +189,10 @@
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
                     "--mr-cf-font-name": [ "Montenegrin", "bigpicture", "QuickAccess", "MainMenu" ]
                 },
+                "NintendoSwitchUI": {
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
+                    "--mr-cf-font-name": [ "NintendoSwitchUI", "bigpicture", "QuickAccess", "MainMenu" ]
+                },
                 "Nunito": {
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
                     "--mr-cf-font-name": [ "Nunito", "bigpicture", "QuickAccess", "MainMenu" ]
