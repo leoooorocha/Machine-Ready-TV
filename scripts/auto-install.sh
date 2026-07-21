@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 
-# Exit immediately if a command exits with a non-zero status,
-# treat unset variables as errors, and prevent errors in pipeline.
+# Exit immediately if a command fails, treat unset variables as errors,
+# and prevent pipe errors.
 set -Euo pipefail
 
 # ==============================================================================
 # Global Configurations & Constants
 # ==============================================================================
-
-# Official installer URL for Decky Loader
-DECKY_INSTALLER_URL="https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh"
 
 # Repository details for Machine-Ready-TV themes & profiles
 REPO_URL="https://github.com/leoooorocha/Machine-Ready-TV.git"
@@ -31,6 +28,7 @@ THEMES_DIR="${HOMEBREW_DIR}/themes"
 SOURCE=""
 REPO_ACTION=""
 REPO_COMMIT=""
+INSTALL_PROFILES=0
 
 # Counters for installation summary reporting
 NEW_INSTALLED_COUNT=0
@@ -50,47 +48,21 @@ NC='\033[0m' # No Color
 # Helper Functions & Logging
 # ==============================================================================
 
-# Print formatted informational, success, warning, and failure messages
 info()    { echo -e "🔹 ${BLUE}$1${NC}"; }
 success() { echo -e "   ${GREEN}✔${NC} $1"; }
 warn()    { echo -e "   ${YELLOW}⚠️  $1${NC}"; }
 fail()    { echo -e "   ${RED}✖  $1${NC}"; }
 
-# Cleanup temporary files on script exit
 cleanup() {
     rm -f "$ZIPFILE" 2>/dev/null || true
 }
 
-# Register trap to run cleanup automatically on EXIT
 trap cleanup EXIT
 
-# Check if a directory requires root permissions to write to
-needs_sudo() {
-    local TARGET_DIR="$1"
-    if [[ -d "$TARGET_DIR" && ! -w "$TARGET_DIR" ]]; then
-        return 0 # True: sudo is needed
-    elif [[ ! -d "$TARGET_DIR" ]]; then
-        local PARENT_DIR
-        PARENT_DIR="$(dirname "$TARGET_DIR")"
-        needs_sudo "$PARENT_DIR"
-        return $?
-    fi
-    return 1 # False: writable without sudo
-}
-
-# Fix permissions on homebrew directory ONLY if the user cannot write to it
-ensure_permissions() {
-    if [[ -d "$HOMEBREW_DIR" ]] && needs_sudo "$HOMEBREW_DIR"; then
-        info "Folder ${HOMEBREW_DIR} is owned by root. Requesting sudo once to adjust ownership..."
-        sudo chown -R "$USER:$USER" "$HOMEBREW_DIR" 2>/dev/null || true
-    fi
-}
-
 # ==============================================================================
-# Network & Dependency Installation Functions
+# Pre-requisite Checks
 # ==============================================================================
 
-# Test internet connectivity against GitHub
 check_internet() {
     echo
     info "Checking internet connection..."
@@ -105,207 +77,61 @@ check_internet() {
     return 1
 }
 
-# Download and run official Decky Loader installer if not present
-install_decky() {
+# Check if Decky Loader is installed
+check_decky_loader() {
     if [[ -d "$HOMEBREW_DIR" ]]; then
-        success "Decky Loader already installed."
+        success "Decky Loader detected."
         return 0
     fi
 
     echo
-    info "Decky Loader not detected."
-
-    if ! ping -c1 github.com >/dev/null 2>&1; then
-        warn "Cannot install Decky without internet."
-        warn "Themes will be staged; install Decky manually if needed."
-        return 1
-    fi
-
-    local TMP_INSTALLER="/tmp/install_decky.sh"
+    fail "Decky Loader is not installed!"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo -e "📖 ${CYAN}Decky Loader Installation Instructions:${NC}"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo "1. Open your browser and visit the official website:"
+    echo -e "   👉 ${BLUE}https://decky.xyz/${NC}"
     echo
-    info "Downloading official Decky installer..."
-
-    if ! curl -fsSL "$DECKY_INSTALLER_URL" -o "$TMP_INSTALLER"; then
-        warn "Could not download Decky installer."
-        return 1
-    fi
-
-    chmod +x "$TMP_INSTALLER"
+    echo "2. Download and run the official installer on your Steam Deck."
+    echo "3. Once Decky Loader is installed, run this script again."
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
     echo
-    info "Running Decky installer..."
-
-    if ! bash "$TMP_INSTALLER"; then
-        rm -f "$TMP_INSTALLER"
-        warn "Decky installation failed."
-        return 1
-    fi
-
-    rm -f "$TMP_INSTALLER"
-
-    if [[ ! -d "$HOMEBREW_DIR" ]]; then
-        warn "Decky installation did not create ${HOMEBREW_DIR}."
-        return 1
-    fi
-
-    success "Decky Loader installed."
-    return 0
+    return 1
 }
 
-# Download and extract the latest CSS Loader release from official GitHub repo
-install_css_loader() {
+# Check if CSS Loader plugin is installed
+check_css_loader() {
     if [[ -d "${PLUGINS_DIR}/SDH-CssLoader" || -d "${PLUGINS_DIR}/CSSLoader" ]]; then
-        success "CSS Loader plugin already installed."
+        success "CSS Loader plugin detected."
         return 0
     fi
 
     echo
-    info "CSS Loader plugin not detected."
-
-    if ! ping -c1 github.com >/dev/null 2>&1; then
-        warn "Cannot install CSS Loader without internet."
-        return 1
-    fi
-
-    # Determine if sudo prefix is required for write operations
-    local CMD_PREFIX=""
-    if needs_sudo "$PLUGINS_DIR"; then
-        CMD_PREFIX="sudo"
-    fi
-
-    $CMD_PREFIX mkdir -p "$PLUGINS_DIR"
-
+    fail "CSS Loader plugin is not installed!"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo -e "📖 ${CYAN}CSS Loader Installation Instructions (Step-by-Step):${NC}"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo "1. Press the Quick Access Button (•••) on your Steam Deck."
+    echo "2. Navigate to the Decky Loader menu (Plugin icon 🔌)."
+    echo "3. Click the Store icon (Shopping Bag 🛍️) in the top-right corner."
+    echo "4. Search for 'CSS Loader' and click 'Install'."
+    echo "5. After installation completes, rerun this script!"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
     echo
-    info "Downloading CSS Loader plugin..."
-
-    # Disable pipefail temporarily to catch GitHub release URL safely
-    set +e
-    local CSS_LOADER_URL
-    CSS_LOADER_URL=$(curl -sH "User-Agent: DeckyInstaller" https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest | grep -o 'https://[^"]*\.zip' | head -n 1)
-    set -e
-
-    if [[ -z "$CSS_LOADER_URL" ]]; then
-        warn "Could not fetch CSS Loader download URL."
-        return 1
-    fi
-
-    local TMP_ZIP="/tmp/css-loader.zip"
-    if ! curl -fsSL "$CSS_LOADER_URL" -o "$TMP_ZIP"; then
-        warn "Could not download CSS Loader archive."
-        return 1
-    fi
-
-    info "Extracting CSS Loader..."
-    if ! $CMD_PREFIX unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
-        rm -f "$TMP_ZIP"
-        warn "Could not extract CSS Loader archive."
-        return 1
-    fi
-
-    rm -f "$TMP_ZIP"
-
-    if [[ -n "$CMD_PREFIX" ]]; then
-        sudo chown -R "$USER:$USER" "$PLUGINS_DIR"
-    fi
-
-    if command -v systemctl >/dev/null 2>&1; then
-        sudo systemctl restart plugin_loader.service 2>/dev/null || true
-    fi
-
-    success "CSS Loader plugin installed."
-    return 0
-}
-
-# Download and extract the latest SteamGridDB plugin from official GitHub repo
-install_steamgriddb() {
-    if [[ -d "${PLUGINS_DIR}/decky-steamgriddb" || -d "${PLUGINS_DIR}/SteamGridDB" ]]; then
-        success "SteamGridDB plugin already installed."
-        return 0
-    fi
-
-    echo
-    info "SteamGridDB plugin not detected."
-
-    if ! ping -c1 github.com >/dev/null 2>&1; then
-        warn "Cannot install SteamGridDB without internet."
-        return 1
-    fi
-
-    # Determine if sudo prefix is required for write operations
-    local CMD_PREFIX=""
-    if needs_sudo "$PLUGINS_DIR"; then
-        CMD_PREFIX="sudo"
-    fi
-
-    $CMD_PREFIX mkdir -p "$PLUGINS_DIR"
-
-    echo
-    info "Downloading SteamGridDB plugin..."
-
-    # Disable pipefail temporarily to catch GitHub release URL safely
-    set +e
-    local SGDB_URL
-    SGDB_URL=$(curl -sH "User-Agent: DeckyInstaller" https://api.github.com/repos/SteamGridDB/decky-steamgriddb/releases/latest | grep -o 'https://[^"]*\.zip' | head -n 1)
-    set -e
-
-    if [[ -z "$SGDB_URL" ]]; then
-        warn "Could not fetch SteamGridDB download URL."
-        return 1
-    fi
-
-    local TMP_ZIP="/tmp/steamgriddb.zip"
-    if ! curl -fsSL "$SGDB_URL" -o "$TMP_ZIP"; then
-        warn "Could not download SteamGridDB archive."
-        return 1
-    fi
-
-    info "Extracting SteamGridDB..."
-    if ! $CMD_PREFIX unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
-        rm -f "$TMP_ZIP"
-        warn "Could not extract SteamGridDB archive."
-        return 1
-    fi
-
-    rm -f "$TMP_ZIP"
-
-    if [[ -n "$CMD_PREFIX" ]]; then
-        sudo chown -R "$USER:$USER" "$PLUGINS_DIR"
-    fi
-
-    if command -v systemctl >/dev/null 2>&1; then
-        sudo systemctl restart plugin_loader.service 2>/dev/null || true
-    fi
-
-    success "SteamGridDB plugin installed."
-    return 0
+    return 1
 }
 
 # Ensure destination themes directory exists
 ensure_themes_dir() {
-    if [[ -d "$THEMES_DIR" ]]; then
-        return 0
-    fi
-
-    if [[ ! -d "$HOMEBREW_DIR" ]]; then
-        warn "CSS Loader themes directory not found (${THEMES_DIR})."
-        warn "Install Decky Loader and the CSS Loader plugin, then rerun."
+    if [[ ! -d "$THEMES_DIR" ]]; then
         mkdir -p "$THEMES_DIR" 2>/dev/null || true
-        return 1
     fi
-
-    if ! mkdir -p "$THEMES_DIR" 2>/dev/null; then
-        fail "Could not create themes directory: ${THEMES_DIR}"
-        return 1
-    fi
-
-    success "Created themes directory: ${THEMES_DIR}"
-    return 0
 }
 
 # ==============================================================================
 # Repository Management
 # ==============================================================================
 
-# Extract and display the current repository version/commit info
 report_repo_commit() {
     local DIR="$1"
 
@@ -323,7 +149,6 @@ report_repo_commit() {
     fi
 }
 
-# Clone or pull the Machine Ready repository, falling back to ZIP archive download
 download_repo() {
     mkdir -p "$WORKDIR"
     SOURCE=""
@@ -333,7 +158,7 @@ download_repo() {
         if [[ -d "$REPODIR/.git" ]]; then
             echo
             info "Updating Machine Ready repository..."
-            local LOCAL_HASH REMOTE_HASH PULL_OK=0
+            local LOCAL_HASH REMOTE_HASH
 
             git -C "$REPODIR" remote set-url origin "$REPO_URL" 2>/dev/null || true
 
@@ -372,11 +197,8 @@ download_repo() {
                 warn "Git clone failed."
             fi
         fi
-    else
-        warn "Git not available."
     fi
 
-    # Download ZIP directly if Git operations failed or Git is missing
     if [[ -z "$SOURCE" ]]; then
         if ! ping -c1 github.com >/dev/null 2>&1; then
             fail "Cannot download repository without internet."
@@ -415,7 +237,6 @@ download_repo() {
 # Theme & Profile Processing Logic
 # ==============================================================================
 
-# Case-insensitive helper to locate subdirectories (e.g., Themes vs themes)
 find_named_subdir() {
     local BASE="$1"
     shift
@@ -432,7 +253,6 @@ find_named_subdir() {
     return 1
 }
 
-# Filter out non-theme directories (git metadata, docs, scripts)
 should_skip_repo_dir() {
     local NAME="$1"
 
@@ -445,7 +265,6 @@ should_skip_repo_dir() {
     return 1
 }
 
-# Sync or copy an individual theme or profile into the target directory
 install_item() {
     local SRC="$1"
     local LABEL="${2:-$(basename "$SRC")}"
@@ -463,12 +282,6 @@ install_item() {
         return 1
     fi
 
-    if [[ ! -d "$THEMES_DIR" ]]; then
-        fail "Skipped ${LABEL} (themes directory unavailable)."
-        FAILED_COUNT=$((FAILED_COUNT + 1))
-        return 1
-    fi
-
     local IS_NEW=0
     if [[ ! -d "$DEST" ]]; then
         IS_NEW=1
@@ -479,7 +292,6 @@ install_item() {
     local SUCCESS_FLAG=0
     local CHANGES=""
 
-    # Use rsync for efficient delta syncing if available, fallback to cp
     if command -v rsync >/dev/null 2>&1; then
         CHANGES=$(rsync -a --delete -i \
             --exclude='[sS]cripts' \
@@ -516,7 +328,6 @@ install_item() {
     return 1
 }
 
-# Traverse a folder and install each subdirectory found inside
 install_from_directory() {
     local ROOT="$1"
     local KIND="$2"
@@ -559,7 +370,20 @@ install_from_directory() {
     done
 }
 
-# Orchestrate the installation of profiles and themes from the downloaded repository
+prompt_profile_installation() {
+    echo
+    echo -e "${CYAN}--------------------------------------------------${NC}"
+    read -p "❓ Do you want to install the pre-configured profiles? (y/N): " -n 1 -r REPLY
+    echo
+    echo -e "${CYAN}--------------------------------------------------${NC}"
+    
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        INSTALL_PROFILES=1
+    else
+        INSTALL_PROFILES=0
+    fi
+}
+
 install_machine_ready() {
     if [[ -z "$SOURCE" || ! -d "$SOURCE" ]]; then
         fail "No repository source available to install from."
@@ -575,15 +399,16 @@ install_machine_ready() {
     PROFILES_ROOT="$(find_named_subdir "$SOURCE" Profiles profiles || true)"
     THEMES_ROOT="$(find_named_subdir "$SOURCE" Themes themes || true)"
 
-    if [[ -n "$PROFILES_ROOT" ]]; then
+    # Install Profiles ONLY if user answered YES
+    if [[ $INSTALL_PROFILES -eq 1 && -n "$PROFILES_ROOT" ]]; then
         install_from_directory "$PROFILES_ROOT" "profiles"
     fi
 
+    # Always install Themes
     if [[ -n "$THEMES_ROOT" ]]; then
         install_from_directory "$THEMES_ROOT" "themes"
     fi
 
-    # Fallback scanning if repository lacks dedicated subfolders
     if [[ -z "$THEMES_ROOT" ]]; then
         local ROOT_DIRS=()
         local DIR NAME
@@ -613,12 +438,10 @@ install_machine_ready() {
     fi
 
     echo
-
     local TOTAL_PROCESSED=$((NEW_INSTALLED_COUNT + UPDATED_COUNT + SKIPPED_COUNT))
 
     if [[ $TOTAL_PROCESSED -eq 0 && $FAILED_COUNT -eq 0 ]]; then
-        warn "No installable themes or profiles were discovered."
-        warn "The repository layout may have changed."
+        warn "No installable items were discovered."
         return 1
     fi
 
@@ -632,18 +455,15 @@ install_machine_ready() {
 }
 
 # ==============================================================================
-# Reporting & User Instructions
+# Reporting & Companion Instructions
 # ==============================================================================
 
-# Display manual post-installation instructions and required CSS Loader dependencies
 print_companion_notes() {
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo -e "${CYAN}⚙️  Post-Installation & Dependencies${NC}"
+    echo -e "${CYAN}⚙️  Post-Installation Profile Dependencies${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    echo -e "💡 ${GREEN}SteamGridDB plugin installed! Use it to configure square capsules and matching recent covers.${NC}"
-    echo
-    echo "Whether you installed automatically or manually, you need to configure CSS Loader:"
+    echo -e "💡 ${YELLOW}Highly recommended to install SteamGridDB plugin from Decky Store for square capsules.${NC}"
     echo
     echo -e "${YELLOW}1. Open the CSS Loader Theme Store and install the following dependencies:${NC}"
     echo "   • Animated PSP Waves Background (only for PSP OLED profile)"
@@ -663,17 +483,14 @@ print_companion_notes() {
     echo "   • Volume Tweaker"
     echo
     echo -e "${YELLOW}2. Click the Settings ⚙️ button on the top-right of CSS Loader.${NC}"
-    echo
     echo -e "${YELLOW}3. Navigate to Settings ➜ Enable Nav Patch, and toggle it On.${NC}"
     echo -e "   💡 ${CYAN}Some themes require Nav Patch to force Steam to ignore hidden elements.${NC}"
     echo
-    echo -e "${YELLOW}4. Go back to QAM CSS Loader, scroll down to the very bottom and click Refresh.${NC}"
-    echo
+    echo -e "${YELLOW}4. Go back to QAM CSS Loader, scroll down to the bottom and click Refresh.${NC}"
     echo -e "${YELLOW}5. Select and apply your preferred Machine Ready profile.${NC}"
     echo
 }
 
-# Render final summary screen
 finish() {
     echo
     echo -e "${BLUE}==================================================${NC}"
@@ -695,9 +512,6 @@ finish() {
     fi
 
     echo
-    echo "Themes directory:"
-    echo "    ${THEMES_DIR}"
-    echo
     echo "Status breakdown:"
     echo -e "  - ${GREEN}Installed:${NC}   ${NEW_INSTALLED_COUNT}"
     echo -e "  - ${CYAN}Updated:  ${NC}   ${UPDATED_COUNT}"
@@ -705,11 +519,14 @@ finish() {
     echo -e "  - ${RED}Failed:   ${NC}   ${FAILED_COUNT}"
     echo
 
-    print_companion_notes
+    # Only print dependencies guide if user requested profiles
+    if [[ $INSTALL_PROFILES -eq 1 ]]; then
+        print_companion_notes
+    fi
 }
 
 # ==============================================================================
-# Main Script Execution Flow
+# Main Execution Flow
 # ==============================================================================
 
 main() {
@@ -719,27 +536,34 @@ main() {
     echo -e "${BLUE}==================================================${NC}"
 
     check_internet || true
-    install_decky || true
-    
-    # Fix ownership permissions ONLY if homebrew directory is owned by root
-    ensure_permissions || true
 
-    install_css_loader || true
-    install_steamgriddb || true
-
-    if ! ensure_themes_dir; then
-        warn "Continuing; theme installation may fail until CSS Loader is available."
+    # Step 1: Check Decky Loader. Stop if missing.
+    if ! check_decky_loader; then
+        exit 1
     fi
 
+    # Step 2: Check CSS Loader. Stop if missing.
+    if ! check_css_loader; then
+        exit 1
+    fi
+
+    # Step 3: Ensure destination themes folder exists
+    ensure_themes_dir
+
+    # Step 4: Download repository
     if ! download_repo; then
         fail "Could not obtain Machine Ready repository."
-        finish
-        return 1
+        exit 1
     fi
 
+    # Step 5: Ask user about installing pre-configured profiles
+    prompt_profile_installation
+
+    # Step 6: Perform theme/profile copy
     install_machine_ready || true
+
+    # Step 7: Show summary & conditional companion notes
     finish
 }
 
-# Execute main function passing all command-line arguments
 main "$@"
