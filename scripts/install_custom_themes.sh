@@ -437,35 +437,38 @@ install_machine_ready() {
 
 print_companion_notes() {
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo -e "${CYAN}⚙️  Post-Installation Setup & Dependencies${NC}"
+    echo -e "${CYAN}⚙️  3. Post-Installation & Dependencies${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    echo -e "${YELLOW}1. Install Store Dependencies (CSS Loader Store):${NC}"
+    echo -e "💡 ${YELLOW}Highly recommended to use SteamGridDB for square capsules and matching recent capsules.${NC}"
+    echo
+    echo "Whether you installed automatically or manually, you need to configure CSS Loader:"
+    echo
+    echo -e "${YELLOW}1. Open the CSS Loader Theme Store and install the following dependencies:${NC}"
+    echo "   • Animated PSP Waves Background (only for PSP OLED profile)"
     echo "   • Avatar Customization Suite"
     echo "   • Better Blur"
     echo "   • Centered Game Text"
     echo "   • Clean Library Capsule"
     echo "   • Focus Highlight Color"
     echo "   • Game Cover Shine Animation Color"
-    echo "   • Main Menu Hide Tabs (Hide Store)"
+    echo "   • Main Menu Hide Tabs (Hide the Store)"
     echo "   • No Friend Playing Icon"
     echo "   • No Hero Gradient"
     echo "   • No Home Tabs"
+    echo "   • Proper Hero Scaling (only for Back 2 Basic profile)"
     echo "   • QAM Hide Tabs"
     echo "   • Top Bar Padding"
     echo "   • Volume Tweaker"
     echo
-    echo -e "   ${CYAN}Profile Extras:${NC}"
-    echo "   • PSP OLED     ➜ Animated PSP Waves Background"
-    echo "   • Back 2 Basic ➜ Proper Hero Scaling"
+    echo -e "${YELLOW}2. Click the Settings ⚙️ button on the top-right of CSS Loader.${NC}"
     echo
-    echo -e "${YELLOW}2. Enable Nav Patch:${NC}"
-    echo -e "   ⚙️  CSS Loader ➜ Settings ➜ ${GREEN}Enable Nav Patch (ON)${NC}"
+    echo -e "${YELLOW}3. Navigate to Settings ➜ Enable Nav Patch, and toggle it On.${NC}"
+    echo -e "   💡 ${CYAN}Some themes require Nav Patch to force Steam to ignore hidden elements.${NC}"
     echo
-    echo -e "${YELLOW}3. Apply Profile:${NC}"
-    echo -e "   🔄 Decky ➜ CSS Loader ➜ ${GREEN}Refresh${NC} ➜ Choose Machine Ready Profile"
+    echo -e "${YELLOW}4. Go back to QAM CSS Loader, scroll down to the very bottom and click Refresh.${NC}"
     echo
-    echo -e "💡 ${YELLOW}Tip:${NC} Highly recommended to use ${CYAN}SteamGridDB${NC} for square capsules."
+    echo -e "${YELLOW}5. Select and apply your preferred Machine Ready profile.${NC}"
     echo
 }
 
