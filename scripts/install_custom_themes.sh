@@ -498,9 +498,9 @@ finish() {
     echo
     echo "Status breakdown:"
     echo -e "  - ${GREEN}Installed:${NC}    ${NEW_INSTALLED_COUNT} New"
-    echo -e "  - ${CYAN}Updated:${NC}            ${UPDATED_COUNT}"
+    echo -e "  - ${CYAN}Updated:${NC}    ${UPDATED_COUNT}"
     echo -e "  - ${YELLOW}Skipped:${NC}    ${SKIPPED_COUNT} Up-to-date"
-    echo -e "  - ${RED}Failed:${NC}             ${FAILED_COUNT}"
+    echo -e "  - ${RED}Failed:${NC}        ${FAILED_COUNT}"
     echo
 
     print_companion_notes
