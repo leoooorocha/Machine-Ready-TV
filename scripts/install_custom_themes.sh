@@ -437,7 +437,7 @@ install_machine_ready() {
 
 print_companion_notes() {
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo -e "${CYAN}⚙️  3. Post-Installation & Dependencies${NC}"
+    echo -e "${CYAN}⚙️  Post-Installation & Dependencies${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
     echo -e "💡 ${YELLOW}Highly recommended to use SteamGridDB for square capsules and matching recent capsules.${NC}"
