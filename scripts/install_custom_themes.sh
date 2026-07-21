@@ -312,7 +312,7 @@ install_item() {
             echo -e "${CYAN}[UPDATED]${NC}   ${LABEL}"
             UPDATED_COUNT=$((UPDATED_COUNT + 1))
         else
-            echo -e "${YELLOW}[SKIPPED]${NC}   ${LABEL} (already last version)"
+            echo -e "${YELLOW}[SKIPPED]${NC}   ${LABEL}"
             SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
         fi
         return 0
@@ -402,7 +402,7 @@ install_machine_ready() {
             echo
             info "Found ${#ROOT_DIRS[@]} root themes."
             echo
-            echo "Processing:"
+            echo "Processing themes:"
             for DIR in "${ROOT_DIRS[@]}"; do
                 install_item "$DIR" "$(basename "$DIR")" || true
             done
@@ -429,26 +429,36 @@ install_machine_ready() {
 }
 
 print_companion_notes() {
-    echo "Optional CSS Loader Theme Store dependencies (install manually):"
-    echo "  - Avatar Customization Suite"
-    echo "  - Better Blur"
-    echo "  - Centered Game Text"
-    echo "  - Clean Library Capsule"
-    echo "  - Focus Highlight Color"
-    echo "  - Game Cover Shine Animation Color"
-    echo "  - Main Menu Hide Tabs"
-    echo "  - No Friend Playing Icon"
-    echo "  - No Hero Gradient"
-    echo "  - No Home Tabs"
-    echo "  - QAM Hide Tabs"
-    echo "  - Top Bar Padding"
-    echo "  - Volume Tweaker"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo -e "${CYAN}⚙️  Post-Installation Setup & Dependencies${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    echo "Profile-specific extras:"
-    echo "  - PSP OLED → Animated PSP Waves Background"
-    echo "  - Back 2 Basic → Proper Hero Scaling"
+    echo -e "${YELLOW}1. Install Store Dependencies (CSS Loader Store):${NC}"
+    echo "   • Avatar Customization Suite"
+    echo "   • Better Blur"
+    echo "   • Centered Game Text"
+    echo "   • Clean Library Capsule"
+    echo "   • Focus Highlight Color"
+    echo "   • Game Cover Shine Animation Color"
+    echo "   • Main Menu Hide Tabs (Hide Store)"
+    echo "   • No Friend Playing Icon"
+    echo "   • No Hero Gradient"
+    echo "   • No Home Tabs"
+    echo "   • QAM Hide Tabs"
+    echo "   • Top Bar Padding"
+    echo "   • Volume Tweaker"
     echo
-    echo "After installing themes, enable Nav Patch in CSS Loader settings."
+    echo -e "   ${CYAN}Profile Extras:${NC}"
+    echo "   • PSP OLED     ➜ Animated PSP Waves Background"
+    echo "   • Back 2 Basic ➜ Proper Hero Scaling"
+    echo
+    echo -e "${YELLOW}2. Enable Nav Patch:${NC}"
+    echo -e "   ⚙️  CSS Loader ➜ Settings ➜ ${GREEN}Enable Nav Patch (ON)${NC}"
+    echo
+    echo -e "${YELLOW}3. Apply Profile:${NC}"
+    echo -e "   🔄 Decky ➜ CSS Loader ➜ ${GREEN}Refresh${NC} ➜ Choose Machine Ready Profile"
+    echo
+    echo -e "💡 ${YELLOW}Tip:${NC} Highly recommended to use ${CYAN}SteamGridDB${NC} for square capsules."
     echo
 }
 
@@ -477,16 +487,13 @@ finish() {
     echo "    ${THEMES_DIR}"
     echo
     echo "Status breakdown:"
-    echo -e "  - ${GREEN}Installed (New):${NC} ${NEW_INSTALLED_COUNT}"
-    echo -e "  - ${CYAN}Updated:${NC}         ${UPDATED_COUNT}"
-    echo -e "  - ${YELLOW}Skipped:${NC}         ${SKIPPED_COUNT}"
-    echo -e "  - ${RED}Failed:${NC}          ${FAILED_COUNT}"
+    echo -e "  - ${GREEN}Installed (New):${NC}    ${NEW_INSTALLED_COUNT}"
+    echo -e "  - ${CYAN}Updated:${NC}            ${UPDATED_COUNT}"
+    echo -e "  - ${YELLOW}Skipped (Up-to-date):${NC} ${SKIPPED_COUNT}"
+    echo -e "  - ${RED}Failed:${NC}             ${FAILED_COUNT}"
     echo
 
     print_companion_notes
-
-    echo "Decky → CSS Loader → Refresh"
-    echo
 }
 
 main() {
