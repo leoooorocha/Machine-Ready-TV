@@ -373,11 +373,20 @@ install_from_directory() {
 prompt_profile_installation() {
     echo
     echo -e "${CYAN}--------------------------------------------------${NC}"
-    read -p "❓ Do you want to install the pre-configured profiles? (y/N): " -n 1 -r REPLY
-    echo
-    echo -e "${CYAN}--------------------------------------------------${NC}"
     
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    local REPLY=""
+    # Reads directly from /dev/tty to ensure user interaction works even in piped commands
+    if [[ -c /dev/tty ]]; then
+        read -n 1 -rp "❓ Do you want to install pre-configured profiles? (y/N): " REPLY < /dev/tty
+        echo
+    else
+        warn "Non-interactive terminal detected. Skipping profile installation."
+        REPLY="n"
+    fi
+    
+    echo -e "${CYAN}--------------------------------------------------${NC}"
+
+    if [[ "$REPLY" =~ ^[YySs]$ ]]; then
         INSTALL_PROFILES=1
     else
         INSTALL_PROFILES=0
