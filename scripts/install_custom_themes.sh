@@ -44,6 +44,7 @@ cleanup() {
 trap cleanup EXIT
 
 check_internet() {
+    echo
     info "Checking internet connection..."
 
     if ping -c1 github.com >/dev/null 2>&1; then
@@ -62,6 +63,7 @@ install_decky() {
         return 0
     fi
 
+    echo
     info "Decky Loader not detected."
 
     if ! ping -c1 github.com >/dev/null 2>&1; then
@@ -142,6 +144,7 @@ download_repo() {
 
     if command -v git >/dev/null 2>&1; then
         if [[ -d "$REPODIR/.git" ]]; then
+            echo
             info "Updating Machine Ready..."
             local LOCAL_HASH REMOTE_HASH PULL_OK=0
 
@@ -170,6 +173,7 @@ download_repo() {
                 SOURCE="$REPODIR"
             fi
         else
+            echo
             info "Cloning Machine Ready repository..."
             rm -rf "$REPODIR" 2>/dev/null || true
 
@@ -335,10 +339,12 @@ install_from_directory() {
     )
 
     if [[ ${#DIRS[@]} -eq 0 ]]; then
+        echo
         warn "No ${KIND} found in $(basename "$ROOT")."
         return 0
     fi
 
+    echo
     info "Found ${#DIRS[@]} ${KIND}."
     echo
     echo "Processing ${KIND}:"
@@ -389,6 +395,7 @@ install_machine_ready() {
         )
 
         if [[ ${#ROOT_DIRS[@]} -gt 0 ]]; then
+            echo
             info "Found ${#ROOT_DIRS[@]} root themes."
             echo
             echo "Processing:"
