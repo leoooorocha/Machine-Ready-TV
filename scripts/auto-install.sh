@@ -1,48 +1,74 @@
 #!/usr/bin/env bash
 
+# Exit immediately if a command exits with a non-zero status,
+# treat unset variables as errors, and prevent errors in pipeline.
 set -Euo pipefail
 
+# ==============================================================================
+# Global Configurations & Constants
+# ==============================================================================
+
+# Official installer URL for Decky Loader
 DECKY_INSTALLER_URL="https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh"
 
+# Repository details for Machine-Ready-TV themes & profiles
 REPO_URL="https://github.com/leoooorocha/Machine-Ready-TV.git"
 ZIP_URL="https://github.com/leoooorocha/Machine-Ready-TV/archive/refs/heads/main.zip"
 REPO_BRANCH="main"
 
+# Temporary working directory paths
 WORKDIR="/tmp/machine-ready"
 REPODIR="${WORKDIR}/Machine-Ready-TV"
 ZIPFILE="${WORKDIR}/Machine-Ready-TV.zip"
 ZIPDIR="${WORKDIR}/Machine-Ready-TV-main"
 
+# Target installation directories for Decky plugins and themes
 HOMEBREW_DIR="${HOME}/homebrew"
+PLUGINS_DIR="${HOMEBREW_DIR}/plugins"
 THEMES_DIR="${HOMEBREW_DIR}/themes"
 
+# Runtime state variables
 SOURCE=""
 REPO_ACTION=""
 REPO_COMMIT=""
 
+# Counters for installation summary reporting
 NEW_INSTALLED_COUNT=0
 UPDATED_COUNT=0
 FAILED_COUNT=0
 SKIPPED_COUNT=0
 
+# ANSI Color codes for styled terminal output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
-NC='\033[0m'
+NC='\033[0m' # No Color
 
+# ==============================================================================
+# Helper Functions & Logging
+# ==============================================================================
+
+# Print formatted informational, success, warning, and failure messages
 info()    { echo -e "🔹 ${BLUE}$1${NC}"; }
 success() { echo -e "   ${GREEN}✔${NC} $1"; }
 warn()    { echo -e "   ${YELLOW}⚠️  $1${NC}"; }
 fail()    { echo -e "   ${RED}✖  $1${NC}"; }
 
+# Cleanup temporary files on script exit
 cleanup() {
     rm -f "$ZIPFILE" 2>/dev/null || true
 }
 
+# Register trap to run cleanup automatically on EXIT
 trap cleanup EXIT
 
+# ==============================================================================
+# Network & Dependency Installation Functions
+# ==============================================================================
+
+# Test internet connectivity against GitHub
 check_internet() {
     echo
     info "Checking internet connection..."
@@ -57,6 +83,7 @@ check_internet() {
     return 1
 }
 
+# Download and run official Decky Loader installer if not present
 install_decky() {
     if [[ -d "$HOMEBREW_DIR" ]]; then
         success "Decky Loader already installed."
@@ -102,6 +129,117 @@ install_decky() {
     return 0
 }
 
+# Download and extract the latest CSS Loader release from official GitHub repo
+install_css_loader() {
+    if [[ -d "${PLUGINS_DIR}/SDH-CssLoader" || -d "${PLUGINS_DIR}/CSSLoader" ]]; then
+        success "CSS Loader plugin already installed."
+        return 0
+    fi
+
+    echo
+    info "CSS Loader plugin not detected."
+
+    if ! ping -c1 github.com >/dev/null 2>&1; then
+        warn "Cannot install CSS Loader without internet."
+        return 1
+    fi
+
+    mkdir -p "$PLUGINS_DIR"
+
+    echo
+    info "Downloading CSS Loader plugin..."
+
+    # Temporarily disable pipefail to fetch latest release URL safely
+    set +e
+    local CSS_LOADER_URL
+    CSS_LOADER_URL=$(curl -s https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4 | head -n 1)
+    set -e
+
+    if [[ -z "$CSS_LOADER_URL" ]]; then
+        warn "Could not fetch CSS Loader download URL."
+        return 1
+    fi
+
+    local TMP_ZIP="/tmp/css-loader.zip"
+    if ! curl -fsSL "$CSS_LOADER_URL" -o "$TMP_ZIP"; then
+        warn "Could not download CSS Loader archive."
+        return 1
+    fi
+
+    info "Extracting CSS Loader..."
+    if ! unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
+        rm -f "$TMP_ZIP"
+        warn "Could not extract CSS Loader archive."
+        return 1
+    fi
+
+    rm -f "$TMP_ZIP"
+
+    # Restart Decky plugin service to enable plugin immediately without rebooting
+    if command -v systemctl >/dev/null 2>&1; then
+        sudo systemctl restart plugin_loader.service 2>/dev/null || true
+    fi
+
+    success "CSS Loader plugin installed."
+    return 0
+}
+
+# Download and extract the latest SteamGridDB plugin from official GitHub repo
+install_steamgriddb() {
+    if [[ -d "${PLUGINS_DIR}/decky-steamgriddb" || -d "${PLUGINS_DIR}/SteamGridDB" ]]; then
+        success "SteamGridDB plugin already installed."
+        return 0
+    fi
+
+    echo
+    info "SteamGridDB plugin not detected."
+
+    if ! ping -c1 github.com >/dev/null 2>&1; then
+        warn "Cannot install SteamGridDB without internet."
+        return 1
+    fi
+
+    mkdir -p "$PLUGINS_DIR"
+
+    echo
+    info "Downloading SteamGridDB plugin..."
+
+    # Temporarily disable pipefail to fetch latest release URL safely
+    set +e
+    local SGDB_URL
+    SGDB_URL=$(curl -s https://api.github.com/repos/SteamGridDB/decky-steamgriddb/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4 | head -n 1)
+    set -e
+
+    if [[ -z "$SGDB_URL" ]]; then
+        warn "Could not fetch SteamGridDB download URL."
+        return 1
+    fi
+
+    local TMP_ZIP="/tmp/steamgriddb.zip"
+    if ! curl -fsSL "$SGDB_URL" -o "$TMP_ZIP"; then
+        warn "Could not download SteamGridDB archive."
+        return 1
+    fi
+
+    info "Extracting SteamGridDB..."
+    if ! unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
+        rm -f "$TMP_ZIP"
+        warn "Could not extract SteamGridDB archive."
+        return 1
+    fi
+
+    rm -f "$TMP_ZIP"
+
+    # Restart Decky plugin service to reload available plugins
+    if command -v systemctl >/dev/null 2>&1; then
+        sudo systemctl restart plugin_loader.service 2>/dev/null || true
+    fi
+
+    success "SteamGridDB plugin installed."
+    return 0
+}
+
+# Ensure destination themes directory exists
 ensure_themes_dir() {
     if [[ -d "$THEMES_DIR" ]]; then
         return 0
@@ -123,6 +261,11 @@ ensure_themes_dir() {
     return 0
 }
 
+# ==============================================================================
+# Repository Management
+# ==============================================================================
+
+# Extract and display the current repository version/commit info
 report_repo_commit() {
     local DIR="$1"
 
@@ -140,6 +283,7 @@ report_repo_commit() {
     fi
 }
 
+# Clone or pull the Machine Ready repository, falling back to ZIP archive download
 download_repo() {
     mkdir -p "$WORKDIR"
     SOURCE=""
@@ -192,6 +336,7 @@ download_repo() {
         warn "Git not available."
     fi
 
+    # Download ZIP directly if Git operations failed or Git is missing
     if [[ -z "$SOURCE" ]]; then
         if ! ping -c1 github.com >/dev/null 2>&1; then
             fail "Cannot download repository without internet."
@@ -226,6 +371,11 @@ download_repo() {
     return 0
 }
 
+# ==============================================================================
+# Theme & Profile Processing Logic
+# ==============================================================================
+
+# Case-insensitive helper to locate subdirectories (e.g., Themes vs themes)
 find_named_subdir() {
     local BASE="$1"
     shift
@@ -242,6 +392,7 @@ find_named_subdir() {
     return 1
 }
 
+# Filter out non-theme directories (git metadata, docs, scripts)
 should_skip_repo_dir() {
     local NAME="$1"
 
@@ -254,6 +405,7 @@ should_skip_repo_dir() {
     return 1
 }
 
+# Sync or copy an individual theme or profile into the target directory
 install_item() {
     local SRC="$1"
     local LABEL="${2:-$(basename "$SRC")}"
@@ -287,6 +439,7 @@ install_item() {
     local SUCCESS_FLAG=0
     local CHANGES=""
 
+    # Use rsync for efficient delta syncing if available, fallback to cp
     if command -v rsync >/dev/null 2>&1; then
         CHANGES=$(rsync -a --delete -i \
             --exclude='[sS]cripts' \
@@ -323,6 +476,7 @@ install_item() {
     return 1
 }
 
+# Traverse a folder and install each subdirectory found inside
 install_from_directory() {
     local ROOT="$1"
     local KIND="$2"
@@ -365,6 +519,7 @@ install_from_directory() {
     done
 }
 
+# Orchestrate the installation of profiles and themes from the downloaded repository
 install_machine_ready() {
     if [[ -z "$SOURCE" || ! -d "$SOURCE" ]]; then
         fail "No repository source available to install from."
@@ -388,6 +543,7 @@ install_machine_ready() {
         install_from_directory "$THEMES_ROOT" "themes"
     fi
 
+    # Fallback scanning if repository lacks dedicated subfolders
     if [[ -z "$THEMES_ROOT" ]]; then
         local ROOT_DIRS=()
         local DIR NAME
@@ -435,12 +591,17 @@ install_machine_ready() {
     return 0
 }
 
+# ==============================================================================
+# Reporting & User Instructions
+# ==============================================================================
+
+# Display manual post-installation instructions and required CSS Loader dependencies
 print_companion_notes() {
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo -e "${CYAN}⚙️  Post-Installation & Dependencies${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    echo -e "💡 ${YELLOW}Highly recommended to use SteamGridDB for square capsules and matching recent capsules.${NC}"
+    echo -e "💡 ${GREEN}SteamGridDB plugin installed! Use it to configure square capsules and matching recent covers.${NC}"
     echo
     echo "Whether you installed automatically or manually, you need to configure CSS Loader:"
     echo
@@ -472,6 +633,7 @@ print_companion_notes() {
     echo
 }
 
+# Render final summary screen
 finish() {
     echo
     echo -e "${BLUE}==================================================${NC}"
@@ -506,6 +668,10 @@ finish() {
     print_companion_notes
 }
 
+# ==============================================================================
+# Main Script Execution Flow
+# ==============================================================================
+
 main() {
     echo
     echo -e "${BLUE}==================================================${NC}"
@@ -514,6 +680,8 @@ main() {
 
     check_internet || true
     install_decky || true
+    install_css_loader || true
+    install_steamgriddb || true
 
     if ! ensure_themes_dir; then
         warn "Continuing; theme installation may fail until CSS Loader is available."
@@ -529,4 +697,5 @@ main() {
     finish
 }
 
+# Execute main function passing all command-line arguments
 main "$@"
