@@ -64,6 +64,14 @@ cleanup() {
 # Register trap to run cleanup automatically on EXIT
 trap cleanup EXIT
 
+# Fix permissions on homebrew directory created by Decky Loader (root)
+ensure_permissions() {
+    if [[ -d "$HOMEBREW_DIR" ]]; then
+        info "Ensuring correct folder permissions for ${HOMEBREW_DIR}..."
+        sudo chown -R "$USER:$USER" "$HOMEBREW_DIR" 2>/dev/null || true
+    fi
+}
+
 # ==============================================================================
 # Network & Dependency Installation Functions
 # ==============================================================================
@@ -680,6 +688,10 @@ main() {
 
     check_internet || true
     install_decky || true
+    
+    # Fix ownership permissions created by Decky installer before extracting plugins
+    ensure_permissions || true
+
     install_css_loader || true
     install_steamgriddb || true
 
