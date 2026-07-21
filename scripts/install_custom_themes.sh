@@ -24,7 +24,8 @@ SOURCE=""
 REPO_ACTION=""
 REPO_COMMIT=""
 
-INSTALLED_COUNT=0
+NEW_INSTALLED_COUNT=0
+UPDATED_COUNT=0
 FAILED_COUNT=0
 SKIPPED_COUNT=0
 
@@ -36,6 +37,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+CYAN='\033[0;36m'
 NC='\033[0m'
 
 info()    { echo -e "${BLUE}==>${NC} $1"; }
@@ -279,18 +281,44 @@ install_item() {
         return 1
     fi
 
-    rm -rf "$DEST"
+    local ACTION="INSTALLED"
+    if [[ -d "$DEST" ]]; then
+        ACTION="UPDATED"
+    fi
 
-    if cp -a "$SRC" "$DEST" 2>/dev/null; then
-        rm -rf "$DEST/scripts" "$DEST/Scripts" 2>/dev/null || true
-        find "$DEST" -iname "readme*" -delete 2>/dev/null || true
+    mkdir -p "$DEST"
 
-        success "${LABEL}"
-        INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
+    local SUCCESS_FLAG=0
+
+    if command -v rsync >/dev/null 2>&1; then
+        if rsync -a --delete \
+            --exclude='[sS]cripts' \
+            --exclude='[rR][eE][aA][dD][mM][eE]*' \
+            --exclude='.git*' \
+            "$SRC/" "$DEST/" 2>/dev/null; then
+            SUCCESS_FLAG=1
+        fi
+    else
+        rm -rf "$DEST"
+        if cp -a "$SRC" "$DEST" 2>/dev/null; then
+            rm -rf "$DEST/scripts" "$DEST/Scripts" 2>/dev/null || true
+            find "$DEST" -iname "readme*" -delete 2>/dev/null || true
+            SUCCESS_FLAG=1
+        fi
+    fi
+
+    if [[ $SUCCESS_FLAG -eq 1 ]]; then
+        if [[ "$ACTION" == "UPDATED" ]]; then
+            echo -e "${CYAN}[UPDATED]${NC}   ${LABEL}"
+            UPDATED_COUNT=$((UPDATED_COUNT + 1))
+        else
+            echo -e "${GREEN}[INSTALLED]${NC} ${LABEL}"
+            NEW_INSTALLED_COUNT=$((NEW_INSTALLED_COUNT + 1))
+        fi
         return 0
     fi
 
-    fail "${LABEL}"
+    echo -e "${RED}[FAILED]${NC}    ${LABEL}"
     FAILED_COUNT=$((FAILED_COUNT + 1))
     return 1
 }
@@ -321,7 +349,7 @@ install_from_directory() {
 
     info "Found ${#DIRS[@]} ${KIND}."
     echo
-    echo "Installing:"
+    echo "Processing ${KIND}:"
 
     for DIR in "${DIRS[@]}"; do
         NAME="$(basename "$DIR")"
@@ -335,7 +363,8 @@ install_machine_ready() {
         return 1
     fi
 
-    INSTALLED_COUNT=0
+    NEW_INSTALLED_COUNT=0
+    UPDATED_COUNT=0
     FAILED_COUNT=0
     SKIPPED_COUNT=0
 
@@ -370,7 +399,7 @@ install_machine_ready() {
         if [[ ${#ROOT_DIRS[@]} -gt 0 ]]; then
             info "Found ${#ROOT_DIRS[@]} root themes."
             echo
-            echo "Installing:"
+            echo "Processing:"
             for DIR in "${ROOT_DIRS[@]}"; do
                 install_item "$DIR" "$(basename "$DIR")" || true
             done
@@ -379,16 +408,18 @@ install_machine_ready() {
 
     echo
 
-    if [[ $INSTALLED_COUNT -eq 0 && $FAILED_COUNT -eq 0 ]]; then
+    local TOTAL_PROCESSED=$((NEW_INSTALLED_COUNT + UPDATED_COUNT))
+
+    if [[ $TOTAL_PROCESSED -eq 0 && $FAILED_COUNT -eq 0 ]]; then
         warn "No installable themes or profiles were discovered."
         warn "The repository layout may have changed."
         return 1
     fi
 
     if [[ $FAILED_COUNT -eq 0 ]]; then
-        success "Done. Installed ${INSTALLED_COUNT} item(s)."
+        success "Done. Processed ${TOTAL_PROCESSED} item(s)."
     else
-        warn "Done with errors. Installed ${INSTALLED_COUNT}, failed ${FAILED_COUNT}, skipped ${SKIPPED_COUNT}."
+        warn "Done with errors. Installed: ${NEW_INSTALLED_COUNT}, Updated: ${UPDATED_COUNT}, Failed: ${FAILED_COUNT}, Skipped: ${SKIPPED_COUNT}."
     fi
 
     return 0
@@ -421,7 +452,7 @@ print_companion_notes() {
 finish() {
     echo
     echo "=========================================="
-    echo " Installation Complete"
+    echo " Installation Summary"
     echo "=========================================="
     echo
 
@@ -442,7 +473,11 @@ finish() {
     echo "Themes directory:"
     echo "    ${THEMES_DIR}"
     echo
-    echo "Installed: ${INSTALLED_COUNT}  Failed: ${FAILED_COUNT}  Skipped: ${SKIPPED_COUNT}"
+    echo "Status breakdown:"
+    echo -e "  - ${GREEN}Installed (New):${NC} ${NEW_INSTALLED_COUNT}"
+    echo -e "  - ${CYAN}Updated:${NC}         ${UPDATED_COUNT}"
+    echo -e "  - ${RED}Failed:${NC}          ${FAILED_COUNT}"
+    echo -e "  - ${YELLOW}Skipped:${NC}         ${SKIPPED_COUNT}"
     echo
 
     print_companion_notes
