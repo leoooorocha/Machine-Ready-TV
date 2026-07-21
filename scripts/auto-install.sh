@@ -64,10 +64,24 @@ cleanup() {
 # Register trap to run cleanup automatically on EXIT
 trap cleanup EXIT
 
-# Fix permissions on homebrew directory created by Decky Loader (root)
+# Check if a directory requires root permissions to write to
+needs_sudo() {
+    local TARGET_DIR="$1"
+    if [[ -d "$TARGET_DIR" && ! -w "$TARGET_DIR" ]]; then
+        return 0 # True: sudo is needed
+    elif [[ ! -d "$TARGET_DIR" ]]; then
+        local PARENT_DIR
+        PARENT_DIR="$(dirname "$TARGET_DIR")"
+        needs_sudo "$PARENT_DIR"
+        return $?
+    fi
+    return 1 # False: writable without sudo
+}
+
+# Fix permissions on homebrew directory ONLY if the user cannot write to it
 ensure_permissions() {
-    if [[ -d "$HOMEBREW_DIR" ]]; then
-        info "Ensuring correct folder permissions for ${HOMEBREW_DIR}..."
+    if [[ -d "$HOMEBREW_DIR" ]] && needs_sudo "$HOMEBREW_DIR"; then
+        info "Folder ${HOMEBREW_DIR} is owned by root. Requesting sudo once to adjust ownership..."
         sudo chown -R "$USER:$USER" "$HOMEBREW_DIR" 2>/dev/null || true
     fi
 }
@@ -152,15 +166,21 @@ install_css_loader() {
         return 1
     fi
 
-    mkdir -p "$PLUGINS_DIR"
+    # Determine if sudo prefix is required for write operations
+    local CMD_PREFIX=""
+    if needs_sudo "$PLUGINS_DIR"; then
+        CMD_PREFIX="sudo"
+    fi
+
+    $CMD_PREFIX mkdir -p "$PLUGINS_DIR"
 
     echo
     info "Downloading CSS Loader plugin..."
 
-    # Temporarily disable pipefail to fetch latest release URL safely
+    # Disable pipefail temporarily to catch GitHub release URL safely
     set +e
     local CSS_LOADER_URL
-    CSS_LOADER_URL=$(curl -s https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4 | head -n 1)
+    CSS_LOADER_URL=$(curl -sH "User-Agent: DeckyInstaller" https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest | grep -o 'https://[^"]*\.zip' | head -n 1)
     set -e
 
     if [[ -z "$CSS_LOADER_URL" ]]; then
@@ -175,7 +195,7 @@ install_css_loader() {
     fi
 
     info "Extracting CSS Loader..."
-    if ! unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
+    if ! $CMD_PREFIX unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
         rm -f "$TMP_ZIP"
         warn "Could not extract CSS Loader archive."
         return 1
@@ -183,7 +203,10 @@ install_css_loader() {
 
     rm -f "$TMP_ZIP"
 
-    # Restart Decky plugin service to enable plugin immediately without rebooting
+    if [[ -n "$CMD_PREFIX" ]]; then
+        sudo chown -R "$USER:$USER" "$PLUGINS_DIR"
+    fi
+
     if command -v systemctl >/dev/null 2>&1; then
         sudo systemctl restart plugin_loader.service 2>/dev/null || true
     fi
@@ -207,15 +230,21 @@ install_steamgriddb() {
         return 1
     fi
 
-    mkdir -p "$PLUGINS_DIR"
+    # Determine if sudo prefix is required for write operations
+    local CMD_PREFIX=""
+    if needs_sudo "$PLUGINS_DIR"; then
+        CMD_PREFIX="sudo"
+    fi
+
+    $CMD_PREFIX mkdir -p "$PLUGINS_DIR"
 
     echo
     info "Downloading SteamGridDB plugin..."
 
-    # Temporarily disable pipefail to fetch latest release URL safely
+    # Disable pipefail temporarily to catch GitHub release URL safely
     set +e
     local SGDB_URL
-    SGDB_URL=$(curl -s https://api.github.com/repos/SteamGridDB/decky-steamgriddb/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4 | head -n 1)
+    SGDB_URL=$(curl -sH "User-Agent: DeckyInstaller" https://api.github.com/repos/SteamGridDB/decky-steamgriddb/releases/latest | grep -o 'https://[^"]*\.zip' | head -n 1)
     set -e
 
     if [[ -z "$SGDB_URL" ]]; then
@@ -230,7 +259,7 @@ install_steamgriddb() {
     fi
 
     info "Extracting SteamGridDB..."
-    if ! unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
+    if ! $CMD_PREFIX unzip -oq "$TMP_ZIP" -d "$PLUGINS_DIR"; then
         rm -f "$TMP_ZIP"
         warn "Could not extract SteamGridDB archive."
         return 1
@@ -238,7 +267,10 @@ install_steamgriddb() {
 
     rm -f "$TMP_ZIP"
 
-    # Restart Decky plugin service to reload available plugins
+    if [[ -n "$CMD_PREFIX" ]]; then
+        sudo chown -R "$USER:$USER" "$PLUGINS_DIR"
+    fi
+
     if command -v systemctl >/dev/null 2>&1; then
         sudo systemctl restart plugin_loader.service 2>/dev/null || true
     fi
@@ -689,7 +721,7 @@ main() {
     check_internet || true
     install_decky || true
     
-    # Fix ownership permissions created by Decky installer before extracting plugins
+    # Fix ownership permissions ONLY if homebrew directory is owned by root
     ensure_permissions || true
 
     install_css_loader || true
