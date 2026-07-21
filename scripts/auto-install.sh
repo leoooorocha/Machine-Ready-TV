@@ -69,11 +69,13 @@ check_internet() {
 
     if ping -c1 github.com >/dev/null 2>&1; then
         success "Internet connection OK."
+        echo
         return 0
     fi
 
     warn "No internet connection detected."
     warn "Will continue with any locally cached repository."
+    echo
     return 1
 }
 
@@ -86,15 +88,18 @@ check_decky_loader() {
 
     echo
     fail "Decky Loader is not installed!"
-    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo
+    echo -e "${BLUE}--------------------------------------------------${NC}"
     echo -e "📖 ${CYAN}Decky Loader Installation Instructions:${NC}"
-    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo
     echo "1. Open your browser and visit the official website:"
     echo -e "   👉 ${BLUE}https://decky.xyz/${NC}"
     echo
     echo "2. Download and run the official installer on your Steam Deck."
     echo "3. Once Decky Loader is installed, run this script again."
-    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo
+    echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
     return 1
 }
@@ -108,15 +113,18 @@ check_css_loader() {
 
     echo
     fail "CSS Loader plugin is not installed!"
-    echo -e "${YELLOW}--------------------------------------------------${NC}"
-    echo -e "📖 ${CYAN}CSS Loader Installation Instructions (Step-by-Step):${NC}"
-    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo -e "📖 ${CYAN}CSS Loader Installation Instructions:${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo
     echo "1. Press the Quick Access Button (•••) on your Steam Deck."
     echo "2. Navigate to the Decky Loader menu (Plugin icon 🔌)."
     echo "3. Click the Store icon (Shopping Bag 🛍️) in the top-right corner."
     echo "4. Search for 'CSS Loader' and click 'Install'."
     echo "5. After installation completes, rerun this script!"
-    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo
+    echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
     return 1
 }
@@ -372,10 +380,10 @@ install_from_directory() {
 
 prompt_profile_installation() {
     echo
-    echo -e "${CYAN}--------------------------------------------------${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
     
     local REPLY=""
-    # Reads directly from /dev/tty to ensure user interaction works even in piped commands
+    # Reads directly from /dev/tty to ensure user interaction works even in piped executions
     if [[ -c /dev/tty ]]; then
         read -n 1 -rp "❓ Do you want to install pre-configured profiles? (y/N): " REPLY < /dev/tty
         echo
@@ -384,7 +392,7 @@ prompt_profile_installation() {
         REPLY="n"
     fi
     
-    echo -e "${CYAN}--------------------------------------------------${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
 
     if [[ "$REPLY" =~ ^[YySs]$ ]]; then
         INSTALL_PROFILES=1
@@ -468,35 +476,39 @@ install_machine_ready() {
 # ==============================================================================
 
 print_companion_notes() {
+    echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo -e "${CYAN}⚙️  Post-Installation Profile Dependencies${NC}"
+    echo -e "${CYAN}⚙️  Post-Installation Profile Setup${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    echo -e "💡 ${YELLOW}Highly recommended to install SteamGridDB plugin from Decky Store for square capsules.${NC}"
+    echo -e "💡 ${CYAN}Machine Ready is fully compatible with the SteamGridDB plugin.${NC}"
+    echo "   If you want square capsules and matching artwork, feel free to install it via the Decky Store."
     echo
-    echo -e "${YELLOW}1. Open the CSS Loader Theme Store and install the following dependencies:${NC}"
-    echo "   • Animated PSP Waves Background (only for PSP OLED profile)"
-    echo "   • Avatar Customization Suite"
-    echo "   • Better Blur"
-    echo "   • Centered Game Text"
-    echo "   • Clean Library Capsule"
-    echo "   • Focus Highlight Color"
-    echo "   • Game Cover Shine Animation Color"
-    echo "   • Main Menu Hide Tabs (Hide the Store)"
-    echo "   • No Friend Playing Icon"
-    echo "   • No Hero Gradient"
-    echo "   • No Home Tabs"
-    echo "   • Proper Hero Scaling (only for Back 2 Basic profile)"
-    echo "   • QAM Hide Tabs"
-    echo "   • Top Bar Padding"
-    echo "   • Volume Tweaker"
+    echo "To complete the setup for your profiles:"
     echo
-    echo -e "${YELLOW}2. Click the Settings ⚙️ button on the top-right of CSS Loader.${NC}"
-    echo -e "${YELLOW}3. Navigate to Settings ➜ Enable Nav Patch, and toggle it On.${NC}"
-    echo -e "   💡 ${CYAN}Some themes require Nav Patch to force Steam to ignore hidden elements.${NC}"
+    echo -e "  ${CYAN}1.${NC} Open the CSS Loader Theme Store and install these dependencies:"
+    echo "     • Animated PSP Waves Background (only for PSP OLED profile)"
+    echo "     • Avatar Customization Suite"
+    echo "     • Better Blur"
+    echo "     • Centered Game Text"
+    echo "     • Clean Library Capsule"
+    echo "     • Focus Highlight Color"
+    echo "     • Game Cover Shine Animation Color"
+    echo "     • Main Menu Hide Tabs (Hide the Store)"
+    echo "     • No Friend Playing Icon"
+    echo "     • No Hero Gradient"
+    echo "     • No Home Tabs"
+    echo "     • Proper Hero Scaling (only for Back 2 Basic profile)"
+    echo "     • QAM Hide Tabs"
+    echo "     • Top Bar Padding"
+    echo "     • Volume Tweaker"
     echo
-    echo -e "${YELLOW}4. Go back to QAM CSS Loader, scroll down to the bottom and click Refresh.${NC}"
-    echo -e "${YELLOW}5. Select and apply your preferred Machine Ready profile.${NC}"
+    echo -e "  ${CYAN}2.${NC} Click the Settings ⚙️ button on the top-right of CSS Loader."
+    echo -e "  ${CYAN}3.${NC} Navigate to Settings ➜ Enable Nav Patch, and toggle it ${GREEN}On${NC}."
+    echo -e "     💡 ${YELLOW}Some themes require Nav Patch to force Steam to ignore hidden elements.${NC}"
+    echo
+    echo -e "  ${CYAN}4.${NC} Go back to QAM CSS Loader, scroll to the bottom, and click ${CYAN}Refresh${NC}."
+    echo -e "  ${CYAN}5.${NC} Select and apply your preferred Machine Ready profile."
     echo
 }
 
