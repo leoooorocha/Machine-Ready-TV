@@ -73,6 +73,7 @@ install_decky() {
     fi
 
     local TMP_INSTALLER="/tmp/install_decky.sh"
+    echo
     info "Downloading official Decky installer..."
 
     if ! curl -fsSL "$DECKY_INSTALLER_URL" -o "$TMP_INSTALLER"; then
@@ -81,6 +82,7 @@ install_decky() {
     fi
 
     chmod +x "$TMP_INSTALLER"
+    echo
     info "Running Decky installer..."
 
     if ! bash "$TMP_INSTALLER"; then
@@ -133,6 +135,7 @@ report_repo_commit() {
     fi
 
     if [[ -n "$REPO_COMMIT" ]]; then
+        echo
         info "Repository version: ${REPO_COMMIT}"
     fi
 }
@@ -196,6 +199,7 @@ download_repo() {
         fi
 
         warn "Falling back to ZIP download."
+        echo
         info "Downloading ZIP archive..."
 
         if ! curl -fsSL "$ZIP_URL" -o "$ZIPFILE"; then
@@ -370,12 +374,12 @@ install_machine_ready() {
     PROFILES_ROOT="$(find_named_subdir "$SOURCE" Profiles profiles || true)"
     THEMES_ROOT="$(find_named_subdir "$SOURCE" Themes themes || true)"
 
-    if [[ -n "$THEMES_ROOT" ]]; then
-        install_from_directory "$THEMES_ROOT" "themes"
-    fi
-
     if [[ -n "$PROFILES_ROOT" ]]; then
         install_from_directory "$PROFILES_ROOT" "profiles"
+    fi
+
+    if [[ -n "$THEMES_ROOT" ]]; then
+        install_from_directory "$THEMES_ROOT" "themes"
     fi
 
     if [[ -z "$THEMES_ROOT" ]]; then
