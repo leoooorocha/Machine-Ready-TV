@@ -10,7 +10,7 @@ Custom CSS Loader themes designed to deliver a more console-like Steam Big Pictu
 > **Decky Loader** and the **CSS Loader** plugin are **required** to use these themes and profiles.  
 > If you don't have them installed yet, please set up [Decky Loader](https://decky.xyz/) and install **CSS Loader** via the Decky Store in Gaming Mode before proceeding.
 
-### 🚀 Option 1: Automatic Installation (Recommended)
+### 🚀 Option 1: Automatic Installation & Update (Recommended)
 The fastest and easiest way to install all themes and profiles. The installer verifies required dependencies (**Decky Loader** and **CSS Loader**), clones/updates the latest repository version, and gives you the option to install pre-configured profiles.
 
 1. Switch your Steam Deck to **Desktop Mode** (`STEAM` button → `Power` → `Switch to Desktop`).
