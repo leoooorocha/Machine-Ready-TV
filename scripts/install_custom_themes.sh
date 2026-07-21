@@ -248,7 +248,7 @@ should_skip_repo_dir() {
     local NAME="$1"
 
     case "$NAME" in
-        .git|.github|docs|images|screenshots|Profiles|profiles|Themes|themes)
+        .git|.github|docs|images|screenshots|Profiles|profiles|Themes|themes|scripts|Scripts|[Rr][Ee][Aa][Dd][Mm][Ee]*)
             return 0
             ;;
     esac
@@ -260,6 +260,12 @@ install_item() {
     local SRC="$1"
     local LABEL="${2:-$(basename "$SRC")}"
     local DEST="${THEMES_DIR}/$(basename "$SRC")"
+
+    local LOWER_LABEL
+    LOWER_LABEL="$(echo "$LABEL" | tr '[:upper:]' '[:lower:]')"
+    if [[ "$LOWER_LABEL" == "scripts" || "$LOWER_LABEL" == readme* ]]; then
+        return 0
+    fi
 
     if [[ ! -d "$SRC" ]]; then
         warn "Skipped ${LABEL} (source missing)."
@@ -276,6 +282,9 @@ install_item() {
     rm -rf "$DEST"
 
     if cp -a "$SRC" "$DEST" 2>/dev/null; then
+        rm -rf "$DEST/scripts" "$DEST/Scripts" 2>/dev/null || true
+        find "$DEST" -iname "readme*" -delete 2>/dev/null || true
+
         success "${LABEL}"
         INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
         return 0
