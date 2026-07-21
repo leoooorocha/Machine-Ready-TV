@@ -2,10 +2,6 @@
 
 set -Euo pipefail
 
-########################################
-# Machine Ready Theme Installer
-########################################
-
 DECKY_INSTALLER_URL="https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh"
 
 REPO_URL="https://github.com/leoooorocha/Machine-Ready-TV.git"
@@ -29,10 +25,6 @@ UPDATED_COUNT=0
 FAILED_COUNT=0
 SKIPPED_COUNT=0
 
-########################################
-# Colours
-########################################
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -50,10 +42,6 @@ cleanup() {
 }
 
 trap cleanup EXIT
-
-########################################
-# Helper Functions
-########################################
 
 check_internet() {
     info "Checking internet connection..."
@@ -281,39 +269,43 @@ install_item() {
         return 1
     fi
 
-    local ACTION="INSTALLED"
-    if [[ -d "$DEST" ]]; then
-        ACTION="UPDATED"
+    local IS_NEW=0
+    if [[ ! -d "$DEST" ]]; then
+        IS_NEW=1
     fi
 
     mkdir -p "$DEST"
 
     local SUCCESS_FLAG=0
+    local CHANGES=""
 
     if command -v rsync >/dev/null 2>&1; then
-        if rsync -a --delete \
+        CHANGES=$(rsync -a --delete -i \
             --exclude='[sS]cripts' \
             --exclude='[rR][eE][aA][dD][mM][eE]*' \
             --exclude='.git*' \
-            "$SRC/" "$DEST/" 2>/dev/null; then
-            SUCCESS_FLAG=1
-        fi
+            "$SRC/" "$DEST/" 2>/dev/null)
+        SUCCESS_FLAG=1
     else
         rm -rf "$DEST"
         if cp -a "$SRC" "$DEST" 2>/dev/null; then
             rm -rf "$DEST/scripts" "$DEST/Scripts" 2>/dev/null || true
             find "$DEST" -iname "readme*" -delete 2>/dev/null || true
             SUCCESS_FLAG=1
+            CHANGES="forced"
         fi
     fi
 
     if [[ $SUCCESS_FLAG -eq 1 ]]; then
-        if [[ "$ACTION" == "UPDATED" ]]; then
+        if [[ $IS_NEW -eq 1 ]]; then
+            echo -e "${GREEN}[INSTALLED]${NC} ${LABEL}"
+            NEW_INSTALLED_COUNT=$((NEW_INSTALLED_COUNT + 1))
+        elif [[ -n "$CHANGES" ]]; then
             echo -e "${CYAN}[UPDATED]${NC}   ${LABEL}"
             UPDATED_COUNT=$((UPDATED_COUNT + 1))
         else
-            echo -e "${GREEN}[INSTALLED]${NC} ${LABEL}"
-            NEW_INSTALLED_COUNT=$((NEW_INSTALLED_COUNT + 1))
+            echo -e "${YELLOW}[SKIPPED]${NC}   ${LABEL} (already last version)"
+            SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
         fi
         return 0
     fi
@@ -408,7 +400,7 @@ install_machine_ready() {
 
     echo
 
-    local TOTAL_PROCESSED=$((NEW_INSTALLED_COUNT + UPDATED_COUNT))
+    local TOTAL_PROCESSED=$((NEW_INSTALLED_COUNT + UPDATED_COUNT + SKIPPED_COUNT))
 
     if [[ $TOTAL_PROCESSED -eq 0 && $FAILED_COUNT -eq 0 ]]; then
         warn "No installable themes or profiles were discovered."
@@ -476,8 +468,8 @@ finish() {
     echo "Status breakdown:"
     echo -e "  - ${GREEN}Installed (New):${NC} ${NEW_INSTALLED_COUNT}"
     echo -e "  - ${CYAN}Updated:${NC}         ${UPDATED_COUNT}"
-    echo -e "  - ${RED}Failed:${NC}          ${FAILED_COUNT}"
     echo -e "  - ${YELLOW}Skipped:${NC}         ${SKIPPED_COUNT}"
+    echo -e "  - ${RED}Failed:${NC}          ${FAILED_COUNT}"
     echo
 
     print_companion_notes
