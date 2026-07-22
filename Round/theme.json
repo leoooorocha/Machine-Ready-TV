@@ -13,7 +13,8 @@
         "patches/context-menu-fix.css": [],
         "patches/css-loader-fix.css": [],
         "patches/download-bar-fix.css": [],
-        "patches/header-fix.css": []
+        "patches/header-fix.css": [],
+        "patches/qam-fix.css": []
     },
     "patches": {
         "Intensity (px)": {
