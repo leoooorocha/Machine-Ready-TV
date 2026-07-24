@@ -58,7 +58,6 @@ To complete the setup for your profiles:
    * **No Friend Playing Icon**
    * **No Hero Gradient**
    * **No Home Tabs**
-   * **Proper Hero Scaling** *(only for **Back 2 Basic** profile)*
    * **QAM Hide Tabs**
    * **Top Bar Padding**
    * **Volume Tweaker**
@@ -76,19 +75,23 @@ These themes already exist in the Store, but I created custom patches to further
 
 * **Clean Game Launch**
   * Features an additional option to remove filters when launching a game.
-  <img src="Clean Game Launch/Clean Game Launch - Patch.jpg" width="800" alt="Clean Game Launch">
+  <img src="Clean Game Launch/Clean Game Launch - Patch.jpg" width="800">
 
 * **Clean Gameview**
   * Features a fullscreen layout based on screen size and more options for the playbar.
-  <img src="Clean Gameview/Clean Gameview - Patch.jpg" width="800" alt="Clean Gameview">
+  <img src="Clean Gameview/Clean Gameview - Patch.jpg" width="800">
 
 * **Colored Toggles**
   * Features advanced customization options, including an animated background for any custom gradient.
-  <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="800" alt="Colored Toggles">
+  <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="800">
 
+  * **Proper Hero Scaling**
+  * Added playbar animation back, this is a temporary fix, since the author is aware.
+  <img src="Proper Hero Scaling/Proper Hero Scaling - Patch.jpg" width="800">
+  
 * **Round**
   * Includes several patches with expanded options for the keyboard (with padding so roundness doesn't hide action buttons), all menus, and the settings page.
-  <img src="Round/Round - Patch 1.jpg" width="800" alt="Round Patch">
+  <img src="Round/Round - Patch 1.jpg" width="800">
 
 > 💡 *Check each theme folder to see all available custom patches.*
 
@@ -131,6 +134,7 @@ Full credit for the original themes featured in the custom patches goes to the a
 * **Niko**
 * **SuchMeme**
 * **EMERALD#0874**
+* **SoyGonDo**
 
 Special thanks to:
 * **Hannaway96** for writing and contributing the incredible bash automation installer.

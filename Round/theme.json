@@ -1,7 +1,7 @@
 {
     "name": "Round",
     "author": "EMERALD#0874, Leozito",
-    "version": "v3.0",
+    "version": "v2.8 Lz",
     "description": "This theme adds round edges to any image that can reasonably have them. Custom options for certain interface elements, like Header, Keyboard and Menus.",
     "target": "System-Wide",
     "manifest_version": 9,

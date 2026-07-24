@@ -1,0 +1,31 @@
+:root {
+	--phs-playbar-initial-height: min(31/96 * 100vw, 682/864 * 100vh);
+	--phs-playbar-final-height: 100vh;
+}
+
+/* Playbar Height - Start */
+.BasicUI .sharedappdetailsheader_TopCapsule_2meE3 {
+	height: var(--phs-playbar-initial-height);
+}
+
+/* Playbar Animation */
+.BasicUI .sharedappdetailsheader_TopCapsule_2meE3.sharedappdetailsheader_FullscreenEnterStart_P7eLv {
+	animation-name: phs-playbar-animation;
+	animation-duration: 1s;
+}
+
+/* Playbar Height - End */
+.BasicUI .sharedappdetailsheader_TopCapsule_2meE3.sharedappdetailsheader_FullscreenEnterDone_1PRtu {
+	height: var(--phs-playbar-final-height);
+}
+
+@keyframes phs-playbar-animation {
+
+	from {
+		height: var(--phs-playbar-initial-height);
+	}
+
+	to {
+		height: var(--phs-playbar-final-height);
+	}
+}

@@ -1,7 +1,7 @@
 {
     "name": "Clean Game Launch",
     "author": "Niko, Leozito",
-    "version": "v1.1",
+    "version": "v1.1 Lz",
     "manifest_version": 9,
     "tabs": {
         "default": [ "bigpicture" ]

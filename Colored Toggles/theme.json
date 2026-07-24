@@ -1,7 +1,7 @@
 {
     "name": "Colored Toggles",
     "author": "SuchMeme, Leozito",
-    "version": "2.0",
+    "version": "v1.7 Lz",
     "description": "Colors all toggles, sliders and progress bars in the system ui to a specified color or gradient",
     "target": "System-Wide",
     "manifest_version": 9,
@@ -17,51 +17,51 @@
             "type": "dropdown",
             "values": {
                 "Red": {
-                    "--colored-toggles-main-color": [ "hsla(0, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(0, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Orange": {
-                    "--colored-toggles-main-color": [ "hsla(30, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(30, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Yellow": {
-                    "--colored-toggles-main-color": [ "hsla(60, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(60, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Lime": {
-                    "--colored-toggles-main-color": [ "hsla(90, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(90, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Green": {
-                    "--colored-toggles-main-color": [ "hsla(120, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(120, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Mint": {
-                    "--colored-toggles-main-color": [ "hsla(150, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(150, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Cyan": {
-                    "--colored-toggles-main-color": [ "hsla(180, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(180, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Blue": {
-                    "--colored-toggles-main-color": [ "hsla(210, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(210, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Indigo": {
-                    "--colored-toggles-main-color": [ "hsla(240, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(240, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Purple": {
-                    "--colored-toggles-main-color": [ "hsla(270, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(270, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Magenta": {
-                    "--colored-toggles-main-color": [ "hsla(300, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(300, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Pink": {
-                    "--colored-toggles-main-color": [ "hsla(330, 100%, 50%, 1)" ],
+                    "--colored-toggles-main-color": [ "hsla(330, 80%, 50%, 1)" ],
                     "--colored-toggles-static-color": [ "--colored-toggles-main-color" ]
                 },
                 "Gradient RGB": {

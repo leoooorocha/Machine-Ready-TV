@@ -1,3 +1,11 @@
+:root {
+    --cgl-text-filter:
+        drop-shadow(1px 0 0 rgba(0, 0, 0, .85))
+        drop-shadow(-0.5px 0 0 rgba(0, 0, 0, .85))
+        drop-shadow(0 1px 0 rgba(0, 0, 0, .85))
+        drop-shadow(0 -0.5px 0 rgba(0, 0, 0, .85)) !important;
+}
+
 ._1IX7FPSY9Jb82KhBVBSkZa.pIQBPa0KJg8An6kGeeEsE, ._1IX7FPSY9Jb82KhBVBSkZa._2ra4k5nFh53dvfWfZNqgir, ._1IX7FPSY9Jb82KhBVBSkZa._-4NyJgPeOwUu148SipZ4t:not(._2VyorTjyllT8k6ZM6x3RZ4) {
     opacity: 1;
 }

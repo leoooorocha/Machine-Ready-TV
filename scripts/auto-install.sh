@@ -464,7 +464,6 @@ print_companion_notes() {
     echo "     • No Friend Playing Icon"
     echo "     • No Hero Gradient"
     echo "     • No Home Tabs"
-    echo "     • Proper Hero Scaling (only for Back 2 Basic profile)"
     echo "     • QAM Hide Tabs"
     echo "     • Top Bar Padding"
     echo "     • Volume Tweaker"

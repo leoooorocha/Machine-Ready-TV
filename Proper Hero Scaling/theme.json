@@ -1,0 +1,45 @@
+{
+  "name": "Proper Hero Scaling",
+  "author": "SoyGonDo, Leozito",
+  "version": "v2.1 Lz",
+  "manifest_version": 8,
+  "patches": {
+    "Home Background": {
+      "default": "Yes",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "home.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Gameview Background": {
+      "default": "Yes",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "gameview.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "'Bright Home Background' compatibility": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "BrighterHome.css": [
+            "SP"
+          ]
+        }
+      }
+    }
+  },
+  "id": "475be8fd-39df-431f-b589-dfdaad205d99"
+}
