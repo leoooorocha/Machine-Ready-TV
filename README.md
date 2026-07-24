@@ -85,7 +85,7 @@ These themes already exist in the Store, but I created custom patches to further
   * Features advanced customization options, including an animated background for any custom gradient.
   <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="800">
 
-  * **Proper Hero Scaling**
+* **Proper Hero Scaling**
   * Added playbar animation back, this is a temporary fix, since the author is aware.
   <img src="Proper Hero Scaling/Proper Hero Scaling - Patch.jpg" width="800">
   
