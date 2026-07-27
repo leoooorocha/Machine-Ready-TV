@@ -1,21 +1,6 @@
 @font-face {
-    font-family: "Quicksand";
-    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Quicksand.ttf");
-}
-
-@font-face {
-    font-family: "Bitcount";
-    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Bitcount.ttf");
-}
-
-@font-face {
     font-family: "Inter";
     src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Inter.ttf");
-}
-
-@font-face {
-    font-family: "Montenegrin";
-    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Montenegrin.ttf");
 }
 
 @font-face {
@@ -24,13 +9,13 @@
 }
 
 @font-face {
-    font-family: "Nunito";
-    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Nunito.ttf");
+    font-family: "Quicksand";
+    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Quicksand.ttf");
 }
 
 @font-face {
-    font-family: "Ubuntu";
-    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/Ubuntu.ttf");
+    font-family: "SourGummy";
+    src: url("/themes_custom/Machine Ready/custom-fonts/fonts/SourGummy.ttf");
 }
 
 @font-face {

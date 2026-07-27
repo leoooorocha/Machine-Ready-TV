@@ -85,7 +85,7 @@ These themes already exist in the Store, but I created custom patches to further
   * Features advanced customization options, including an animated background for any custom gradient.
   <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="800">
 
-* **Proper Hero Scaling**
+  * **Proper Hero Scaling**
   * Added playbar animation back, this is a temporary fix, since the author is aware.
   <img src="Proper Hero Scaling/Proper Hero Scaling - Patch.jpg" width="800">
   
@@ -99,7 +99,13 @@ These themes already exist in the Store, but I created custom patches to further
 
 ## 🖼️ Profile Previews
 
-### Clean Glass (Old Standard)
+### Back 2 Basic
+<img src="Profiles/MR - Back 2 Basic.profile/preview-1.jpg" width="800">
+
+### Candy Shop
+<img src="Profiles/MR - Candy Shop.profile/preview-1.jpg" width="800">
+
+### Clean Glass
 <img src="Profiles/MR - Clean Glass.profile/preview-1.jpg" width="800">
 
 ### PSP OLED
@@ -111,8 +117,7 @@ These themes already exist in the Store, but I created custom patches to further
 ### Switch Grey
 <img src="Profiles/MR - Switch Grey.profile/preview-1.jpg" width="800">
 
-### Back 2 Basic
-<img src="Profiles/MR - Back 2 Basic.profile/preview-1.jpg" width="800">
+---
 
 ### 🎨 Color Palette
 *Red, Orange, Yellow, Lime, Green, Mint, Cyan, Blue, Indigo, Purple, Magenta, Pink*

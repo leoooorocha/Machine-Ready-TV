@@ -1,7 +1,7 @@
 {
     "name": "Machine Ready",
     "author": "Leozito",
-    "version": "v2.1",
+    "version": "v2.2",
     "description": "Clean consolifyed home screen.",
     "target": "Home",
     "manifest_version": 9,
@@ -126,15 +126,19 @@
         },
         "Dynamic-X Scaling": {
             "type": "slider",
-            "default": "85%",
+            "default": "0",
             "values": {
-                "Off": { "--mr-dc-carousel-scaling": [ "1.00" ] },
-                "95%": { "--mr-dc-carousel-scaling": [ "0.95" ] },
-                "90%": { "--mr-dc-carousel-scaling": [ "0.90" ] },
-                "85%": { "--mr-dc-carousel-scaling": [ "0.85" ] },
-                "80%": { "--mr-dc-carousel-scaling": [ "0.80" ] },
-                "75%": { "--mr-dc-carousel-scaling": [ "0.75" ] },
-                "70%": { "--mr-dc-carousel-scaling": [ "0.70" ] }
+                "-5": { "--mr-dc-carousel-scaling": [ "0.75" ] },
+                "-4": { "--mr-dc-carousel-scaling": [ "0.80" ] },
+                "-3": { "--mr-dc-carousel-scaling": [ "0.85" ] },
+                "-2": { "--mr-dc-carousel-scaling": [ "0.90" ] },
+                "-1": { "--mr-dc-carousel-scaling": [ "0.95" ] },
+                "0":  { "--mr-dc-carousel-scaling": [ "1.00" ] },
+                "+1": { "--mr-dc-carousel-scaling": [ "1.05" ] },
+                "+2": { "--mr-dc-carousel-scaling": [ "1.10" ] },
+                "+3": { "--mr-dc-carousel-scaling": [ "1.15" ] },
+                "+4": { "--mr-dc-carousel-scaling": [ "1.20" ] },
+                "+5": { "--mr-dc-carousel-scaling": [ "1.25" ] }
             }
         },
         "Dynamic-Y Position": {
@@ -177,33 +181,21 @@
             "default": "Quicksand",
             "values": {
                 "Default": {},
-                "Bitcount": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "Bitcount", "bigpicture", "QuickAccess", "MainMenu" ]
-                },
                 "Inter": {
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
                     "--mr-cf-font-name": [ "Inter", "bigpicture", "QuickAccess", "MainMenu" ]
-                },
-                "Montenegrin": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "Montenegrin", "bigpicture", "QuickAccess", "MainMenu" ]
                 },
                 "NintendoSwitchUI": {
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
                     "--mr-cf-font-name": [ "NintendoSwitchUI", "bigpicture", "QuickAccess", "MainMenu" ]
                 },
-                "Nunito": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "Nunito", "bigpicture", "QuickAccess", "MainMenu" ]
-                },
                 "Quicksand": {
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
                     "--mr-cf-font-name": [ "Quicksand", "bigpicture", "QuickAccess", "MainMenu" ]
                 },
-                "Ubuntu": {
+                "SourGummy": {
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "Ubuntu", "bigpicture", "QuickAccess", "MainMenu" ]
+                    "--mr-cf-font-name": [ "SourGummy", "bigpicture", "QuickAccess", "MainMenu" ]
                 },
                 "UnicaOne": {
                     "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
