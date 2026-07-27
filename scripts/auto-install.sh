@@ -6,7 +6,7 @@ REPO_URL="https://github.com/leoooorocha/Machine-Ready-TV.git"
 ZIP_URL="https://github.com/leoooorocha/Machine-Ready-TV/archive/refs/heads/main.zip"
 REPO_BRANCH="main"
 
-WORKDIR="/tmp/machine-ready-installer"
+WORKDIR="/tmp/machine-ready"
 REPODIR="${WORKDIR}/Machine-Ready-TV"
 ZIPFILE="${WORKDIR}/Machine-Ready-TV.zip"
 ZIPDIR="${WORKDIR}/Machine-Ready-TV-main"
@@ -15,35 +15,47 @@ HOMEBREW_DIR="${HOME}/homebrew"
 PLUGINS_DIR="${HOMEBREW_DIR}/plugins"
 THEMES_DIR="${HOMEBREW_DIR}/themes"
 
+SOURCE=""
+REPO_ACTION=""
+REPO_COMMIT=""
+INSTALL_PROFILES=0
+
+NEW_INSTALLED_COUNT=0
+UPDATED_COUNT=0
+FAILED_COUNT=0
+SKIPPED_COUNT=0
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
-BOLD='\033[1m'
 NC='\033[0m'
 
-info() {
-    echo -e "${BLUE}🔹 $1${NC}"
-}
-
-success() {
-    echo -e "   ${GREEN}✔ $1${NC}"
-}
-
-warn() {
-    echo -e "   ${YELLOW}⚠️  $1${NC}"
-}
-
-fail() {
-    echo -e "   ${RED}✖  $1${NC}"
-}
+info()    { echo -e "🔹 ${BLUE}$1${NC}"; }
+success() { echo -e "   ${GREEN}✔${NC} $1"; }
+warn()    { echo -e "   ${YELLOW}⚠️  $1${NC}"; }
+fail()    { echo -e "   ${RED}✖  $1${NC}"; }
 
 cleanup() {
-    rm -rf "$WORKDIR" 2>/dev/null || true
+    rm -f "$ZIPFILE" 2>/dev/null || true
 }
 
 trap cleanup EXIT
+
+check_internet() {
+    echo
+    info "Checking internet connection..."
+
+    if ping -c1 github.com >/dev/null 2>&1; then
+        success "Internet connection OK."
+        return 0
+    fi
+
+    warn "No internet connection detected."
+    warn "Will continue with any locally cached repository."
+    return 1
+}
 
 check_decky_loader() {
     echo
@@ -55,24 +67,26 @@ check_decky_loader() {
     fi
 
     echo
-    fail "Decky Loader is not installed on this system!"
+    fail "Decky Loader is not installed!"
     echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo -e "📖 ${CYAN}${BOLD}How to install Decky Loader:${NC}"
-    echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo "1. Switch to Desktop Mode on your Steam Deck."
-    echo "2. Open your browser and visit: https://decky.xyz/"
-    echo "3. Download and run the official Decky Loader installer."
-    echo "4. Select the recommended (Release/Stable) install option."
-    echo "5. Once finished, return to Gaming Mode and rerun this script."
+    echo -e "📖 ${CYAN}Decky Loader Installation Instructions:${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    exit 1
+    echo "1. Open your browser and visit the official website:"
+    echo -e "   👉 ${BLUE}https://decky.xyz/${NC}"
+    echo
+    echo "2. Download and run the official installer on your Steam Deck."
+    echo "3. Once Decky Loader is installed, run this script again."
+    echo
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo
+    return 1
 }
 
 check_css_loader() {
     echo
-    info "Checking CSS Loader plugin installation..."
+    info "Checking CSS Loader plugin..."
 
     if [[ -d "${PLUGINS_DIR}/SDH-CssLoader" || -d "${PLUGINS_DIR}/CSSLoader" ]]; then
         success "CSS Loader plugin detected."
@@ -80,293 +94,450 @@ check_css_loader() {
     fi
 
     echo
-    fail "CSS Loader plugin was not found!"
+    fail "CSS Loader plugin is not installed!"
     echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    echo -e "📖 ${CYAN}${BOLD}How to install CSS Loader via Decky Store:${NC}"
+    echo -e "📖 ${CYAN}CSS Loader Installation Instructions:${NC}"
     echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo
     echo "1. Press the Quick Access Button (•••) on your Steam Deck."
-    echo "2. Navigate to the Decky Loader menu (plugin icon 🔌)."
-    echo "3. Click the Store icon (shopping bag 🛍️ in top-right corner)."
+    echo "2. Navigate to the Decky Loader menu (Plugin icon 🔌)."
+    echo "3. Click the Store icon (Shopping Bag 🛍️) in the top-right corner."
     echo "4. Search for 'CSS Loader' and click 'Install'."
-    echo "5. After installation completes, rerun this script."
+    echo "5. After installation completes, rerun this script!"
+    echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
     echo
-    exit 1
-}
-
-ensure_themes_dir() {
-    mkdir -p "$THEMES_DIR" 2>/dev/null || true
-}
-
-fetch_repository() {
-    mkdir -p "$WORKDIR"
-    local SOURCE_DIR=""
-
-    if command -v git >/dev/null 2>&1; then
-        if [[ -d "$REPODIR/.git" ]]; then
-            info "Fetching updates from repository..."
-            git -C "$REPODIR" remote set-url origin "$REPO_URL" 2>/dev/null || true
-            if git -C "$REPODIR" fetch origin "$REPO_BRANCH" 2>/dev/null; then
-                git -C "$REPODIR" reset --hard "origin/${REPO_BRANCH}" >/dev/null 2>&1 || true
-                SOURCE_DIR="$REPODIR"
-            fi
-        else
-            info "Cloning Machine Ready TV repository..."
-            if git clone --branch "$REPO_BRANCH" --depth 1 "$REPO_URL" "$REPODIR" >/dev/null 2>&1; then
-                SOURCE_DIR="$REPODIR"
-            fi
-        fi
-    fi
-
-    if [[ -z "$SOURCE_DIR" || ! -d "$SOURCE_DIR" ]]; then
-        info "Downloading repository ZIP package..."
-        if curl -fsSL "$ZIP_URL" -o "$ZIPFILE" 2>/dev/null; then
-            if unzip -oq "$ZIPFILE" -d "$WORKDIR" 2>/dev/null && [[ -d "$ZIPDIR" ]]; then
-                SOURCE_DIR="$ZIPDIR"
-            fi
-        fi
-    fi
-
-    if [[ -z "$SOURCE_DIR" || ! -d "$SOURCE_DIR" ]]; then
-        fail "Could not retrieve repository files. Please check your internet connection."
-        exit 1
-    fi
-
-    echo "$SOURCE_DIR"
-}
-
-is_reserved_repo_dir() {
-    local dir_name="$1"
-    case "$dir_name" in
-        .git|.github|docs|images|screenshots|Profiles|profiles|Themes|themes|scripts|Scripts)
-            return 0
-            ;;
-    esac
     return 1
 }
 
-get_theme_sources() {
-    local source_root="$1"
-    local themes_root=""
+ensure_themes_dir() {
+    if [[ ! -d "$THEMES_DIR" ]]; then
+        mkdir -p "$THEMES_DIR" 2>/dev/null || true
+    fi
+}
 
-    if [[ -d "${source_root}/Themes" ]]; then
-        themes_root="${source_root}/Themes"
-    elif [[ -d "${source_root}/themes" ]]; then
-        themes_root="${source_root}/themes"
+report_repo_commit() {
+    local DIR="$1"
+
+    if [[ -d "$DIR/.git" ]] && command -v git >/dev/null 2>&1; then
+        REPO_COMMIT="$(git -C "$DIR" log -1 --format='%h (%ci) %s' 2>/dev/null || true)"
     fi
 
-    if [[ -n "$themes_root" ]]; then
-        find "$themes_root" -mindepth 1 -maxdepth 1 -type d ! -name ".*" 2>/dev/null | sort
-    else
-        local d
-        for d in "$source_root"/*; do
-            if [[ -d "$d" ]]; then
-                local bname
-                bname="$(basename "$d")"
-                if ! is_reserved_repo_dir "$bname"; then
-                    echo "$d"
+    if [[ -z "$REPO_COMMIT" && -f "$DIR/README.md" ]]; then
+        REPO_COMMIT="ZIP archive (no git metadata)"
+    fi
+
+    if [[ -n "$REPO_COMMIT" ]]; then
+        echo
+        info "Repository version: ${REPO_COMMIT}"
+    fi
+}
+
+download_repo() {
+    mkdir -p "$WORKDIR"
+    SOURCE=""
+    REPO_ACTION=""
+
+    if command -v git >/dev/null 2>&1; then
+        if [[ -d "$REPODIR/.git" ]]; then
+            echo
+            info "Updating Machine Ready repository..."
+            local LOCAL_HASH REMOTE_HASH
+
+            git -C "$REPODIR" remote set-url origin "$REPO_URL" 2>/dev/null || true
+
+            if git -C "$REPODIR" fetch origin "$REPO_BRANCH" 2>/dev/null; then
+                LOCAL_HASH="$(git -C "$REPODIR" rev-parse HEAD 2>/dev/null || echo "")"
+                REMOTE_HASH="$(git -C "$REPODIR" rev-parse "origin/${REPO_BRANCH}" 2>/dev/null || echo "")"
+
+                if [[ -n "$LOCAL_HASH" && -n "$REMOTE_HASH" && "$LOCAL_HASH" == "$REMOTE_HASH" ]]; then
+                    REPO_ACTION="already_current"
+                    success "Repository already current."
+                    SOURCE="$REPODIR"
+                elif git -C "$REPODIR" pull --ff-only origin "$REPO_BRANCH" 2>/dev/null; then
+                    REPO_ACTION="updated"
+                    success "Repository updated."
+                    SOURCE="$REPODIR"
+                else
+                    warn "Could not fast-forward repository; using local copy."
+                    REPO_ACTION="failed"
+                    SOURCE="$REPODIR"
                 fi
-            fi
-        done
-    fi
-}
-
-theme_folders_are_equal() {
-    local src_folder="$1"
-    local dest_folder="$2"
-
-    if [[ ! -d "$dest_folder" ]]; then
-        return 1
-    fi
-
-    if diff -r \
-        -x "config.json" \
-        -x "[Rr][Ee][Aa][Dd][Mm][Ee]*" \
-        -x ".git*" \
-        "$src_folder" "$dest_folder" >/dev/null 2>&1; then
-        return 0
-    else
-        return 1
-    fi
-}
-
-check_status_and_sync() {
-    local source_dir="$1"
-
-    local theme_sources=()
-    while IFS= read -r line; do
-        [[ -n "$line" ]] && theme_sources+=("$line")
-    done < <(get_theme_sources "$source_dir")
-
-    if [[ ${#theme_sources[@]} -eq 0 ]]; then
-        fail "No themes found in repository!"
-        exit 1
-    fi
-
-    local installed_themes_count=0
-    local missing_themes=()
-    local outdated_themes=()
-
-    for theme_src in "${theme_sources[@]}"; do
-        local theme_name
-        theme_name="$(basename "$theme_src")"
-        local theme_dest="${THEMES_DIR}/${theme_name}"
-
-        if [[ -d "$theme_dest" ]]; then
-            installed_themes_count=$((installed_themes_count + 1))
-            if ! theme_folders_are_equal "$theme_src" "$theme_dest"; then
-                outdated_themes+=("$theme_src")
+            else
+                warn "Could not fetch repository updates; using local copy."
+                REPO_ACTION="failed"
+                SOURCE="$REPODIR"
             fi
         else
-            missing_themes+=("$theme_src")
+            echo
+            info "Cloning Machine Ready repository..."
+            rm -rf "$REPODIR" 2>/dev/null || true
+
+            if git clone --branch "$REPO_BRANCH" --depth 1 "$REPO_URL" "$REPODIR" 2>/dev/null; then
+                REPO_ACTION="cloned"
+                success "Repository cloned."
+                SOURCE="$REPODIR"
+            else
+                warn "Git clone failed."
+            fi
+        fi
+    fi
+
+    if [[ -z "$SOURCE" ]]; then
+        if ! ping -c1 github.com >/dev/null 2>&1; then
+            fail "Cannot download repository without internet."
+            return 1
+        fi
+
+        warn "Falling back to ZIP download."
+        echo
+        info "Downloading ZIP archive..."
+
+        if ! curl -fsSL "$ZIP_URL" -o "$ZIPFILE"; then
+            fail "Could not download repository archive."
+            return 1
+        fi
+
+        if ! unzip -oq "$ZIPFILE" -d "$WORKDIR"; then
+            fail "Could not extract repository archive."
+            return 1
+        fi
+
+        if [[ ! -d "$ZIPDIR" ]]; then
+            fail "Extracted archive layout not recognised."
+            return 1
+        fi
+
+        REPO_ACTION="downloaded"
+        success "Repository downloaded."
+        SOURCE="$ZIPDIR"
+    fi
+
+    report_repo_commit "$SOURCE"
+    return 0
+}
+
+find_named_subdir() {
+    local BASE="$1"
+    shift
+    local NAME DIR
+
+    for NAME in "$@"; do
+        DIR="${BASE}/${NAME}"
+        if [[ -d "$DIR" ]]; then
+            echo "$DIR"
+            return 0
         fi
     done
 
-    if [[ $installed_themes_count -eq 0 ]]; then
-        info "Clean installation mode detected."
-        return 0
-    fi
-
-    info "Checking installed themes and files..."
-
-    if [[ ${#missing_themes[@]} -eq 0 && ${#outdated_themes[@]} -eq 0 ]]; then
-        echo
-        success "Everything is already up to date! Local themes match the latest repository version."
-        return 2
-    elif [[ ${#missing_themes[@]} -gt 0 && ${#outdated_themes[@]} -eq 0 ]]; then
-        echo
-        info "You are on the latest repository update, but some themes/files are missing locally."
-        info "Installing missing themes only..."
-        return 0
-    else
-        echo
-        info "Theme update detected. Updating files..."
-        return 0
-    fi
+    return 1
 }
 
-sync_folder() {
-    local src="$1"
-    local dest="$2"
+should_skip_repo_dir() {
+    local NAME="$1"
 
-    mkdir -p "$dest"
+    case "$NAME" in
+        .git|.github|docs|images|screenshots|Profiles|profiles|Themes|themes|scripts|Scripts|[Rr][Ee][Aa][Dd][Mm][Ee]*)
+            return 0
+            ;;
+    esac
+
+    return 1
+}
+
+install_item() {
+    local SRC="$1"
+    local LABEL="${2:-$(basename "$SRC")}"
+    local DEST="${THEMES_DIR}/$(basename "$SRC")"
+
+    local LOWER_LABEL
+    LOWER_LABEL="$(echo "$LABEL" | tr '[:upper:]' '[:lower:]')"
+    if [[ "$LOWER_LABEL" == "scripts" || "$LOWER_LABEL" == readme* ]]; then
+        return 0
+    fi
+
+    if [[ ! -d "$SRC" ]]; then
+        warn "Skipped ${LABEL} (source missing)."
+        SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+        return 1
+    fi
+
+    local IS_NEW=0
+    if [[ ! -d "$DEST" ]]; then
+        IS_NEW=1
+    fi
+
+    mkdir -p "$DEST"
+
+    local SUCCESS_FLAG=0
+    local CHANGES=""
 
     if command -v rsync >/dev/null 2>&1; then
-        rsync -a \
-            --exclude='config.json' \
-            --exclude='[rR][eE][aA][dD][mM][eE]*' \
+        CHANGES=$(rsync -a --delete -i \
             --exclude='[sS]cripts' \
+            --exclude='[rR][eE][aA][dD][mM][eE]*' \
             --exclude='.git*' \
-            "$src/" "$dest/" 2>/dev/null
+            "$SRC/" "$DEST/" 2>/dev/null)
+        SUCCESS_FLAG=1
     else
-        find "$src" -mindepth 1 -maxdepth 1 \
-            ! -name "[rR][eE][aA][dD][mM][eE]*" \
-            ! -name "config.json" \
-            ! -name "scripts" ! -name "Scripts" \
-            -exec cp -rf {} "$dest/" \; 2>/dev/null
+        rm -rf "$DEST"
+        if cp -a "$SRC" "$DEST" 2>/dev/null; then
+            rm -rf "$DEST/scripts" "$DEST/Scripts" 2>/dev/null || true
+            find "$DEST" -iname "readme*" -delete 2>/dev/null || true
+            SUCCESS_FLAG=1
+            CHANGES="forced"
+        fi
     fi
 
-    find "$dest" -iname "readme*" -delete 2>/dev/null || true
-}
-
-install_all_themes() {
-    local source_dir="$1"
-
-    echo
-    info "Installing themes to ${THEMES_DIR}..."
-
-    local theme_sources=()
-    while IFS= read -r line; do
-        [[ -n "$line" ]] && theme_sources+=("$line")
-    done < <(get_theme_sources "$source_dir")
-
-    for theme_src in "${theme_sources[@]}"; do
-        local theme_name
-        theme_name="$(basename "$theme_src")"
-        local theme_dest="${THEMES_DIR}/${theme_name}"
-
-        sync_folder "$theme_src" "$theme_dest"
-        success "Theme synchronized: ${theme_name}"
-    done
-
-    echo
-    success "All themes installed successfully!"
-}
-
-prompt_and_install_profiles() {
-    local source_dir="$1"
-    local profiles_src=""
-
-    if [[ -d "${source_dir}/Profiles" ]]; then
-        profiles_src="${source_dir}/Profiles"
-    elif [[ -d "${source_dir}/profiles" ]]; then
-        profiles_src="${source_dir}/profiles"
-    fi
-
-    if [[ -z "$profiles_src" || ! -d "$profiles_src" ]]; then
+    if [[ $SUCCESS_FLAG -eq 1 ]]; then
+        if [[ $IS_NEW -eq 1 ]]; then
+            echo -e "   ${GREEN}[INSTALLED]${NC} ${LABEL}"
+            NEW_INSTALLED_COUNT=$((NEW_INSTALLED_COUNT + 1))
+        elif [[ -n "$CHANGES" ]]; then
+            echo -e "   ${CYAN}[UPDATED]${NC}   ${LABEL}"
+            UPDATED_COUNT=$((UPDATED_COUNT + 1))
+        else
+            echo -e "   ${YELLOW}[SKIPPED]${NC}   ${LABEL}"
+            SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+        fi
         return 0
     fi
 
+    echo -e "   ${RED}[FAILED]${NC}    ${LABEL}"
+    FAILED_COUNT=$((FAILED_COUNT + 1))
+    return 1
+}
+
+install_from_directory() {
+    local ROOT="$1"
+    local KIND="$2"
+
+    [[ -d "$ROOT" ]] || return 0
+
+    local DIRS=()
+    local DIR NAME
+
+    while IFS= read -r -d '' DIR; do
+        DIRS+=("$DIR")
+    done < <(
+        find "$ROOT" \
+            -mindepth 1 \
+            -maxdepth 1 \
+            -type d \
+            -print0 2>/dev/null | sort -z
+    )
+
+    if [[ ${#DIRS[@]} -eq 0 ]]; then
+        echo
+        warn "No ${KIND} found in $(basename "$ROOT")."
+        return 0
+    fi
+
+    local ICON="📦"
+    if [[ "$KIND" == "themes" ]]; then
+        ICON="🎨"
+    fi
+
     echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
-    local reply=""
-    if [[ -c /dev/tty ]]; then
-        read -n 1 -rp "❓ Do you want to install pre-configured profiles? (y/N): " reply < /dev/tty
-        echo
-    else
-        reply="n"
-    fi
+    echo -e "${CYAN}${ICON} Processing ${KIND} (${#DIRS[@]} items)${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo
+
+    for DIR in "${DIRS[@]}"; do
+        NAME="$(basename "$DIR")"
+        install_item "$DIR" "$NAME" || true
+    done
+}
+
+prompt_profile_installation() {
+    echo
     echo -e "${BLUE}--------------------------------------------------${NC}"
 
-    if [[ "$reply" =~ ^[Yy]$ ]]; then
-        info "Installing pre-configured profiles..."
-
-        for profile_dir in "$profiles_src"/*; do
-            if [[ -d "$profile_dir" ]]; then
-                local pname
-                pname="$(basename "$profile_dir")"
-                sync_folder "$profile_dir" "${THEMES_DIR}/${pname}"
-                success "Profile installed: ${pname}"
-            fi
-        done
-        success "Profiles installed successfully!"
+    local REPLY=""
+    if [[ -c /dev/tty ]]; then
+        read -n 1 -rp "❓ Do you want to install pre-configured profiles? (y/N): " REPLY < /dev/tty
+        echo
     else
-        info "Skipped profile installation."
+        warn "Non-interactive terminal detected. Skipping profile installation."
+        REPLY="n"
+    fi
+
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+
+    if [[ "$REPLY" =~ ^[YySs]$ ]]; then
+        INSTALL_PROFILES=1
+    else
+        INSTALL_PROFILES=0
+    fi
+}
+
+install_machine_ready() {
+    if [[ -z "$SOURCE" || ! -d "$SOURCE" ]]; then
+        fail "No repository source available to install from."
+        return 1
+    fi
+
+    NEW_INSTALLED_COUNT=0
+    UPDATED_COUNT=0
+    FAILED_COUNT=0
+    SKIPPED_COUNT=0
+
+    local PROFILES_ROOT THEMES_ROOT
+    PROFILES_ROOT="$(find_named_subdir "$SOURCE" Profiles profiles || true)"
+    THEMES_ROOT="$(find_named_subdir "$SOURCE" Themes themes || true)"
+
+    if [[ $INSTALL_PROFILES -eq 1 && -n "$PROFILES_ROOT" ]]; then
+        install_from_directory "$PROFILES_ROOT" "profiles"
+    fi
+
+    if [[ -n "$THEMES_ROOT" ]]; then
+        install_from_directory "$THEMES_ROOT" "themes"
+    fi
+
+    if [[ -z "$THEMES_ROOT" ]]; then
+        local ROOT_DIRS=()
+        local DIR NAME
+
+        while IFS= read -r -d '' DIR; do
+            NAME="$(basename "$DIR")"
+            should_skip_repo_dir "$NAME" && continue
+            ROOT_DIRS+=("$DIR")
+        done < <(
+            find "$SOURCE" \
+                -mindepth 1 \
+                -maxdepth 1 \
+                -type d \
+                -print0 2>/dev/null | sort -z
+        )
+
+        if [[ ${#ROOT_DIRS[@]} -gt 0 ]]; then
+            echo
+            echo -e "${BLUE}--------------------------------------------------${NC}"
+            echo -e "${CYAN}🎨 Processing themes (${#ROOT_DIRS[@]} items)${NC}"
+            echo -e "${BLUE}--------------------------------------------------${NC}"
+            echo
+            for DIR in "${ROOT_DIRS[@]}"; do
+                install_item "$DIR" "$(basename "$DIR")" || true
+            done
+        fi
+    fi
+
+    echo
+    local TOTAL_PROCESSED=$((NEW_INSTALLED_COUNT + UPDATED_COUNT + SKIPPED_COUNT))
+
+    if [[ $TOTAL_PROCESSED -eq 0 && $FAILED_COUNT -eq 0 ]]; then
+        warn "No installable items were discovered."
+        return 1
+    fi
+
+    if [[ $FAILED_COUNT -eq 0 ]]; then
+        success "Done. Processed ${TOTAL_PROCESSED} item(s)."
+    else
+        warn "Done with errors. Installed: ${NEW_INSTALLED_COUNT}, Updated: ${UPDATED_COUNT}, Failed: ${FAILED_COUNT}, Skipped: ${SKIPPED_COUNT}."
+    fi
+
+    return 0
+}
+
+print_companion_notes() {
+    echo
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo -e "${CYAN}⚙️  Post-Installation Profile Setup${NC}"
+    echo -e "${BLUE}--------------------------------------------------${NC}"
+    echo
+    echo -e "💡 ${CYAN}Machine Ready is fully compatible with the SteamGridDB plugin.${NC}"
+    echo "   If you want square capsules and matching artwork, feel free to install it via the Decky Store."
+    echo
+    echo "To complete the setup for your profiles:"
+    echo
+    echo -e "  ${CYAN}1.${NC} Open the CSS Loader Theme Store and install these dependencies:"
+    echo "     • Animated PSP Waves Background (only for PSP OLED profile)"
+    echo "     • Avatar Customization Suite"
+    echo "     • Better Blur"
+    echo "     • Centered Game Text"
+    echo "     • Clean Library Capsule"
+    echo "     • Focus Highlight Color"
+    echo "     • Game Cover Shine Animation Color"
+    echo "     • Main Menu Hide Tabs (Hide the Store)"
+    echo "     • No Friend Playing Icon"
+    echo "     • No Hero Gradient"
+    echo "     • No Home Tabs"
+    echo "     • QAM Hide Tabs"
+    echo "     • Top Bar Padding"
+    echo "     • Volume Tweaker"
+    echo
+    echo -e "  ${CYAN}2.${NC} Click the Settings ⚙️ button on the top-right of CSS Loader."
+    echo -e "  ${CYAN}3.${NC} Navigate to Settings ➜ Enable Nav Patch, and toggle it ${GREEN}On${NC}."
+    echo -e "     💡 ${YELLOW}Some themes require Nav Patch to force Steam to ignore hidden elements.${NC}"
+    echo
+    echo -e "  ${CYAN}4.${NC} Go back to QAM CSS Loader, scroll to the bottom, and click ${CYAN}Refresh${NC}."
+    echo -e "  ${CYAN}5.${NC} Select and apply your preferred Machine Ready profile."
+    echo
+}
+
+finish() {
+    echo
+    echo -e "${BLUE}==================================================${NC}"
+    echo -e "${CYAN}📊 Installation Summary${NC}"
+    echo -e "${BLUE}==================================================${NC}"
+    echo
+
+    case "$REPO_ACTION" in
+        cloned)          echo "Repository: cloned" ;;
+        updated)         echo "Repository: updated" ;;
+        already_current) echo "Repository: already current" ;;
+        downloaded)      echo "Repository: downloaded (ZIP)" ;;
+        failed)          echo "Repository: update failed (used local copy)" ;;
+        *)               echo "Repository: unknown status" ;;
+    esac
+
+    if [[ -n "$REPO_COMMIT" ]]; then
+        echo "Version: ${REPO_COMMIT}"
+    fi
+
+    echo
+    echo "Status breakdown:"
+    echo -e "  - ${GREEN}Installed:${NC}   ${NEW_INSTALLED_COUNT}"
+    echo -e "  - ${CYAN}Updated:  ${NC}   ${UPDATED_COUNT}"
+    echo -e "  - ${YELLOW}Skipped:  ${NC}   ${SKIPPED_COUNT}"
+    echo -e "  - ${RED}Failed:   ${NC}   ${FAILED_COUNT}"
+    echo
+
+    if [[ $INSTALL_PROFILES -eq 1 ]]; then
+        print_companion_notes
     fi
 }
 
 main() {
     echo
     echo -e "${BLUE}==================================================${NC}"
-    echo -e "${CYAN}${BOLD}🎮 Machine Ready TV - Theme Installer${NC}"
+    echo -e "${CYAN}🎮 Machine Ready Theme Installer${NC}"
     echo -e "${BLUE}==================================================${NC}"
 
-    check_decky_loader
-    check_css_loader
-    ensure_themes_dir
+    check_internet || true
 
-    local source_dir
-    source_dir="$(fetch_repository)"
-
-    local status_code=0
-    check_status_and_sync "$source_dir" || status_code=$?
-
-    if [[ $status_code -eq 2 ]]; then
-        prompt_and_install_profiles "$source_dir"
-        echo
-        echo -e "${GREEN}${BOLD}✨ Done! Everything is already up to date.${NC}"
-        echo
-        exit 0
+    if ! check_decky_loader; then
+        exit 1
     fi
 
-    install_all_themes "$source_dir"
-    prompt_and_install_profiles "$source_dir"
+    if ! check_css_loader; then
+        exit 1
+    fi
 
-    echo
-    echo -e "${GREEN}${BOLD}✨ Installation completed successfully!${NC}"
-    echo -e "💡 Open the CSS Loader menu on your Steam Deck and click ${CYAN}'Refresh'${NC} to reload the list."
-    echo
+    ensure_themes_dir
+
+    if ! download_repo; then
+        fail "Could not obtain Machine Ready repository."
+        exit 1
+    fi
+
+    prompt_profile_installation
+
+    install_machine_ready || true
+
+    finish
 }
 
 main "$@"
