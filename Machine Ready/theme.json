@@ -1,7 +1,7 @@
 {
     "name": "Machine Ready",
     "author": "Leozito",
-    "version": "v2.2",
+    "version": "v2.3",
     "description": "Clean consolifyed home screen.",
     "target": "Home",
     "manifest_version": 9,
@@ -182,24 +182,24 @@
             "values": {
                 "Default": {},
                 "Inter": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "Inter", "bigpicture", "QuickAccess", "MainMenu" ]
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ],
+                    "--mr-cf-font-name": [ "Inter", "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ]
                 },
                 "NintendoSwitchUI": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "NintendoSwitchUI", "bigpicture", "QuickAccess", "MainMenu" ]
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ],
+                    "--mr-cf-font-name": [ "NintendoSwitchUI", "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ]
                 },
                 "Quicksand": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "Quicksand", "bigpicture", "QuickAccess", "MainMenu" ]
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ],
+                    "--mr-cf-font-name": [ "Quicksand", "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ]
                 },
                 "SourGummy": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "SourGummy", "bigpicture", "QuickAccess", "MainMenu" ]
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ],
+                    "--mr-cf-font-name": [ "SourGummy", "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ]
                 },
                 "UnicaOne": {
-                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu" ],
-                    "--mr-cf-font-name": [ "UnicaOne", "bigpicture", "QuickAccess", "MainMenu" ]
+                    "custom-fonts/shared.css": [ "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ],
+                    "--mr-cf-font-name": [ "UnicaOne", "bigpicture", "QuickAccess", "MainMenu", "notificationtoasts.*" ]
                 }
             }
         }

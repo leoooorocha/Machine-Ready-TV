@@ -1,0 +1,180 @@
+:root {
+    --cn-toast-bg: #0e141b;
+    --cn-toast-radius: 2px;
+    --cn-toast-scale: 1;
+    --cn-icon-color: #ffffff;
+    --cn-title-color: #ffffff;
+    --cn-subtitle-color: #b8bcbf;
+}
+
+/* Main container */
+._3sjShm2vhP7aWXeim3vaHq {
+    top: 45px;
+    bottom: auto;
+    left: 50%;
+    width: 50%;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    overflow: visible;
+    transform: translateX(-50%);
+}
+
+/* Inner Toast container */
+._3YTh805w3-xgPkHE_22XcA {
+    position: relative;
+    justify-content: center;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    pointer-events: auto;
+    transform: scale(var(--cn-toast-scale, 1));
+    transform-origin: top center;
+}
+
+/* Animation */
+._3YTh805w3-xgPkHE_22XcA > * {
+    animation-name: customToastIn, customToastOut;
+    animation-delay: 0s, var(--toast-duration, 4s);
+}
+
+/* Notification Banner */
+.fntOoeLPSTpmyXGGmgf99 {
+    background-color: var(--cn-toast-bg);
+    box-shadow: none;
+    border-radius: var(--cn-toast-radius);
+    width: fit-content;
+    min-width: fit-content;
+    height: auto;
+    min-height: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Reset max-height restriction on friends notification banner */
+.fntOoeLPSTpmyXGGmgf99.P1FhGdWv2NCXZXWsaKqqY {
+    max-height: none;
+}
+
+/* Avatars */
+.fntOoeLPSTpmyXGGmgf99 ._1-CP3jNFd252Y0uV_Ua0VE,
+._1lmV2JJc3VYcoLdmxOfvt8 {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* In-game Achievment notification */
+
+.mJ3Nu2ja1CSqf_qU1GD_b {
+    flex: none;
+}
+
+/* Controller Icon */
+._20p16OCYcJ0EWInis-dZhe {
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1 / 1;
+    padding: 0 0 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    color: var(--cn-icon-color);
+}
+
+._20p16OCYcJ0EWInis-dZhe svg,
+._20p16OCYcJ0EWInis-dZhe path {
+    fill: var(--cn-icon-color);
+    color: var(--cn-icon-color);
+}
+
+/* Side status indicator bar */
+._1mMC7Hv71CzO0jfm_66W4K {
+    box-shadow: none;
+}
+
+/* Text wrapper */
+.fntOoeLPSTpmyXGGmgf99 ._2axKS7MCnzMBRXRcYLn2Is {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width: max-content;
+}
+
+/* Upper Text Container */
+.fntOoeLPSTpmyXGGmgf99 ._1WuK_iZ6ARkIiptCX5qd7G {
+    display: flex;
+    align-items: center;
+    height: auto;
+    line-height: normal;
+}
+
+/* Upper Text (Title) */
+.fntOoeLPSTpmyXGGmgf99 ._18PwvOcpWfW3M8j2-bEPPJ {
+    font-weight: 700;
+    font-size: 13px;
+    overflow: visible;
+    text-overflow: clip;
+    color: var(--cn-title-color);
+}
+
+/* Status Icon beside title */
+.fntOoeLPSTpmyXGGmgf99 ._2F0wqsu2mqsHxBSJcu1sPJ {
+    margin-right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--cn-icon-color);
+}
+
+.fntOoeLPSTpmyXGGmgf99 ._2F0wqsu2mqsHxBSJcu1sPJ > svg,
+.fntOoeLPSTpmyXGGmgf99 ._2F0wqsu2mqsHxBSJcu1sPJ path {
+    fill: var(--cn-icon-color);
+    color: var(--cn-icon-color);
+    display: block;
+}
+
+/* Lower Text (Subtitle) */
+.fntOoeLPSTpmyXGGmgf99 ._2jpxEWvo06efD6-NR1cplA,
+.fntOoeLPSTpmyXGGmgf99.P1FhGdWv2NCXZXWsaKqqY ._2jpxEWvo06efD6-NR1cplA {
+    font-size: 13px;
+    line-height: 1.2;
+    overflow: visible;
+    text-overflow: clip;
+    color: var(--cn-subtitle-color);
+    height: auto;
+    display: block;
+    -webkit-line-clamp: initial;
+}
+
+/* Game Title Text */
+.fntOoeLPSTpmyXGGmgf99 ._3uw_GTY6HwY9Tq23mBDutA {
+    font-weight: 700;
+}
+
+/* Animations */
+@keyframes customToastIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes customToastOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}

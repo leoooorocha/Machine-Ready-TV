@@ -6,6 +6,7 @@
 @font-face {
     font-family: "NintendoSwitchUI";
     src: url("/themes_custom/Machine Ready/custom-fonts/fonts/NintendoSwitchUI.ttf");
+    size-adjust: 85%;
 }
 
 @font-face {

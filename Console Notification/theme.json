@@ -1,0 +1,150 @@
+{
+    "name": "Console Notification",
+    "author": "Leozito",
+    "version": "v1.0",
+    "manifest_version": 9,
+    "tabs": {
+        "default": [
+            "bigpicture",
+            "notificationtoasts.*"
+        ]
+    },
+    "inject": {
+        "shared.css": []
+    },
+    "patches": {
+        "Custom Background": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {}
+            },
+            "components": [
+                {
+                    "name": "Background",
+                    "type": "color-picker",
+                    "on": "Yes",
+                    "default": "#FFF",
+                    "css_variable": "--cn-toast-bg",
+                    "tabs": []
+                }
+            ]
+        },
+        "Custom Title": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {}
+            },
+            "components": [
+                {
+                    "name": "Title",
+                    "type": "color-picker",
+                    "on": "Yes",
+                    "default": "#000",
+                    "css_variable": "--cn-title-color",
+                    "tabs": []
+                }
+            ]
+        },
+        "Custom Subtitle": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {}
+            },
+            "components": [
+                {
+                    "name": "Subtitle",
+                    "type": "color-picker",
+                    "on": "Yes",
+                    "default": "#808080",
+                    "css_variable": "--cn-subtitle-color",
+                    "tabs": []
+                }
+            ]
+        },
+        "Custom Icon Color": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {}
+            },
+            "components": [
+                {
+                    "name": "Icon",
+                    "type": "color-picker",
+                    "on": "Yes",
+                    "default": "#000",
+                    "css_variable": "--cn-icon-color",
+                    "tabs": []
+                }
+            ]
+        },
+        "Roundness": {
+            "type": "slider",
+            "default": "2px",
+            "values": {
+                "Off": {
+                    "--cn-toast-radius": [ "0px" ]
+                },
+                "2px": {},
+                "5px": {
+                    "--cn-toast-radius": [ "5px" ]
+                },
+                "10px": {
+                    "--cn-toast-radius": [ "10px" ]
+                },
+                "15px": {
+                    "--cn-toast-radius": [ "15px" ]
+                },
+                "Max": {
+                    "--cn-toast-radius": [ "20px" ]
+                }
+            }
+        },
+        "Scaling": {
+            "type": "slider",
+            "default": "0",
+            "values": {
+                "-5": {
+                    "--cn-toast-scale": [ "0.75" ]
+                },
+                "-4": {
+                    "--cn-toast-scale": [ "0.80" ]
+                },
+                "-3": {
+                    "--cn-toast-scale": [ "0.85" ]
+                },
+                "-2": {
+                    "--cn-toast-scale": [ "0.90" ]
+                },
+                "-1": {
+                    "--cn-toast-scale": [ "0.95" ]
+                },
+                "0": {
+                    "--cn-toast-scale": [ "1.00" ]
+                },
+                "1": {
+                    "--cn-toast-scale": [ "1.05" ]
+                },
+                "2": {
+                    "--cn-toast-scale": [ "1.10" ]
+                },
+                "3": {
+                    "--cn-toast-scale": [ "1.15" ]
+                },
+                "4": {
+                    "--cn-toast-scale": [ "1.20" ]
+                },
+                "5": {
+                    "--cn-toast-scale": [ "1.25" ]
+                }
+            }
+        }
+    }
+}
