@@ -1,7 +1,7 @@
 {
     "name": "Machine Ready",
     "author": "Leozito",
-    "version": "v2.3",
+    "version": "v2.4",
     "description": "Clean consolifyed home screen.",
     "target": "Home",
     "manifest_version": 9,
@@ -16,7 +16,7 @@
     },
     "patches": {
         "Hero Style": {
-            "type": "Dropdown",
+            "type": "dropdown",
             "default": "Cover",
             "values": {
                 "Cover": {
