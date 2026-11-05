@@ -7,7 +7,7 @@
     --cb-icon-side-padding: calc(2.8vw + 116px);
 }
 
-/* Icons (Idle & Problem) - Base Container */
+/* Cloud Button */
 .QvHky2-yJGOkPJG16qeRL,
 .appdetailsplaysection_CloudSyncProblem_ {
     height: var(--cb-icon-box-size);
@@ -16,17 +16,15 @@
     position: absolute;
     top: var(--cb-icon-top-padding);
     right: var(--cb-icon-side-padding);
-    background-color: var(--cb-icon-bg);
     border-radius: var(--round-radius-size, 2px) !important;
 }
 
-/* Icons (Idle & Problem) - SVG Inside */
+/* Cloud Icon */
 .QvHky2-yJGOkPJG16qeRL:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg,
 .appdetailsplaysection_CloudSyncProblem_:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg {
     padding-top: 1px;
     height: var(--cb-icon-size);
     width: var(--cb-icon-size);
-    color: var(--cb-icon-color);
     transform: scale(2);
 }
 
@@ -38,4 +36,41 @@
 /* Hide Cloud Line */
 .QvHky2-yJGOkPJG16qeRL:before, .QvHky2-yJGOkPJG16qeRL:after {
     background-color: rgb(0, 0 , 0, 0);
+}
+
+/* Background Color */
+
+/* Play */
+.BasicUI .QsZdWtHTlIK9KIKbscNTt {
+    background: var(--cb-icon-bg);
+}
+
+/* Cloud */
+.QvHky2-yJGOkPJG16qeRL,
+.appdetailsplaysection_CloudSyncProblem_ {
+    background-color: var(--cb-icon-bg);
+}
+
+/* Controller & Config */
+._3qDWQGB0rtwM3qpXTb11Q- {
+    background-color: var(--cb-icon-bg);
+}
+
+/* Foreground Color */
+
+/* Play */
+.BasicUI ._3cI5TXsFX3bvpR-7EBOtxq ._2AzIX5kl9k6JnxLfR5H4kX ._33cnXIqTRgRr49_FNXIHj6,
+.BasicUI ._3cI5TXsFX3bvpR-7EBOtxq ._2AzIX5kl9k6JnxLfR5H4kX svg {
+    color: var(--cb-icon-color);
+}
+
+/* Cloud */
+.QvHky2-yJGOkPJG16qeRL:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg,
+.appdetailsplaysection_CloudSyncProblem_:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg {
+    color: var(--cb-icon-color);
+}
+
+/* Controller & Config */
+.BasicUI ._3qDWQGB0rtwM3qpXTb11Q- svg {
+    color: var(--cb-icon-color);
 }
