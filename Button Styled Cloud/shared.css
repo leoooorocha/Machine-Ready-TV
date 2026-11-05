@@ -1,21 +1,17 @@
 :root {
-    --cb-icon-box-size: 48px;
-    --cb-icon-color: white;
-    --cb-icon-bg: rgba(172, 178, 201, 0.14);
-    --cb-icon-size: 12px;
-    --cb-icon-top-padding: 16px;
-    --cb-icon-side-padding: calc(2.8vw + 116px);
+    --bsc-foreground-color: white;
+    --bsc-background-color: rgba(172, 178, 201, 0.14);
 }
 
 /* Cloud Button */
 .QvHky2-yJGOkPJG16qeRL,
 .appdetailsplaysection_CloudSyncProblem_ {
-    height: var(--cb-icon-box-size);
-    width: var(--cb-icon-box-size);
+    height: 48px;
+    width: 48px;
     box-sizing: border-box !important;
     position: absolute;
-    top: var(--cb-icon-top-padding);
-    right: var(--cb-icon-side-padding);
+    top: 16px;
+    right: calc(2.8vw + 116px);
     border-radius: var(--round-radius-size, 2px) !important;
 }
 
@@ -23,8 +19,8 @@
 .QvHky2-yJGOkPJG16qeRL:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg,
 .appdetailsplaysection_CloudSyncProblem_:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg {
     padding-top: 1px;
-    height: var(--cb-icon-size);
-    width: var(--cb-icon-size);
+    height: 12px;
+    width: 12px;
     transform: scale(2);
 }
 
@@ -38,39 +34,45 @@
     background-color: rgb(0, 0 , 0, 0);
 }
 
-/* Background Color */
+/* Idle Background Color */
 
 /* Play */
 .BasicUI .QsZdWtHTlIK9KIKbscNTt {
-    background: var(--cb-icon-bg);
+    background: var(--bsc-background-color);
 }
 
 /* Cloud */
 .QvHky2-yJGOkPJG16qeRL,
 .appdetailsplaysection_CloudSyncProblem_ {
-    background-color: var(--cb-icon-bg);
+    background-color: var(--bsc-background-color);
 }
 
 /* Controller & Config */
 ._3qDWQGB0rtwM3qpXTb11Q- {
-    background-color: var(--cb-icon-bg);
+    background-color: var(--bsc-background-color);
 }
 
-/* Foreground Color */
+/* Idle Foreground Color */
 
 /* Play */
 .BasicUI ._3cI5TXsFX3bvpR-7EBOtxq ._2AzIX5kl9k6JnxLfR5H4kX ._33cnXIqTRgRr49_FNXIHj6,
 .BasicUI ._3cI5TXsFX3bvpR-7EBOtxq ._2AzIX5kl9k6JnxLfR5H4kX svg {
-    color: var(--cb-icon-color);
+    color: var(--bsc-foreground-color);
+}
+
+/* Download & Pause */
+.BasicUI ._2AzIX5kl9k6JnxLfR5H4kX ._33cnXIqTRgRr49_FNXIHj6,
+:not(._1Pb6PMh_3L5p5NzuUz0Pp9)>._2AzIX5kl9k6JnxLfR5H4kX svg {
+    color: var(--bsc-foreground-color);
 }
 
 /* Cloud */
 .QvHky2-yJGOkPJG16qeRL:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg,
 .appdetailsplaysection_CloudSyncProblem_:not(.gpfocus) ._1PrjvpmQ3CUjn45PN1Ed6V > svg {
-    color: var(--cb-icon-color);
+    color: var(--bsc-foreground-color);
 }
 
 /* Controller & Config */
 .BasicUI ._3qDWQGB0rtwM3qpXTb11Q- svg {
-    color: var(--cb-icon-color);
+    color: var(--bsc-foreground-color);
 }

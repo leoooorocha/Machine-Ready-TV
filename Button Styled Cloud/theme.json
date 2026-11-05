@@ -1,7 +1,7 @@
 {
   "name": "Button Styled Cloud",
   "author": "Leozito",
-  "version": "v1.1",
+  "version": "v1.2",
   "manifest_version": 9,
   "tabs": {
     "default": [
@@ -18,7 +18,7 @@
       "values": {
         "White": {},
         "Black": {
-          "--cb-icon-color": [
+          "--bsc-foreground-color": [
             "black"
           ]
         },
@@ -30,7 +30,7 @@
           "type": "color-picker",
           "on": "Custom",
           "default": "#FFF",
-          "css_variable": "--cb-icon-color",
+          "css_variable": "--bsc-foreground-color",
           "tabs": []
         }
       ]
@@ -41,12 +41,12 @@
       "values": {
         "Default": {},
         "White": {
-          "--cb-icon-bg": [
+          "--bsc-background-color": [
             "white"
           ]
         },
         "Black": {
-          "--cb-icon-bg": [
+          "--bsc-background-color": [
             "black"
           ]
         },
@@ -58,7 +58,7 @@
           "type": "color-picker",
           "on": "Custom",
           "default": "#000",
-          "css_variable": "--cb-icon-bg",
+          "css_variable": "--bsc-background-color",
           "tabs": []
         }
       ]

@@ -1,7 +1,7 @@
 {
     "name": "Clean Gameview",
     "author": "SuchMeme, Leozito",
-    "version": "v1.8 Lz",
+    "version": "v1.9",
     "description": "Fullscreen clean gameview.",
     "manifest_version": 9,
     "tabs": {
@@ -66,29 +66,11 @@
                 },
                 "Fully Transparent": {
                     "--CGV-hero-height": [ "100vh" ],
-                    "--CGV-playbar-background": [ "transparent" ],
-                    "--cgv-buttons-bg": [ "black" ],
-                    "--cgv-icon-bg": [ "black !important" ]
+                    "--CGV-playbar-background": [ "transparent" ]
                 },
                 "Blurred": {
                     "--CGV-hero-height": [ "100vh" ],
                     "--CGV-playbar-background-filter": [ "blur(8px)" ]
-                }
-            }
-        },
-        "Steam Cloud": {
-            "type": "dropdown",
-            "default": "Button",
-            "values": {
-                "Default": {},
-                "Icon": {
-                    "steam-cloud.css": [],
-                    "--cgv-icon-bg": [ "transparent !important" ]
-                },
-                "Button": {
-                    "steam-cloud.css": [],
-                    "--cgv-icon-size": [ "12px" ],
-                    "--cgv-icon-top-padding": [ "16px" ]
                 }
             }
         },

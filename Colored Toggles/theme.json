@@ -1,7 +1,7 @@
 {
     "name": "Colored Toggles",
     "author": "SuchMeme, Leozito",
-    "version": "v1.7 Lz",
+    "version": "v1.8",
     "description": "Colors all toggles, sliders and progress bars in the system ui to a specified color or gradient",
     "target": "System-Wide",
     "manifest_version": 9,

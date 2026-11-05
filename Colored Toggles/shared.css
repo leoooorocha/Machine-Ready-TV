@@ -126,3 +126,8 @@ button.gamepaddialog_Button_1kn70.DialogButton.gpfocus.Primary, button.gamepaddi
 	background: var(--colored-toggles-main-color);
 	animation: var(--colored-toggles-animation);
 }
+
+/* Download button */
+._21P7c4MWmsU2QSZeL-uyZo.gpfocus ._1VNuYHM6BPBOJspC6zPf5r ._3oavRVhIS9tC3vBsFT4Ggi.DialogButton:enabled svg {
+	color: var(--colored-toggles-friends-text-color);
+}

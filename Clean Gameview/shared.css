@@ -9,7 +9,6 @@
     --CGV-play-anim-final-height: 100vh;
     --CGV-playbar-background: rgba(14, 20, 27, .33);
     --CGV-playbar-background-filter: none;
-    --cgv-buttons-bg: rgba(172, 178, 201, 0.14);
 }
 
 /* Hero Height */
@@ -32,16 +31,6 @@
 .BasicUI ._3fp5y6tdU77MdrCQZt_aS9 {
     background: var(--CGV-playbar-background);
     backdrop-filter: var(--CGV-playbar-background-filter);
-}
-
-/* Play Button - Idle */
-.BasicUI .QsZdWtHTlIK9KIKbscNTt {
-    background: var(--cgv-buttons-bg);
-}
-
-/* Config and Controller */
-._3qDWQGB0rtwM3qpXTb11Q- {
-    background-color: var(--cgv-buttons-bg);
 }
 
 /* Animation */
