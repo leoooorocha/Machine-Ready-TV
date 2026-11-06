@@ -85,6 +85,7 @@ To complete the setup for your profiles:
    - [ ] **No Friend Playing Icon**
    - [ ] **No Hero Gradient**
    - [ ] **No Home Tabs**
+   - [ ] **Proper Hero Scaling**
    - [ ] **QAM Hide Tabs**
    - [ ] **Top Bar Padding**
    - [ ] **Volume Tweaker**
@@ -131,14 +132,6 @@ These themes already exist in the Store, but custom patches were created to furt
   <img src="Colored Toggles/Colored Toggles - Patch 3.jpg" width="100%">
 </p>
 <p align="center"><i>Features advanced customization options, including an animated background for any custom gradient.</i></p>
-
----
-
-<p align="center"><b>Proper Hero Scaling</b></p>
-<p align="center">
-  <img src="Proper Hero Scaling/Proper Hero Scaling - Patch.jpg" width="100%">
-</p>
-<p align="center"><i>Added playbar animation back (temporary fix while awaiting upstream update).</i></p>
 
 ---
 
@@ -205,7 +198,6 @@ Full credit for the original themes featured in the custom patches goes to the a
 * **Niko**
 * **SuchMeme**
 * **EMERALD#0874**
-* **SoyGonDo**
 
 Special thanks to:
 * **Hannaway96** for writing and contributing the incredible bash automation installer.
