@@ -464,6 +464,7 @@ print_companion_notes() {
     echo "     • No Friend Playing Icon"
     echo "     • No Hero Gradient"
     echo "     • No Home Tabs"
+    echo "     • Proper Hero Scaling"
     echo "     • QAM Hide Tabs"
     echo "     • Top Bar Padding"
     echo "     • Volume Tweaker"
