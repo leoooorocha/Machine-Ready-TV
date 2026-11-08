@@ -1,0 +1,10 @@
+{
+  "name": "Old In-game QAM",
+  "author": "Leozito",
+  "version": "v1.0",
+  "manifest_version": 9,
+  "inject": {
+    "shared.css": [ "QuickAccess" ]
+  },
+  "id": "414ebc94-b94d-42c0-9f3b-ec329aa6edc2"
+}
