@@ -1,0 +1,15 @@
+:root {
+
+    /* Filters */
+    --shadow-filters-drop-shadows: drop-shadow(0 4px 6px rgba(0, 0, 0, .8));
+    --shadow-filters-3d-stroke:
+        drop-shadow(1px 0 0 rgba(0, 0, 0, .85))
+        drop-shadow(-0.5px 0 0 rgba(0, 0, 0, .85))
+        drop-shadow(0 1px 0 rgba(0, 0, 0, .85))
+        drop-shadow(0 -0.5px 0 rgba(0, 0, 0, .85));
+
+    /* Capsules Especial Filters (box-shadow) */
+    --shadow-filters-capsule-soft: 0 4px 6px rgba(0, 0, 0, .8);
+    --shadow-filters-capsule-hard: 0 12px 10px 0px rgba(0, 0, 0, .8);
+
+}

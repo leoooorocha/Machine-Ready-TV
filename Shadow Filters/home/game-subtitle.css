@@ -1,0 +1,14 @@
+:root {
+    --shadow-filters-game-subtitle: none;
+}
+
+/* Game Subtitle */
+._1BtXgm_u14cFdsGMjTpY59 {
+    filter: var(--shadow-filters-game-subtitle);
+}
+
+/* Hide Game Subtitle [text-shadow] */
+._12eKcQAZM2bwKDDQhiBCPr ._25QboeMYEk12Wt3i35P_EG,
+._1BtXgm_u14cFdsGMjTpY59 {
+    text-shadow: none;
+}

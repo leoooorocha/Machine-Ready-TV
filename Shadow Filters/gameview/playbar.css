@@ -1,0 +1,7 @@
+:root {
+    --shadow-filters-playbar: none;
+}
+
+._1YbtIWcfkQJOysLXQbwzRf {
+    filter: var(--shadow-filters-playbar);
+}

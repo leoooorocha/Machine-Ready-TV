@@ -1,0 +1,13 @@
+:root {
+    --shadow-filters-qam: none;
+}
+
+/* Icons - Idle*/
+._1S76C3gQf4oOTbLdTMVH0m {
+    filter: var(--shadow-filters-qam);
+}
+
+/* Icons - Selected */
+._1S76C3gQf4oOTbLdTMVH0m.quickaccessmenu_Selected_2QHMu, ._1S76C3gQf4oOTbLdTMVH0m.gpfocus {
+    filter: none !important;
+}

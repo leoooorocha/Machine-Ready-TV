@@ -1,0 +1,23 @@
+:root {
+    --shadow-filters-header: none;
+}
+
+/* Search */
+.FlexGrowUniversalSearch ._17M8gvakqjyaw_cLo6ntdl {
+    filter: var(--shadow-filters-header);
+}
+
+/* Other icons */
+._2HnVd7wV6yVaTiXfrBe3gq._8sPcK-HDVUh0QbFshamLa {
+    filter: var(--shadow-filters-header);
+}
+
+/* Clock */
+._1HhLUvHH6BZLIOyOE80TVh:not(._2IsmzUdOq5mgVorXJRqLSo) {
+    filter: var(--shadow-filters-header);
+}
+
+/* Hide Profile Picture Border */
+._3h-QRJGxnVOIExtHD1R0f2 {
+    box-shadow: none;
+}

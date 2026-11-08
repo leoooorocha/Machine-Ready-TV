@@ -1,0 +1,148 @@
+{
+  "name": "Shadow Filters",
+  "author": "Leozito",
+  "version": "v1.0",
+  "manifest_version": 9,
+  "tabs": {
+    "default": [ "bigpicture", "QuickAccess" ]
+  },
+  "inject": {
+    "shared.css": [],
+    "general/header.css": [],
+    "general/footer.css": [],
+    "general/qam-icons.css": [],
+    "home/capsules.css": [],
+    "home/game-title.css": [],
+    "home/game-subtitle.css": [],
+    "gameview/logo.css": [],
+    "gameview/playbar.css": []
+  },
+  "patches": {
+    "General Settings:": {
+      "type": "none",
+      "values": {
+        "_": {}
+      }
+    },
+    "Header": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-header": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-header": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    },
+    "Footer": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-footer": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-footer": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    },
+    "QAM Icons": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-qam": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-qam": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    },
+    "Home Settings:": {
+      "type": "none",
+      "values": {
+        "_": {}
+      }
+    },
+    "Game Title": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-game-title": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-game-title": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    },
+    "Game Subtitle": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-game-subtitle": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-game-subtitle": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    },
+    "Capsules Drop-shadows": {
+      "type": "dropdown",
+      "default": "Idle and Focus",
+      "values": {
+        "None": {},
+        "Only Idle": {
+          "--shadow-filters-capsule-idle": [ "var(--shadow-filters-capsule-soft)" ]
+        },
+        "Only Focus": {
+          "--shadow-filters-capsule-focus": [ "var(--shadow-filters-capsule-hard)" ]
+        },
+        "Idle and Focus": {
+          "--shadow-filters-capsule-idle": [ "var(--shadow-filters-capsule-soft)" ],
+          "--shadow-filters-capsule-focus": [ "var(--shadow-filters-capsule-hard)" ]
+        }
+      }
+    },
+    "Gameview Settings:": {
+      "type": "none",
+      "values": {
+        "_": {}
+      }
+    },
+    "Logo": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-logo": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-logo": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    },
+    "Playbar Text": {
+      "type": "dropdown",
+      "default": "None",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-playbar": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-playbar": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
+    }
+  }
+}

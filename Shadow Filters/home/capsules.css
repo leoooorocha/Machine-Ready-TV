@@ -1,0 +1,28 @@
+:root {
+    --shadow-filters-capsule-idle: none;
+    --shadow-filters-capsule-focus: none;
+}
+
+/* Capsules - Idle */
+.WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv,
+.WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm,
+.WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8 {
+    box-shadow: var(--shadow-filters-capsule-idle) !important;
+}
+
+/* Library Capsule - Idle */
+._3bvCHoWj4rDdZr3mnKlXaf {
+    box-shadow: var(--shadow-filters-capsule-idle) !important;
+}
+
+/* Capsules - Focus */
+.WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv:hover, .WYgDg9NyCcMIVuMyZ_NBC.biTV-8rS2M65imVHU15Nv:focus,
+.WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm:hover, .WYgDg9NyCcMIVuMyZ_NBC.L3xTnr5TfAJU1EhvCDaWm:focus,
+.WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8:hover, .WYgDg9NyCcMIVuMyZ_NBC._3ngZCi2zy0hiqzGzTdNg8:focus {
+    box-shadow: var(--shadow-filters-capsule-focus) !important;
+}
+
+/* Library Capsule - Focus */
+._3bvCHoWj4rDdZr3mnKlXaf.gpfocuswithin {
+    box-shadow: var(--shadow-filters-capsule-focus) !important;
+}

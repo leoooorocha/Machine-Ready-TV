@@ -1,0 +1,13 @@
+:root {
+    --shadow-filters-logo: none;
+}
+
+/* Gameview Logo */
+._2Eh7Soh97QONu_grMi2m66 {
+    filter: var(--shadow-filters-logo);
+}
+
+/* Game Launch Logo */
+._2uvMXiAbRHw9k3P6oyGdFz img {
+    filter: var(--shadow-filters-logo);
+}

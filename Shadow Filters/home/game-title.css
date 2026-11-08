@@ -1,0 +1,26 @@
+:root {
+    --shadow-filters-game-title: none;
+}
+
+/* Game Title */
+.BasicUI ._3gwMkKp82bb5aZj4EeQnpi ._3CRLA2FFclTRCznNBgtiIH {
+    filter: var(--shadow-filters-game-title);
+}
+
+/* Shadows Overflow */
+.ZkD6We6MqGbOsa9K3yiY3 ._3CKjiR7-fuBPyKZKpPI6UZ,
+.BasicUI ._3gwMkKp82bb5aZj4EeQnpi,
+.BasicUI ._3gwMkKp82bb5aZj4EeQnpi ._3CRLA2FFclTRCznNBgtiIH,
+._12eKcQAZM2bwKDDQhiBCPr ._25QboeMYEk12Wt3i35P_EG,
+._1BtXgm_u14cFdsGMjTpY59 {
+    overflow: visible;
+}
+
+.BasicUI ._3gwMkKp82bb5aZj4EeQnpi ._3DR9f2B3JQKviESgdrHp1u {
+    line-height: 1px;
+}
+
+/* Hide Game Title [text-shadow] */
+.BasicUI ._3gwMkKp82bb5aZj4EeQnpi ._3CRLA2FFclTRCznNBgtiIH {
+    text-shadow: none;
+}
