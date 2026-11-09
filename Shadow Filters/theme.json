@@ -1,7 +1,7 @@
 {
   "name": "Shadow Filters",
   "author": "Leozito",
-  "version": "v1.0",
+  "version": "v1.1",
   "manifest_version": 9,
   "tabs": {
     "default": [ "bigpicture", "QuickAccess" ]
@@ -10,15 +10,15 @@
     "shared.css": [],
     "general/header.css": [],
     "general/footer.css": [],
-    "general/qam-icons.css": [],
     "home/capsules.css": [],
     "home/game-title.css": [],
     "home/game-subtitle.css": [],
     "gameview/logo.css": [],
-    "gameview/playbar.css": []
+    "gameview/playbar.css": [],
+    "menus/qam-icons.css": []
   },
   "patches": {
-    "General Settings:": {
+    "▶ Global Settings:": {
       "type": "none",
       "values": {
         "_": {}
@@ -50,20 +50,7 @@
         }
       }
     },
-    "QAM Icons": {
-      "type": "dropdown",
-      "default": "Drop-shadows",
-      "values": {
-        "None": {},
-        "Drop-shadows": {
-          "--shadow-filters-qam": [ "var(--shadow-filters-drop-shadows)" ]
-        },
-        "Stroke": {
-          "--shadow-filters-qam": [ "var(--shadow-filters-3d-stroke)" ]
-        }
-      }
-    },
-    "Home Settings:": {
+    "▶ Home Settings:": {
       "type": "none",
       "values": {
         "_": {}
@@ -112,7 +99,7 @@
         }
       }
     },
-    "Gameview Settings:": {
+    "▶ Gameview Settings:": {
       "type": "none",
       "values": {
         "_": {}
@@ -131,6 +118,12 @@
         }
       }
     },
+    "(This will also affect the logo when launching a game)": {
+      "type": "none",
+      "values": {
+        "_": {}
+      }
+    },
     "Playbar Text": {
       "type": "dropdown",
       "default": "None",
@@ -143,6 +136,26 @@
           "--shadow-filters-playbar": [ "var(--shadow-filters-3d-stroke)" ]
         }
       }
+    },
+    "▶ Menus Settings:": {
+      "type": "none",
+      "values": {
+        "_": {}
+      }
+    },
+    "QAM Icons": {
+      "type": "dropdown",
+      "default": "Drop-shadows",
+      "values": {
+        "None": {},
+        "Drop-shadows": {
+          "--shadow-filters-qam": [ "var(--shadow-filters-drop-shadows)" ]
+        },
+        "Stroke": {
+          "--shadow-filters-qam": [ "var(--shadow-filters-3d-stroke)" ]
+        }
+      }
     }
-  }
+  },
+  "id": "159fed6f-ae41-4ee3-b157-390c357fe800"
 }
