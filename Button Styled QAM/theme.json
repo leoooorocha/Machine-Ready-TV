@@ -10,63 +10,85 @@
         "shared.css": []
     },
     "patches": {
-        "Custom Colors - Idle": {
-            "type": "checkbox",
-            "default": "No",
+        "▶ Colors:": {
+            "type": "none",
             "values": {
-                "No": {},
-                "Yes": {}
+                "_": {}
             },
             "components": [
                 {
-                    "name": "Idle FG",
+                    "name": "Icon",
                     "type": "color-picker",
-                    "on": "Yes",
-                    "default": "#FFF",
+                    "on": "_",
+                    "default": "#FFFFFFFF",
                     "css_variable": "--bsqam-icon-color",
                     "tabs": []
                 },
                 {
-                    "name": "Idle BG",
+                    "name": "Background",
                     "type": "color-picker",
-                    "on": "Yes",
-                    "default": "#000",
+                    "on": "_",
+                    "default": "#00000000",
                     "css_variable": "--bsqam-icon-background",
                     "tabs": []
-                }
-            ]
-        },
-        "Custom Colors - Selected": {
-            "type": "checkbox",
-            "default": "No",
-            "values": {
-                "No": {},
-                "Yes": {}
-            },
-            "components": [
+                },
                 {
-                    "name": "Selected FG",
+                    "name": "Icon (Selected)",
                     "type": "color-picker",
-                    "on": "Yes",
-                    "default": "#000",
+                    "on": "_",
+                    "default": "#FFFFFFFF",
                     "css_variable": "--bsqam-icon-color-selected",
                     "tabs": []
                 },
                 {
-                    "name": "Selected BG",
+                    "name": "Background (Selected)",
                     "type": "color-picker",
-                    "on": "Yes",
-                    "default": "#FFF",
+                    "on": "_",
+                    "default": "#1980e6",
                     "css_variable": "--bsqam-icon-background-selected",
+                    "tabs": []
+                },
+                {
+                    "name": "Border Color",
+                    "type": "color-picker",
+                    "on": "_",
+                    "default": "#FFFFFFFF",
+                    "css_variable": "--bsqam-border-color",
                     "tabs": []
                 }
             ]
         },
-        "Border Radius": {
+        "▶ Border Type:": {
+            "type": "slider",
+            "default": "2",
+            "values": {
+                "0": {
+                    "--bsqam-border-type": [ "hidden" ]
+                },
+                "1": {
+                    "--bsqam-border-type": [ "solid" ]
+                },
+                "2": {
+                    "--bsqam-border-type": [ "dashed" ]
+                },
+                "3": {
+                    "--bsqam-border-type": [ "double" ]
+                },
+                "4": {
+                    "--bsqam-border-type": [ "outset" ]
+                }
+            }
+        },
+        "Radius": {
             "type": "slider",
             "default": "15px",
             "values": {
-                "2px": {},
+                "0px": {
+                    "--bsqam-border-radius": [ "0px" ]
+                },
+                "2px": {
+                    "--bsqam-border-radius": [ "2px" ]
+                },
                 "5px": {
                     "--bsqam-border-radius": [ "5px" ]
                 },
@@ -82,7 +104,6 @@
                 "25px": {
                     "--bsqam-border-radius": [ "25px" ]
                 }
-
             }
         }
     },
