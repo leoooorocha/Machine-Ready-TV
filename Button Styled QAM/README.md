@@ -5,6 +5,6 @@ Already On-line: https://deckthemes.com/submissions/view?submissionId=8b1a3eeb-d
 
 Version on store: v1.0
 
-Version on git: v1.0
+Version on git: v2.0
 
 <img src="preview.jpg" width="800">
