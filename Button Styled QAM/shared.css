@@ -1,7 +1,41 @@
+:root {
+
+    --bsqam-icon-color: black;
+    --bsqam-icon-background: white;
+
+    --bsqam-icon-color-selected: white;
+    --bsqam-icon-background-selected: hsla(210, 80%, 50%, 1);
+
+    --bsqam-border-radius: 2px;
+}
+
+/* Icons Filter - Idle*/
+._1S76C3gQf4oOTbLdTMVH0m {
+    color: var(--bsqam-icon-color);
+    background: var(--bsqam-icon-background);
+}
+
+/* Icons Filter - Selected */
+._1S76C3gQf4oOTbLdTMVH0m.quickaccessmenu_Selected_2QHMu, ._1S76C3gQf4oOTbLdTMVH0m.gpfocus {
+    color: var(--bsqam-icon-color-selected) !important;
+    background: var(--bsqam-icon-background-selected) !important;
+}
+
 /* Buttons Borders & Size */
 ._1S76C3gQf4oOTbLdTMVH0m {
     margin: 3px;
     height: fit-content;
-    border-radius: 2px;
+    border-radius: var(--bsqam-border-radius);
+}
+
+/* Fix Cropped QAM */
+._2orc8-PBheKd3BvuGXV6ZL {
+    transform: translateX(500px);
+}
+
+/* Header In-game */
+._3k5MHjpKaOv6C29MKPgd6x {
+    margin-left: 54px !important;
+    max-width: 300px !important;
 }
 

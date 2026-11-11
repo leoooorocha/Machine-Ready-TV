@@ -1,7 +1,7 @@
 {
     "name": "Button Styled QAM",
     "author": "Leozito",
-    "version": "v1.0",
+    "version": "v2.0",
     "manifest_version": 9,
     "tabs": {
         "default": [ "bigpicture", "QuickAccess" ]
@@ -10,55 +10,79 @@
         "shared.css": []
     },
     "patches": {
-        "Custom Color": {
+        "Custom Colors - Idle": {
             "type": "checkbox",
-            "default": "Yes",
+            "default": "No",
             "values": {
                 "No": {},
-                "Yes": {
-                    "custom-color.css": []
-                }
+                "Yes": {}
             },
             "components": [
                 {
-                    "name": "Icon - Idle",
+                    "name": "Idle FG",
                     "type": "color-picker",
                     "on": "Yes",
-                    "default": "#FFFFFF",
-                    "css_variable": "--bsqam-icon-color-idle",
+                    "default": "#FFF",
+                    "css_variable": "--bsqam-icon-color",
                     "tabs": []
-                },                {
-                    "name": "Button - Idle",
+                },
+                {
+                    "name": "Idle BG",
                     "type": "color-picker",
                     "on": "Yes",
-                    "default": "#00000000",
-                    "css_variable": "--bsqam-icon-background-idle",
+                    "default": "#000",
+                    "css_variable": "--bsqam-icon-background",
                     "tabs": []
-                },                {
-                    "name": "Icon - Selected",
+                }
+            ]
+        },
+        "Custom Colors - Selected": {
+            "type": "checkbox",
+            "default": "No",
+            "values": {
+                "No": {},
+                "Yes": {}
+            },
+            "components": [
+                {
+                    "name": "Selected FG",
                     "type": "color-picker",
                     "on": "Yes",
-                    "default": "#000000",
+                    "default": "#000",
                     "css_variable": "--bsqam-icon-color-selected",
                     "tabs": []
-                },                {
-                    "name": "Button - Selected",
+                },
+                {
+                    "name": "Selected BG",
                     "type": "color-picker",
                     "on": "Yes",
-                    "default": "#FFFFFF",
+                    "default": "#FFF",
                     "css_variable": "--bsqam-icon-background-selected",
                     "tabs": []
                 }
             ]
         },
-        "Enable Custom Padding (leave disabled if youre using an old Steam Version)": {
-            "type": "checkbox",
-            "default": "No",
+        "Border Radius": {
+            "type": "slider",
+            "default": "15px",
             "values": {
-                "No": {},
-                "Yes": {
-                    "enable-custom-padding.css": []
+                "2px": {},
+                "5px": {
+                    "--bsqam-border-radius": [ "5px" ]
+                },
+                "10px": {
+                    "--bsqam-border-radius": [ "10px" ]
+                },
+                "15px": {
+                    "--bsqam-border-radius": [ "15px" ]
+                },
+                "20px": {
+                    "--bsqam-border-radius": [ "20px" ]
+                },
+                "25px": {
+                    "--bsqam-border-radius": [ "25px" ]
                 }
+
             }
         }
     },
